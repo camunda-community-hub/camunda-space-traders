@@ -1,0 +1,9 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"exports": response.body.exports, //array
+//"imports": response.body.imports, //array
+//"exchange": response.body.exchange, //array
+//"transactions": response.body.transactions, //array
+//"tradeGoods": response.body.tradeGoods //array
+}

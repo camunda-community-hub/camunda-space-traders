@@ -1,0 +1,7 @@
+{
+    //uncomment those that you want to assign
+    //"shipSymbol": response.body.shipSymbol, //string
+//"totalSeconds": response.body.totalSeconds, //integer
+//"remainingSeconds": response.body.remainingSeconds, //integer
+//"expiration": response.body.expiration //DateTime
+}

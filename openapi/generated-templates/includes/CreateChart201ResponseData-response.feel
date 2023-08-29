@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"chart": response.body.chart, //Chart
+//"waypoint": response.body.waypoint //Waypoint
+}

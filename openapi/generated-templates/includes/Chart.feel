@@ -1,0 +1,6 @@
+{
+
+    "waypointSymbol":null, //string[optional]
+    "submittedBy":null, //string[optional]
+    "submittedOn":null //DateTime[optional]
+}

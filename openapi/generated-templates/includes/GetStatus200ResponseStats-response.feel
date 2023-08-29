@@ -1,0 +1,7 @@
+{
+    //uncomment those that you want to assign
+    //"agents": response.body.agents, //integer
+//"ships": response.body.ships, //integer
+//"systems": response.body.systems, //integer
+//"waypoints": response.body.waypoints //integer
+}

@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"mostCredits": response.body.mostCredits, //array
+//"mostSubmittedCharts": response.body.mostSubmittedCharts //array
+}

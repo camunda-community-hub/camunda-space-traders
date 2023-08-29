@@ -1,0 +1,12 @@
+{
+    //uncomment those that you want to assign
+    //"type": response.body.type, //ShipType
+//"name": response.body.name, //string
+//"description": response.body.description, //string
+//"purchasePrice": response.body.purchasePrice, //integer
+//"frame": response.body.frame, //ShipFrame
+//"reactor": response.body.reactor, //ShipReactor
+//"engine": response.body.engine, //ShipEngine
+//"modules": response.body.modules, //array
+//"mounts": response.body.mounts //array
+}

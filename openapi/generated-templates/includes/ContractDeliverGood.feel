@@ -1,0 +1,7 @@
+{
+
+    "tradeSymbol":null, //string
+    "destinationSymbol":null, //string
+    "unitsRequired":null, //integer
+    "unitsFulfilled":null //integer
+}

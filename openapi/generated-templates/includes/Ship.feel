@@ -1,0 +1,14 @@
+{
+
+    "symbol":null, //string
+    "registration":null, //ShipRegistration
+    "nav":null, //ShipNav
+    "crew":null, //ShipCrew
+    "frame":null, //ShipFrame
+    "reactor":null, //ShipReactor
+    "engine":null, //ShipEngine
+    "modules":null, //array
+    "mounts":null, //array
+    "cargo":null, //ShipCargo
+    "fuel":null //ShipFuel
+}

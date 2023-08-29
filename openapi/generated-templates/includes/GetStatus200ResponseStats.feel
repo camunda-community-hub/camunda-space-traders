@@ -1,0 +1,7 @@
+{
+
+    "agents":null, //integer
+    "ships":null, //integer
+    "systems":null, //integer
+    "waypoints":null //integer
+}

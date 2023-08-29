@@ -1,0 +1,9 @@
+{
+
+    "symbol":null, //string
+    "exports":null, //array
+    "imports":null, //array
+    "exchange":null, //array
+    "transactions":null, //array[optional]
+    "tradeGoods":null //array[optional]
+}

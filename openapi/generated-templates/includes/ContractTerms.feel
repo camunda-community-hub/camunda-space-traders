@@ -1,0 +1,6 @@
+{
+
+    "deadline":null, //DateTime
+    "payment":null, //ContractPayment
+    "deliver":null //array[optional]
+}

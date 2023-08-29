@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"amount": response.body.amount, //integer
+//"timestamp": response.body.timestamp //DateTime
+}

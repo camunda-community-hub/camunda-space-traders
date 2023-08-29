@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"produce": response.body.produce //string
+}

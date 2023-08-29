@@ -1,0 +1,5 @@
+{
+
+    "fuel":null, //ShipFuel
+    "nav":null //ShipNav
+}

@@ -1,0 +1,9 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //FactionSymbols
+//"name": response.body.name, //string
+//"description": response.body.description, //string
+//"headquarters": response.body.headquarters, //string
+//"traits": response.body.traits, //array
+//"isRecruiting": response.body.isRecruiting //boolean
+}

@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"data": response.body.data, //array
+//"meta": response.body.meta //Meta
+}

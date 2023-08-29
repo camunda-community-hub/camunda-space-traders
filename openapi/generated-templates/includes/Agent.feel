@@ -1,0 +1,9 @@
+{
+
+    "accountId":null, //string[optional]
+    "symbol":null, //string
+    "headquarters":null, //string
+    "credits":null, //long
+    "startingFaction":null, //string
+    "shipCount":null //integer[optional]
+}

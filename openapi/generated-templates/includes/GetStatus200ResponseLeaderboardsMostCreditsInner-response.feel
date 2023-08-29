@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"agentSymbol": response.body.agentSymbol, //string
+//"credits": response.body.credits //long
+}

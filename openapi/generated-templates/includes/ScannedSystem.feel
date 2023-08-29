@@ -1,0 +1,9 @@
+{
+
+    "symbol":null, //string
+    "sectorSymbol":null, //string
+    "type":null, //SystemType
+    "x":null, //integer
+    "y":null, //integer
+    "distance":null //integer
+}

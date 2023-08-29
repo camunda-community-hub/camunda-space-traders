@@ -1,0 +1,11 @@
+{
+
+    "id":null, //string
+    "factionSymbol":null, //string
+    "type":null, //string
+    "terms":null, //ContractTerms
+    "accepted":false, //boolean
+    "fulfilled":false, //boolean
+    "expiration":null, //DateTime
+    "deadlineToAccept":null //DateTime[optional]
+}

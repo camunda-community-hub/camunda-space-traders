@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"cooldown": response.body.cooldown, //Cooldown
+//"extraction": response.body.extraction, //Extraction
+//"cargo": response.body.cargo //ShipCargo
+}

@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"contract": response.body.contract, //Contract
+//"cargo": response.body.cargo //ShipCargo
+}

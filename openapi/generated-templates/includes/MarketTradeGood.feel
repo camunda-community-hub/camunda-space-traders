@@ -1,0 +1,8 @@
+{
+
+    "symbol":null, //string
+    "tradeVolume":null, //integer
+    "supply":null, //string
+    "purchasePrice":null, //integer
+    "sellPrice":null //integer
+}

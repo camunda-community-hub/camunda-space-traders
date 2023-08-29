@@ -1,0 +1,6 @@
+{
+
+    "power":null, //integer[optional]
+    "crew":null, //integer[optional]
+    "slots":null //integer[optional]
+}

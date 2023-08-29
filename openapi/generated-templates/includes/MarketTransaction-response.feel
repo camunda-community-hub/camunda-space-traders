@@ -1,0 +1,11 @@
+{
+    //uncomment those that you want to assign
+    //"waypointSymbol": response.body.waypointSymbol, //string
+//"shipSymbol": response.body.shipSymbol, //string
+//"tradeSymbol": response.body.tradeSymbol, //string
+//"type": response.body.type, //string
+//"units": response.body.units, //integer
+//"pricePerUnit": response.body.pricePerUnit, //integer
+//"totalPrice": response.body.totalPrice, //integer
+//"timestamp": response.body.timestamp //DateTime
+}

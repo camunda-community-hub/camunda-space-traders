@@ -1,0 +1,12 @@
+{
+
+    "status":null, //string
+    "version":null, //string
+    "resetDate":null, //string
+    "description":null, //string
+    "stats":null, //get_status_200_response_stats
+    "leaderboards":null, //get_status_200_response_leaderboards
+    "serverResets":null, //get_status_200_response_serverResets
+    "announcements":null, //array
+    "links":null //array
+}

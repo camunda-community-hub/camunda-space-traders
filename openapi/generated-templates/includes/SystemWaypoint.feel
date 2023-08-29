@@ -1,0 +1,7 @@
+{
+
+    "symbol":null, //string
+    "type":null, //WaypointType
+    "x":null, //integer
+    "y":null //integer
+}

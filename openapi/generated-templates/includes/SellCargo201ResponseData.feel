@@ -1,0 +1,6 @@
+{
+
+    "agent":null, //Agent
+    "cargo":null, //ShipCargo
+    "transaction":null //MarketTransaction
+}

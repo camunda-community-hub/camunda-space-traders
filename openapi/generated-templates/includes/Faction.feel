@@ -1,0 +1,9 @@
+{
+
+    "symbol":null, //FactionSymbols
+    "name":null, //string
+    "description":null, //string
+    "headquarters":null, //string
+    "traits":null, //array
+    "isRecruiting":null //boolean
+}

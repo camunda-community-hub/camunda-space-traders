@@ -1,0 +1,6 @@
+{
+
+    "capacity":null, //integer
+    "units":null, //integer
+    "inventory":null //array
+}

@@ -1,0 +1,10 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"registration": response.body.registration, //ShipRegistration
+//"nav": response.body.nav, //ShipNav
+//"frame": response.body.frame, //ScannedShip_frame
+//"reactor": response.body.reactor, //ScannedShip_reactor
+//"engine": response.body.engine, //ScannedShip_engine
+//"mounts": response.body.mounts //array
+}

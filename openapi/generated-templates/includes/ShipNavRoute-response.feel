@@ -1,0 +1,7 @@
+{
+    //uncomment those that you want to assign
+    //"destination": response.body.destination, //ShipNavRouteWaypoint
+//"departure": response.body.departure, //ShipNavRouteWaypoint
+//"departureTime": response.body.departureTime, //DateTime
+//"arrival": response.body.arrival //DateTime
+}

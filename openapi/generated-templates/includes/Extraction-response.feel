@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"shipSymbol": response.body.shipSymbol, //string
+//"yield": response.body.yield //ExtractionYield
+}

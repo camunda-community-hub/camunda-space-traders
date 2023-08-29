@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"total": response.body.total, //integer
+//"page": response.body.page, //integer
+//"limit": response.body.limit //integer
+}

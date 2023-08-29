@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"shipType": response.body.shipType, //ShipType
+//"waypointSymbol": response.body.waypointSymbol //string
+}

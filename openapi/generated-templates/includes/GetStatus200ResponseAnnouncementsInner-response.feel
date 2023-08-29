@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"title": response.body.title, //string
+//"body": response.body.body //string
+}

@@ -1,0 +1,8 @@
+{
+
+    "signature":null, //string
+    "symbol":null, //string
+    "deposits":null, //array
+    "expiration":null, //DateTime
+    "size":null //string
+}

@@ -1,0 +1,7 @@
+{
+
+    "symbol":null, //string
+    "name":null, //string
+    "description":null, //string
+    "units":null //integer
+}

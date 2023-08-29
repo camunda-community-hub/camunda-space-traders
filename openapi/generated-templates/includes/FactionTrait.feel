@@ -1,0 +1,6 @@
+{
+
+    "symbol":null, //string
+    "name":null, //string
+    "description":null //string
+}

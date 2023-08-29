@@ -1,0 +1,10 @@
+{
+
+    "symbol":null, //string
+    "registration":null, //ShipRegistration
+    "nav":null, //ShipNav
+    "frame":null, //ScannedShip_frame[optional]
+    "reactor":null, //ScannedShip_reactor[optional]
+    "engine":null, //ScannedShip_engine
+    "mounts":null //array[optional]
+}

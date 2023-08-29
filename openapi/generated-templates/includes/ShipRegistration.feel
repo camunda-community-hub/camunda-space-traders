@@ -1,0 +1,6 @@
+{
+
+    "name":null, //string
+    "factionSymbol":null, //string
+    "role":null //ShipRole
+}

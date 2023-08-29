@@ -1,0 +1,9 @@
+{
+
+    "symbol":null, //string
+    "name":null, //string
+    "description":null, //string[optional]
+    "strength":null, //integer[optional]
+    "deposits":null, //array[optional]
+    "requirements":null //ShipRequirements
+}

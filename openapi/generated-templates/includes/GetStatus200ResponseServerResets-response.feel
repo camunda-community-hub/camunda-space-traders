@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"next": response.body.next, //string
+//"frequency": response.body.frequency //string
+}

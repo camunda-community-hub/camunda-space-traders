@@ -1,0 +1,12 @@
+{
+
+    "symbol":null, //string
+    "type":null, //WaypointType
+    "systemSymbol":null, //string
+    "x":null, //integer
+    "y":null, //integer
+    "orbitals":null, //array
+    "faction":null, //WaypointFaction[optional]
+    "traits":null, //array
+    "chart":null //Chart[optional]
+}

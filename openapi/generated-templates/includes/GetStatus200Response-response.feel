@@ -1,0 +1,12 @@
+{
+    //uncomment those that you want to assign
+    //"status": response.body.status, //string
+//"version": response.body.version, //string
+//"resetDate": response.body.resetDate, //string
+//"description": response.body.description, //string
+//"stats": response.body.stats, //get_status_200_response_stats
+//"leaderboards": response.body.leaderboards, //get_status_200_response_leaderboards
+//"serverResets": response.body.serverResets, //get_status_200_response_serverResets
+//"announcements": response.body.announcements, //array
+//"links": response.body.links //array
+}

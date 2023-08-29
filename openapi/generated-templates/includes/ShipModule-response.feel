@@ -1,0 +1,9 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"capacity": response.body.capacity, //integer
+//"range": response.body.range, //integer
+//"name": response.body.name, //string
+//"description": response.body.description, //string
+//"requirements": response.body.requirements //ShipRequirements
+}

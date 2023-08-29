@@ -1,0 +1,7 @@
+{
+
+    "symbol":null, //string
+    "shipTypes":null, //array
+    "transactions":null, //array[optional]
+    "ships":null //array[optional]
+}

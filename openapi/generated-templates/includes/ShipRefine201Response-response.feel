@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"data": response.body.data //Ship_Refine_201_Response_data
+}

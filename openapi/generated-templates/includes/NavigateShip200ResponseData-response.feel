@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"fuel": response.body.fuel, //ShipFuel
+//"nav": response.body.nav //ShipNav
+}

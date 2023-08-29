@@ -1,0 +1,9 @@
+{
+    //uncomment those that you want to assign
+    //"accountId": response.body.accountId, //string
+//"symbol": response.body.symbol, //string
+//"headquarters": response.body.headquarters, //string
+//"credits": response.body.credits, //long
+//"startingFaction": response.body.startingFaction, //string
+//"shipCount": response.body.shipCount //integer
+}

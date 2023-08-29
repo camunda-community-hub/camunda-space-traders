@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"data": response.body.data //create_ship_waypoint_scan_201_response_data
+}

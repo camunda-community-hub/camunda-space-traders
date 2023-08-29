@@ -1,0 +1,8 @@
+{
+    //uncomment those that you want to assign
+    //"signature": response.body.signature, //string
+//"symbol": response.body.symbol, //string
+//"deposits": response.body.deposits, //array
+//"expiration": response.body.expiration, //DateTime
+//"size": response.body.size //string
+}

@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"waypointSymbol": response.body.waypointSymbol //string
+}

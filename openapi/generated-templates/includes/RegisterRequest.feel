@@ -1,0 +1,6 @@
+{
+
+    "faction":null, //FactionSymbols
+    "symbol":null, //string
+    "email":null //string[optional]
+}

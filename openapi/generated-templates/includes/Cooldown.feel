@@ -1,0 +1,7 @@
+{
+
+    "shipSymbol":null, //string
+    "totalSeconds":null, //integer
+    "remainingSeconds":null, //integer
+    "expiration":null //DateTime[optional]
+}

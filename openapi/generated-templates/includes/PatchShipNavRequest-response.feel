@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"flightMode": response.body.flightMode //ShipNavFlightMode
+}

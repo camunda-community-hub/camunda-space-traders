@@ -1,0 +1,9 @@
+{
+
+    "current":null, //integer
+    "required":null, //integer
+    "capacity":null, //integer
+    "rotation":STRICT, //string
+    "morale":null, //integer
+    "wages":null //integer
+}

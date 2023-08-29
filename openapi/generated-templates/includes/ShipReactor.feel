@@ -1,0 +1,9 @@
+{
+
+    "symbol":null, //string
+    "name":null, //string
+    "description":null, //string
+    "condition":null, //integer[optional]
+    "powerOutput":null, //integer
+    "requirements":null //ShipRequirements
+}

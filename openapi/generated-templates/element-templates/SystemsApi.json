@@ -1,0 +1,1161 @@
+{     
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "SpaceTraders API - Systems",
+    "id": "com.camunda.generated.SystemsApi",
+    "description": "SpaceTraders API - Systems, Schema Version 2.0.0. Generated using the OpenAPI generator.",
+        "icon": {
+        "faviconBasePath": "https://api.spacetraders.io/v2",
+        "contents": "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://api.spacetraders.io/v2&size=32"
+    },
+    "version": 1,
+    "appliesTo": [
+        "bpmn:Task"
+    ],
+    "elementType": {
+        "value": "bpmn:ServiceTask"
+    },
+    "groups": [
+        {
+            "id": "authentication",
+            "label": "Authentication"
+        },
+        {
+            "id": "operation",
+            "label": "Operation"
+        },
+        {
+            "id": "responseMapping",
+            "label": "Response Mapping"
+        },
+        {
+            "id": "getJumpGate",
+            "label": "Parameters"
+        },
+        {
+            "id": "getMarket",
+            "label": "Parameters"
+        },
+        {
+            "id": "getShipyard",
+            "label": "Parameters"
+        },
+        {
+            "id": "getSystem",
+            "label": "Parameters"
+        },
+        {
+            "id": "getSystemWaypoints",
+            "label": "Parameters"
+        },
+        {
+            "id": "getSystems",
+            "label": "Parameters"
+        },
+        {
+            "id": "getWaypoint",
+            "label": "Parameters"
+        }
+    ,
+        {
+            "id": "modificationWarning",
+            "label": "Generated (DO NOT MODIFY)"
+        }
+    ],
+    "properties": [
+        {
+            "type": "Hidden",
+            "value": "io.camunda:http-json:1",
+            "binding": {
+                "type": "zeebe:taskDefinition:type"
+            }
+        },
+        {
+            "type": "Hidden",
+            "value": "placeholder",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects"
+            }
+        },
+        {
+            "label": "Operation",
+            "id": "operation",
+            "description": "Specify the operation to call.",
+            "type": "Dropdown",
+            "group": "operation",
+            "value": "getJumpGate",
+            "choices": [
+                { "name": "Reset choice", "value": "-" },
+                    { "name": "getJumpGate - Get Jump Gate", "value": "getJumpGate" },
+                    { "name": "getMarket - Get Market", "value": "getMarket" },
+                    { "name": "getShipyard - Get Shipyard", "value": "getShipyard" },
+                    { "name": "getSystem - Get System", "value": "getSystem" },
+                    { "name": "getSystemWaypoints - List Waypoints in System", "value": "getSystemWaypoints" },
+                    { "name": "getSystems - List Systems", "value": "getSystems" },
+                    { "name": "getWaypoint - Get Waypoint", "value": "getWaypoint" }
+            ],
+            "binding": {
+                "type": "zeebe:taskHeader",
+                "key": "operation"
+            }
+        },
+
+        {
+            "label": "systemSymbol",
+            "description": "The system symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getJumpGate",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getJumpGate_systemSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getJumpGate"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "waypointSymbol",
+            "description": "The waypoint symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getJumpGate",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getJumpGate_waypointSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getJumpGate"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getJumpGate",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetJumpGate200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems/\" + string(objects.getJumpGate_systemSymbol) + \"/waypoints/\" + string(objects.getJumpGate_waypointSymbol) + \"/jump-gate\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getJumpGate"
+        },
+        "optional": true
+    },
+        {
+            "label": "systemSymbol",
+            "description": "The system symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getMarket",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getMarket_systemSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getMarket"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "waypointSymbol",
+            "description": "The waypoint symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getMarket",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getMarket_waypointSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getMarket"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getMarket",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetMarket200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems/\" + string(objects.getMarket_systemSymbol) + \"/waypoints/\" + string(objects.getMarket_waypointSymbol) + \"/market\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getMarket"
+        },
+        "optional": true
+    },
+        {
+            "label": "systemSymbol",
+            "description": "The system symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getShipyard",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getShipyard_systemSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getShipyard"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "waypointSymbol",
+            "description": "The waypoint symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getShipyard",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getShipyard_waypointSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getShipyard"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getShipyard",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetShipyard200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems/\" + string(objects.getShipyard_systemSymbol) + \"/waypoints/\" + string(objects.getShipyard_waypointSymbol) + \"/shipyard\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getShipyard"
+        },
+        "optional": true
+    },
+        {
+            "label": "systemSymbol",
+            "description": "The system symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getSystem",
+            "value": "X1-OE",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getSystem_systemSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getSystem"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getSystem",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetSystem200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems/\" + string(objects.getSystem_systemSymbol) + \"\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystem"
+        },
+        "optional": true
+    },
+        {
+            "label": "systemSymbol",
+            "description": "The system symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getSystemWaypoints",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getSystemWaypoints_systemSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getSystemWaypoints"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "page",
+            "description": "What entry offset to request",
+            "type": "String",
+            "feel": "optional",
+            "group": "getSystemWaypoints",
+            "value": "1",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getSystemWaypoints_page"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getSystemWaypoints"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "limit",
+            "description": "How many entries to return per page",
+            "type": "String",
+            "feel": "optional",
+            "group": "getSystemWaypoints",
+            "value": "10",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getSystemWaypoints_limit"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getSystemWaypoints"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getSystemWaypoints",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetSystemWaypoints200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems/\" + string(objects.getSystemWaypoints_systemSymbol) + \"/waypoints\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n\t\"page\": objects.getSystemWaypoints_page,\n\t\"limit\": objects.getSystemWaypoints_limit\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystemWaypoints"
+        },
+        "optional": true
+    },
+        {
+            "label": "page",
+            "description": "What entry offset to request",
+            "type": "String",
+            "feel": "optional",
+            "group": "getSystems",
+            "value": "1",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getSystems_page"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getSystems"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "limit",
+            "description": "How many entries to return per page",
+            "type": "String",
+            "feel": "optional",
+            "group": "getSystems",
+            "value": "10",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getSystems_limit"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getSystems"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getSystems",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetSystems200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n\t\"page\": objects.getSystems_page,\n\t\"limit\": objects.getSystems_limit\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getSystems"
+        },
+        "optional": true
+    },
+        {
+            "label": "systemSymbol",
+            "description": "The system symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getWaypoint",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getWaypoint_systemSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getWaypoint"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+        {
+            "label": "waypointSymbol",
+            "description": "The waypoint symbol",
+            "type": "String",
+            "feel": "optional",
+            "group": "getWaypoint",
+            "value": "null",
+            "binding": {
+                "type": "zeebe:input",
+                "name": "objects.getWaypoint_waypointSymbol"
+            },
+            "condition": {
+                "property": "operation",
+                "equals": "getWaypoint"
+            },
+            "constraints": {
+                "notEmpty": true
+            }
+        },
+            {
+        "label": "Result Variable",
+        "description": "Name of variable to store the response in",
+        "group": "responseMapping",
+        "value": "response_getWaypoint",
+        "type": "String",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultVariable"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        }
+    },
+    {
+        "label": "Result Expression",
+        "description": "Expression to map the response into process variables",
+        "group": "responseMapping",
+        "type": "Text",
+        "feel": "required",
+        "value": "=<GetWaypoint200Response-response>",
+        "binding": {
+            "type": "zeebe:taskHeader",
+            "key": "resultExpression"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        }
+    },
+        
+    {
+        "type": "Hidden",
+        "value": "bearer",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.type"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        }
+    },
+    {
+        "label": "API Bearer Token (Bearer Authentication)",
+        "group": "authentication",
+        "type": "String",
+        "feel": "optional",
+        "optional": true,
+        "binding": {
+            "type": "zeebe:input",
+            "name": "authentication.token"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        }
+    },
+
+            {
+        "label": "Method",
+        "group": "modificationWarning",
+        "type": "Dropdown",
+        "value": "get",
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        },
+        "choices": [
+            { "name": "GET", "value": "get" },
+            { "name": "POST", "value": "post" },
+            { "name": "PATCH", "value": "patch" },
+            { "name": "PUT", "value": "put" },
+            { "name": "DELETE", "value": "delete" }
+        ],
+        "binding": {
+            "type": "zeebe:input",
+            "name": "method"
+        }
+    },
+    {
+        "label": "URL",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "optional",
+        "value": "=\"https://api.spacetraders.io/v2/systems/\" + string(objects.getWaypoint_systemSymbol) + \"/waypoints/\" + string(objects.getWaypoint_waypointSymbol) + \"\"",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "url"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        }
+    },
+    {
+        "label": "Query Parameters",
+        "description": "FEEL map containing the query parameters",
+        "group": "modificationWarning",
+        "type": "String",
+        "feel": "required",
+        "value": "={\n}",
+        "binding": {
+            "type": "zeebe:input",
+            "name": "queryParameters"
+        },
+        "condition": {
+            "property": "operation",
+            "equals": "getWaypoint"
+        },
+        "optional": true
+    }
+    ]
+}

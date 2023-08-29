@@ -1,0 +1,6 @@
+{
+
+    "symbol":null, //TradeSymbol
+    "name":null, //string
+    "description":null //string
+}

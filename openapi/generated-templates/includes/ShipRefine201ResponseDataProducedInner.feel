@@ -1,0 +1,5 @@
+{
+
+    "tradeSymbol":null, //string
+    "units":null //integer
+}

@@ -1,0 +1,6 @@
+{
+
+    "cooldown":null, //Cooldown
+    "extraction":null, //Extraction
+    "cargo":null //ShipCargo
+}

@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"onAccepted": response.body.onAccepted, //integer
+//"onFulfilled": response.body.onFulfilled //integer
+}

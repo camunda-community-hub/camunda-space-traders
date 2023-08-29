@@ -1,0 +1,12 @@
+{
+
+    "type":null, //ShipType[optional]
+    "name":null, //string
+    "description":null, //string
+    "purchasePrice":null, //integer
+    "frame":null, //ShipFrame
+    "reactor":null, //ShipReactor
+    "engine":null, //ShipEngine
+    "modules":null, //array
+    "mounts":null //array
+}

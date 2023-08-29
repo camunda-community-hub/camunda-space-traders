@@ -1,0 +1,7 @@
+{
+
+    "destination":null, //ShipNavRouteWaypoint
+    "departure":null, //ShipNavRouteWaypoint
+    "departureTime":null, //DateTime
+    "arrival":null //DateTime
+}

@@ -1,0 +1,9 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"sectorSymbol": response.body.sectorSymbol, //string
+//"type": response.body.type, //SystemType
+//"x": response.body.x, //integer
+//"y": response.body.y, //integer
+//"distance": response.body.distance //integer
+}

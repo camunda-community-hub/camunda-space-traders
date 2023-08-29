@@ -1,0 +1,12 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"type": response.body.type, //WaypointType
+//"systemSymbol": response.body.systemSymbol, //string
+//"x": response.body.x, //integer
+//"y": response.body.y, //integer
+//"orbitals": response.body.orbitals, //array
+//"faction": response.body.faction, //WaypointFaction
+//"traits": response.body.traits, //array
+//"chart": response.body.chart //Chart
+}

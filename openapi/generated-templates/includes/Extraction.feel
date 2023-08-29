@@ -1,0 +1,5 @@
+{
+
+    "shipSymbol":null, //string
+    "yield":null //ExtractionYield
+}

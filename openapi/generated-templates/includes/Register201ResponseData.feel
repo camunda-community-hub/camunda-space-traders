@@ -1,0 +1,8 @@
+{
+
+    "agent":null, //Agent
+    "contract":null, //Contract
+    "faction":null, //Faction
+    "ship":null, //Ship
+    "token":null //string
+}

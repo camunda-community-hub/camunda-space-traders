@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"type": response.body.type //ShipType
+}

@@ -1,0 +1,14 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"registration": response.body.registration, //ShipRegistration
+//"nav": response.body.nav, //ShipNav
+//"crew": response.body.crew, //ShipCrew
+//"frame": response.body.frame, //ShipFrame
+//"reactor": response.body.reactor, //ShipReactor
+//"engine": response.body.engine, //ShipEngine
+//"modules": response.body.modules, //array
+//"mounts": response.body.mounts, //array
+//"cargo": response.body.cargo, //ShipCargo
+//"fuel": response.body.fuel //ShipFuel
+}

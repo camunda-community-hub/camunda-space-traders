@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"data": response.body.data //Install_Mount_201_Response_data
+}

@@ -1,0 +1,5 @@
+{
+
+    "cooldown":null, //Cooldown
+    "waypoints":null //array
+}

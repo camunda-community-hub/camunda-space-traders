@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"capacity": response.body.capacity, //integer
+//"units": response.body.units, //integer
+//"inventory": response.body.inventory //array
+}

@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"data": response.body.data //Orbit_Ship_200_Response_data
+}

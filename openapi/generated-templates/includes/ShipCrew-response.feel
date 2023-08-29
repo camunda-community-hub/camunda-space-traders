@@ -1,0 +1,9 @@
+{
+    //uncomment those that you want to assign
+    //"current": response.body.current, //integer
+//"required": response.body.required, //integer
+//"capacity": response.body.capacity, //integer
+//"rotation": response.body.rotation, //string
+//"morale": response.body.morale, //integer
+//"wages": response.body.wages //integer
+}

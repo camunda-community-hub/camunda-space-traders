@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"tradeSymbol": response.body.tradeSymbol, //TradeSymbol
+//"units": response.body.units, //integer
+//"shipSymbol": response.body.shipSymbol //string
+}

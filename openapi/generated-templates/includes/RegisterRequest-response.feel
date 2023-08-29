@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"faction": response.body.faction, //FactionSymbols
+//"symbol": response.body.symbol, //string
+//"email": response.body.email //string
+}

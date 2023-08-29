@@ -1,0 +1,7 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"type": response.body.type, //WaypointType
+//"x": response.body.x, //integer
+//"y": response.body.y //integer
+}

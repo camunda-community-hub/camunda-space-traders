@@ -1,0 +1,6 @@
+{
+
+    "tradeSymbol":null, //TradeSymbol
+    "units":null, //integer
+    "shipSymbol":null //string
+}

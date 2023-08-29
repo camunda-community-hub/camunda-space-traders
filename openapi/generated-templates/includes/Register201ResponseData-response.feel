@@ -1,0 +1,8 @@
+{
+    //uncomment those that you want to assign
+    //"agent": response.body.agent, //Agent
+//"contract": response.body.contract, //Contract
+//"faction": response.body.faction, //Faction
+//"ship": response.body.ship, //Ship
+//"token": response.body.token //string
+}

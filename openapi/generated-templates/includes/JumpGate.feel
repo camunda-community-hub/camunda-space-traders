@@ -1,0 +1,6 @@
+{
+
+    "jumpRange":null, //number
+    "factionSymbol":null, //string[optional]
+    "connectedSystems":null //array
+}

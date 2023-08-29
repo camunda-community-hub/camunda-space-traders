@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"jumpRange": response.body.jumpRange, //number
+//"factionSymbol": response.body.factionSymbol, //string
+//"connectedSystems": response.body.connectedSystems //array
+}

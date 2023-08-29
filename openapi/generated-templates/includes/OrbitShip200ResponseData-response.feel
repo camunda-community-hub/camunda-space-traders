@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"nav": response.body.nav //ShipNav
+}

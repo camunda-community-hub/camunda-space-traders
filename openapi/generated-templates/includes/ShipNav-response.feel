@@ -1,0 +1,8 @@
+{
+    //uncomment those that you want to assign
+    //"systemSymbol": response.body.systemSymbol, //string
+//"waypointSymbol": response.body.waypointSymbol, //string
+//"route": response.body.route, //ShipNavRoute
+//"status": response.body.status, //ShipNavStatus
+//"flightMode": response.body.flightMode //ShipNavFlightMode
+}

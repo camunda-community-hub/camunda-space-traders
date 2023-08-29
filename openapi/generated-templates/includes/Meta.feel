@@ -1,0 +1,6 @@
+{
+
+    "total":null, //integer
+    "page":1, //integer
+    "limit":10 //integer
+}

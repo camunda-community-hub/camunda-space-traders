@@ -1,0 +1,11 @@
+{
+
+    "symbol":null, //string
+    "name":null, //string
+    "description":null, //string
+    "condition":null, //integer[optional]
+    "moduleSlots":null, //integer
+    "mountingPoints":null, //integer
+    "fuelCapacity":null, //integer
+    "requirements":null //ShipRequirements
+}

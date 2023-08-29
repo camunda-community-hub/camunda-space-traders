@@ -1,0 +1,11 @@
+{
+    //uncomment those that you want to assign
+    //"id": response.body.id, //string
+//"factionSymbol": response.body.factionSymbol, //string
+//"type": response.body.type, //string
+//"terms": response.body.terms, //ContractTerms
+//"accepted": response.body.accepted, //boolean
+//"fulfilled": response.body.fulfilled, //boolean
+//"expiration": response.body.expiration, //DateTime
+//"deadlineToAccept": response.body.deadlineToAccept //DateTime
+}

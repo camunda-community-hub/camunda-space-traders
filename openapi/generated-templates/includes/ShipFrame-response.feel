@@ -1,0 +1,11 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"name": response.body.name, //string
+//"description": response.body.description, //string
+//"condition": response.body.condition, //integer
+//"moduleSlots": response.body.moduleSlots, //integer
+//"mountingPoints": response.body.mountingPoints, //integer
+//"fuelCapacity": response.body.fuelCapacity, //integer
+//"requirements": response.body.requirements //ShipRequirements
+}

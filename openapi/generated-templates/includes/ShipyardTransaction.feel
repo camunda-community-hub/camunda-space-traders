@@ -1,0 +1,8 @@
+{
+
+    "waypointSymbol":null, //string
+    "shipSymbol":null, //string
+    "price":null, //integer
+    "agentSymbol":null, //string
+    "timestamp":null //DateTime
+}

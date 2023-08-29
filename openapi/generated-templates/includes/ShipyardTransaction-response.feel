@@ -1,0 +1,8 @@
+{
+    //uncomment those that you want to assign
+    //"waypointSymbol": response.body.waypointSymbol, //string
+//"shipSymbol": response.body.shipSymbol, //string
+//"price": response.body.price, //integer
+//"agentSymbol": response.body.agentSymbol, //string
+//"timestamp": response.body.timestamp //DateTime
+}

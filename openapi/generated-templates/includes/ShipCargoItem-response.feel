@@ -1,0 +1,7 @@
+{
+    //uncomment those that you want to assign
+    //"symbol": response.body.symbol, //string
+//"name": response.body.name, //string
+//"description": response.body.description, //string
+//"units": response.body.units //integer
+}

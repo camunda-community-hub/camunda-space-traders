@@ -1,0 +1,7 @@
+{
+
+    "cargo":null, //ShipCargo
+    "cooldown":null, //Cooldown
+    "produced":null, //array
+    "consumed":null //array
+}

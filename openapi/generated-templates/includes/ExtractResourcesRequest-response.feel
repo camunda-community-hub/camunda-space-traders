@@ -1,0 +1,4 @@
+{
+    //uncomment those that you want to assign
+    //"survey": response.body.survey //Survey
+}

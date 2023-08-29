@@ -1,0 +1,6 @@
+{
+
+    "current":null, //integer
+    "capacity":null, //integer
+    "consumed":null //ShipFuel_consumed[optional]
+}

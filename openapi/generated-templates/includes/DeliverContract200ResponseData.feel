@@ -1,0 +1,5 @@
+{
+
+    "contract":null, //Contract
+    "cargo":null //ShipCargo
+}

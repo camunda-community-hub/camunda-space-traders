@@ -1,0 +1,11 @@
+{
+
+    "waypointSymbol":null, //string
+    "shipSymbol":null, //string
+    "tradeSymbol":null, //string
+    "type":null, //string
+    "units":null, //integer
+    "pricePerUnit":null, //integer
+    "totalPrice":null, //integer
+    "timestamp":null //DateTime
+}

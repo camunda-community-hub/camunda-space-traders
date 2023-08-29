@@ -1,0 +1,5 @@
+{
+    //uncomment those that you want to assign
+    //"cooldown": response.body.cooldown, //Cooldown
+//"surveys": response.body.surveys //array
+}

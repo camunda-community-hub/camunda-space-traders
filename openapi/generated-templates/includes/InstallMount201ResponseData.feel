@@ -1,0 +1,7 @@
+{
+
+    "agent":null, //Agent
+    "mounts":null, //array
+    "cargo":null, //ShipCargo
+    "transaction":null //ShipModificationTransaction
+}

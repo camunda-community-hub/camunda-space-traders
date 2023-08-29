@@ -1,0 +1,6 @@
+{
+    //uncomment those that you want to assign
+    //"agent": response.body.agent, //Agent
+//"fuel": response.body.fuel, //ShipFuel
+//"transaction": response.body.transaction //MarketTransaction
+}

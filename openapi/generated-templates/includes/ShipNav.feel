@@ -1,0 +1,8 @@
+{
+
+    "systemSymbol":null, //string
+    "waypointSymbol":null, //string
+    "route":null, //ShipNavRoute
+    "status":null, //ShipNavStatus
+    "flightMode":null //ShipNavFlightMode
+}
