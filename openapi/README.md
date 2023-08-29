@@ -13,7 +13,7 @@ Resources:
 
 ## Steps
 
-### 1. a) Generate the templates (DIY)
+### Generate the templates
 
 1. Clone
    the community
@@ -24,21 +24,14 @@ Resources:
 ./generate.sh -i https://raw.githubusercontent.com/SpaceTradersAPI/api-docs/main/reference/SpaceTraders.json -o space-traders
 ```
 
-3. Replace template icons
-4. Replace template parameter for the request body
-5. Replace template result expression
-
-### 1. b) Use the pre-generated templates
-
 Instead of generating the templates yourself, you can use the pre-generated templates in the
-directory [sdk](sdk).
+directory [generated-templates](generated-templates/element-templates).
 
-### 2. Publish the templates
+### Clean-up the templates
 
-1. Open the [Camunda Web Modeler](https://modeler.cloud.camunda.io/)
-2. Create a new project
-3. Upload the generated templates
-4. Publish the template
+1. Replace template icons
+2. Replace template parameter for the request body
+3. Replace template result expression
 
 ## Troubleshooting
 
