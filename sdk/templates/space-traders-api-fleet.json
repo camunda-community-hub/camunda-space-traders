@@ -1036,9 +1036,7 @@
                 "property": "operation",
                 "equals": "extractResources"
             },
-            "constraints": {
-                "notEmpty": true
-            }
+            "optional": true
         },
             {
         "label": "Result Variable",
