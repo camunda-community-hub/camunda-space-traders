@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="3c83b22" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="6b30ab24-90c0-4f88-883a-ae77606ed803">
+  <bpmn:process id="space-traders-monitor-status-slack" name="SpaceTraders - Monitor status in Slack" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_12s30jb</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:subProcess id="Activity_1jj7gsv" name="Report status" triggeredByEvent="true">
+      <bpmn:startEvent id="Event_0uvkgyc" name="Every 5 minutes" isInterrupting="false">
+        <bpmn:outgoing>Flow_12c6dez</bpmn:outgoing>
+        <bpmn:timerEventDefinition id="TimerEventDefinition_0aoygff">
+          <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R/PT5M</bpmn:timeCycle>
+        </bpmn:timerEventDefinition>
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="Flow_12c6dez" sourceRef="Event_0uvkgyc" targetRef="Activity_1co29cl" />
+      <bpmn:callActivity id="Activity_1co29cl" name="Get status">
+        <bpmn:extensionElements>
+          <zeebe:calledElement processId="space-traders-get-status" propagateAllChildVariables="false" />
+          <zeebe:ioMapping>
+            <zeebe:output source="=contacts_fulfillment" target="contacts_fulfillment" />
+            <zeebe:output source="=current_credits" target="current_credits" />
+            <zeebe:output source="=agent.symbol" target="agent_symbol" />
+            <zeebe:output source="=ships_details" target="ships_details" />
+          </zeebe:ioMapping>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_12c6dez</bpmn:incoming>
+        <bpmn:outgoing>Flow_1ydmxg0</bpmn:outgoing>
+      </bpmn:callActivity>
+      <bpmn:serviceTask id="Activity_04sj3so" name="Send status via Slack" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20%20viewBox%3D%220%200%20127%20127%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M27.2%2080c0%207.3-5.9%2013.2-13.2%2013.2C6.7%2093.2.8%2087.3.8%2080c0-7.3%205.9-13.2%2013.2-13.2h13.2V80zm6.6%200c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2v33c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V80z%22%20fill%3D%22%23E01E5A%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M47%2027c-7.3%200-13.2-5.9-13.2-13.2C33.8%206.5%2039.7.6%2047%20.6c7.3%200%2013.2%205.9%2013.2%2013.2V27H47zm0%206.7c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H13.9C6.6%2060.1.7%2054.2.7%2046.9c0-7.3%205.9-13.2%2013.2-13.2H47z%22%20fill%3D%22%2336C5F0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99.9%2046.9c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H99.9V46.9zm-6.6%200c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V13.8C66.9%206.5%2072.8.6%2080.1.6c7.3%200%2013.2%205.9%2013.2%2013.2v33.1z%22%20fill%3D%22%232EB67D%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M80.1%2099.8c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3%200-13.2-5.9-13.2-13.2%200-7.3%205.9-13.2%2013.2-13.2h33.1c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H80.1z%22%20fill%3D%22%23ECB22E%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:slack:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="chat.postMessage" target="method" />
+            <zeebe:input source="secrets.SLACK_TOKEN" target="token" />
+            <zeebe:input source="=&#34;{{secrets.SLACK_CHANNEL}}&#34;" target="data.channel" />
+            <zeebe:input source="=status_message" target="data.text" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_09bxvav</bpmn:incoming>
+        <bpmn:outgoing>Flow_1vc07mc</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:endEvent id="Event_01loil1">
+        <bpmn:incoming>Flow_1vc07mc</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_1vc07mc" sourceRef="Activity_04sj3so" targetRef="Event_01loil1" />
+      <bpmn:scriptTask id="Activity_1pbtxtd" name="Build message">
+        <bpmn:extensionElements>
+          <zeebe:script expression="={ &#10;credits: string(current_credits),&#10;fulfillment: string(decimal(contacts_fulfillment * 100, 0)) + &#34;%&#34;,&#10;ship_details_message: string join( &#10;for ship in ships_details return {&#10;  fuel: if ship.fuel != null then string(decimal(ship.fuel * 100, 0)) + &#34;%&#34; else &#34;-&#34;,&#10;  cargo: if ship.cargo != null then string(decimal(ship.cargo * 100, 0)) + &#34;%&#34; else &#34;-&#34;,&#10;  message: ship.symbol + &#34; [&#34; + ship.type + &#34;] at &#34; + ship.waypoint + &#34; [&#34; + ship.status + &#34;]&#34; + &#34;, fuel: &#34; + fuel + &#34;, cargo-load: &#34; + cargo&#10;}.message, &#34;; &#34;),&#10;message: &#34;*Status:* Agent: `&#34; + agent_symbol + &#34;`, Credits: `&#34; + credits + &#34;`, Contract fulfillment: `&#34; + fulfillment + &#34;`, Ships: &#34; + ship_details_message + &#34;.&#34;&#10;}.message" resultVariable="status_message" />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_1ydmxg0</bpmn:incoming>
+        <bpmn:outgoing>Flow_09bxvav</bpmn:outgoing>
+      </bpmn:scriptTask>
+      <bpmn:sequenceFlow id="Flow_1ydmxg0" sourceRef="Activity_1co29cl" targetRef="Activity_1pbtxtd" />
+      <bpmn:sequenceFlow id="Flow_09bxvav" sourceRef="Activity_1pbtxtd" targetRef="Activity_04sj3so" />
+    </bpmn:subProcess>
+    <bpmn:sequenceFlow id="Flow_12s30jb" sourceRef="StartEvent_1" targetRef="Event_00sf7mq" />
+    <bpmn:intermediateCatchEvent id="Event_00sf7mq" name="Time out (24 hours)">
+      <bpmn:incoming>Flow_12s30jb</bpmn:incoming>
+      <bpmn:outgoing>Flow_10dch5t</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_11rxg5l">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P1D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="Event_061mj7w">
+      <bpmn:incoming>Flow_10dch5t</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_10dch5t" sourceRef="Event_00sf7mq" targetRef="Event_061mj7w" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-monitor-status-slack">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="150" y="100" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ocq9zc_di" bpmnElement="Activity_1jj7gsv" isExpanded="true">
+        <dc:Bounds x="160" y="200" width="640" height="200" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1vug251_di" bpmnElement="Event_0uvkgyc">
+        <dc:Bounds x="200" y="282" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="179" y="325" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0obf5rg_di" bpmnElement="Activity_1co29cl">
+        <dc:Bounds x="290" y="260" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qlnecy_di" bpmnElement="Activity_04sj3so">
+        <dc:Bounds x="600" y="260" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_01loil1_di" bpmnElement="Event_01loil1">
+        <dc:Bounds x="742" y="282" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jh8wgk_di" bpmnElement="Activity_1pbtxtd">
+        <dc:Bounds x="440" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_12c6dez_di" bpmnElement="Flow_12c6dez">
+        <di:waypoint x="236" y="300" />
+        <di:waypoint x="290" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vc07mc_di" bpmnElement="Flow_1vc07mc">
+        <di:waypoint x="700" y="300" />
+        <di:waypoint x="742" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ydmxg0_di" bpmnElement="Flow_1ydmxg0">
+        <di:waypoint x="390" y="300" />
+        <di:waypoint x="440" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09bxvav_di" bpmnElement="Flow_09bxvav">
+        <di:waypoint x="540" y="300" />
+        <di:waypoint x="600" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0b0cbjx_di" bpmnElement="Event_00sf7mq">
+        <dc:Bounds x="242" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="230" y="143" width="62" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_061mj7w_di" bpmnElement="Event_061mj7w">
+        <dc:Bounds x="342" y="100" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_12s30jb_di" bpmnElement="Flow_12s30jb">
+        <di:waypoint x="186" y="118" />
+        <di:waypoint x="242" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10dch5t_di" bpmnElement="Flow_10dch5t">
+        <di:waypoint x="278" y="118" />
+        <di:waypoint x="342" y="118" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
