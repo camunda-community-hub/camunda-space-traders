@@ -3168,7 +3168,7 @@
             "type": "String",
             "feel": "optional",
             "group": "refuelShip",
-            "value": "=0",
+            "value": "=null",
             "optional": true,
             "binding": {
                 "type": "zeebe:input",
