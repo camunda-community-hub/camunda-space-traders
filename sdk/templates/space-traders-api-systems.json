@@ -137,21 +137,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getJumpGate",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getJumpGate"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -289,21 +274,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getMarket",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getMarket"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -441,21 +411,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getShipyard",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getShipyard"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -574,21 +529,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getSystem",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getSystem"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -745,21 +685,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getSystemWaypoints",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getSystemWaypoints"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -897,21 +822,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getSystems",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getSystems"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1049,21 +959,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getWaypoint",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getWaypoint"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",

@@ -93,21 +93,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getFaction",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getFaction"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -245,21 +230,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getFactions",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getFactions"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",

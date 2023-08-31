@@ -125,21 +125,6 @@
       }
     },
     {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_acceptContract",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "acceptContract"
-      }
-    },
-    {
       "label": "Result Expression",
       "description": "Expression to map the response into process variables",
       "group": "responseMapping",
@@ -328,21 +313,6 @@
       }
     },
     {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_deliverContract",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "deliverContract"
-      }
-    },
-    {
       "label": "Result Expression",
       "description": "Expression to map the response into process variables",
       "group": "responseMapping",
@@ -488,21 +458,6 @@
       },
       "constraints": {
         "notEmpty": true
-      }
-    },
-    {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_fulfillContract",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "fulfillContract"
       }
     },
     {
@@ -654,21 +609,6 @@
       }
     },
     {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_getContract",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "getContract"
-      }
-    },
-    {
       "label": "Result Expression",
       "description": "Expression to map the response into process variables",
       "group": "responseMapping",
@@ -816,21 +756,6 @@
       },
       "constraints": {
         "notEmpty": true
-      }
-    },
-    {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_getContracts",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "getContracts"
       }
     },
     {

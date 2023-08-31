@@ -82,21 +82,6 @@
       }
     },
     {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_getStatus",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "getStatus"
-      }
-    },
-    {
       "label": "Result Expression",
       "description": "Expression to map the response into process variables",
       "group": "responseMapping",
@@ -242,21 +227,6 @@
       "binding": {
         "type": "zeebe:input",
         "name": "objects.register_registerRequest.email"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "register"
-      }
-    },
-    {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_register",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
       },
       "condition": {
         "property": "operation",

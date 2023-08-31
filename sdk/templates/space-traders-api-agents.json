@@ -109,21 +109,6 @@
       }
     },
     {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_getAgent",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "getAgent"
-      }
-    },
-    {
       "label": "Result Expression",
       "description": "Expression to map the response into process variables",
       "group": "responseMapping",
@@ -274,21 +259,6 @@
       }
     },
     {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_getAgents",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "getAgents"
-      }
-    },
-    {
       "label": "Result Expression",
       "description": "Expression to map the response into process variables",
       "group": "responseMapping",
@@ -399,21 +369,6 @@
         "equals": "getAgents"
       },
       "optional": true
-    },
-    {
-      "label": "Result Variable",
-      "description": "Name of variable to store the response in",
-      "group": "responseMapping",
-      "value": "response_getMyAgent",
-      "type": "String",
-      "binding": {
-        "type": "zeebe:taskHeader",
-        "key": "resultVariable"
-      },
-      "condition": {
-        "property": "operation",
-        "equals": "getMyAgent"
-      }
     },
     {
       "label": "Result Expression",

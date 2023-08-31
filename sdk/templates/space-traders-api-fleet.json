@@ -223,21 +223,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_createChart",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "createChart"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -356,21 +341,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_createShipShipScan",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "createShipShipScan"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -489,21 +459,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_createShipSystemScan",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "createShipSystemScan"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -622,21 +577,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_createShipWaypointScan",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "createShipWaypointScan"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -755,21 +695,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_createSurvey",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "createSurvey"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -888,21 +813,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_dockShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "dockShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1038,21 +948,6 @@
             },
             "optional": true
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_extractResources",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "extractResources"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1188,21 +1083,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getMounts",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getMounts"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1321,21 +1201,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getMyShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getMyShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1454,21 +1319,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getMyShipCargo",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getMyShipCargo"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1606,21 +1456,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getMyShips",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getMyShips"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1739,21 +1574,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getShipCooldown",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getShipCooldown"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -1872,21 +1692,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_getShipNav",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "getShipNav"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2024,21 +1829,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_installMount",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "installMount"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2212,21 +2002,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_jettison",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "jettison"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2381,21 +2156,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_jumpShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "jumpShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2550,21 +2310,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_navigateShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "navigateShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2700,21 +2445,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_negotiateContract",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "negotiateContract"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2833,21 +2563,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_orbitShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "orbitShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -2985,21 +2700,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_patchShipNav",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "patchShipNav"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -3173,21 +2873,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_purchaseCargo",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "purchaseCargo"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -3342,21 +3027,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_purchaseShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "purchaseShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -3509,21 +3179,6 @@
                 "equals": "refuelShip"
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_refuelShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "refuelShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -3678,21 +3333,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_removeMount",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "removeMount"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -3866,21 +3506,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_sellCargo",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "sellCargo"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -4035,21 +3660,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_shipRefine",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "shipRefine"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -4242,21 +3852,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_transferCargo",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "transferCargo"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
@@ -4411,21 +4006,6 @@
                 "notEmpty": true
             }
         },
-            {
-        "label": "Result Variable",
-        "description": "Name of variable to store the response in",
-        "group": "responseMapping",
-        "value": "response_warpShip",
-        "type": "String",
-        "binding": {
-            "type": "zeebe:taskHeader",
-            "key": "resultVariable"
-        },
-        "condition": {
-            "property": "operation",
-            "equals": "warpShip"
-        }
-    },
     {
         "label": "Result Expression",
         "description": "Expression to map the response into process variables",
