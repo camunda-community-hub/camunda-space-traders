@@ -1027,7 +1027,7 @@
             "type": "String",
             "feel": "required",
             "group": "extractResources",
-            "value": "=survey",
+            "value": "=null",
             "binding": {
                 "type": "zeebe:input",
                 "name": "objects.extractResources_extractResourcesRequest.survey"
