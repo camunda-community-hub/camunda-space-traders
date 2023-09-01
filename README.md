@@ -26,7 +26,7 @@ You can choose between different ways depending on your interest, skills, and ti
 - Use a manual user-driver process that guides you though the tutorial using Camunda forms and Tasklist. (easy; fast;
   for beginners)
 - Use the [SDK](sdk), reusable process blocks in form of connector templates, to build your own process. (advanced;
-  requires process modelling; for devs and process designer)
+  requires process modelling; for devs and process designers)
 - DIY (do-it-yourself). Check out the
   SpaceTraders [API documentation](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api)
   and build the process yourself, for example, using the Camunda REST connector. (for devs and Camunda experts)
