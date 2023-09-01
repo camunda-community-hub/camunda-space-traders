@@ -5,24 +5,21 @@ especially the REST connector. The SDK eases the usage by providing connector te
 
 The connector templates are generated from the SpaceTraders OpenAPI. See the [openapi](/openapi) module for details.
 
-Resources:
-
-- SpaceTraders documentation: https://docs.spacetraders.io/
-- SpaceTraders game concepts: https://docs.spacetraders.io/game-concepts/agents-and-factions
-- Interactive API (Stoplight): https://spacetraders.stoplight.io/docs/spacetraders
-
 ## Install
 
 ### Publish the templates
 
 1. Open the [Camunda Web Modeler](https://modeler.cloud.camunda.io/)
 2. Create a new project
-3. Upload the generated templates
-4. Publish the templates
+3. Upload the generated templates (
+   see [here](https://docs.camunda.io/docs/components/connectors/manage-connector-templates/#importing-existing-connector-templates))
+4. Publish the templates (
+   see [here](https://docs.camunda.io/docs/components/connectors/manage-connector-templates/#create-connector-templates))
 
 ## Usage
 
-There is one connector per [SpaceTraders API](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api):
+There is one connector
+per [SpaceTraders API](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api):
 
 - Default: register a new agent, get server status
 - Agents: get details about an agent
@@ -41,10 +38,25 @@ There is one connector per [SpaceTraders API](https://spacetraders.stoplight.io/
 
 ### Authentication
 
-Most of the API calls require a token. The token is generated on creating a new agent. 
+Most of the API calls require a token. The token is generated on creating a new agent.
 
-By default, the connectors read the token from the process variable with the name `token`.  
+By default, the connectors read the token from the process variable with the name `token`.
 
-If you use a different variable for the token, or store the token as a connector secret, you need to adjust the 
+If you use a different variable for the token, or store the token as a connector secret, you need to adjust the
 authentication property of the connector.
 
+## Useful resources and tools
+
+Resources:
+
+- [SpaceTraders documentation](https://docs.spacetraders.io/)
+- [SpaceTraders API (interactive)](https://spacetraders.stoplight.io/docs/spacetraders)
+- [Camunda FEEL documentation](https://docs.camunda.io/docs/components/modeler/feel/language-guide/feel-expressions-introduction/)
+
+Tools:
+
+- [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/)
+
+## Examples
+
+- Automated [Quickstart process](../examples/quickstart) using the SDK
