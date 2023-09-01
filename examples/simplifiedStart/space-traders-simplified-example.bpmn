@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="54e0234" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="0e0e7468-4e94-41db-a556-d258c49e9b1e">
+  <bpmn:process id="SpaceTradersSimpleExample" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="userTaskForm_2ohkvv2">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Welcome to Space Traders, {{agent.symbol}} \n\n#### You're part of the {{faction.name}} faction and to survive this game you need to try to fulfil contracts by mining asteroids. \n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_03do50y",
+        "columns": null
+      },
+      "id": "Field_1gko7m3"
+    },
+    {
+      "label": "Image view",
+      "type": "image",
+      "layout": {
+        "row": "Row_1ahwng8",
+        "columns": null
+      },
+      "id": "Field_1u3kkdr",
+      "source": "https://spacetraders.io/og-image.jpg"
+    },
+    {
+      "text": "#### Current Status\n\n\n* Credits : {{agent.credits}}\n* Current Waypoint : {{waypoint.symbol}}\n* Ship Name : {{ship.symbol}}\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_14t5piq",
+        "columns": null
+      },
+      "id": "Field_0qq1kjg"
+    },
+    {
+      "text": "#### Contract Details\n\n*What to Deliver* : &amp;ensp;  {{contract.terms.deliver.tradeSymbol}}\n*How Much* : &amp;ensp; {{contract.terms.deliver.unitsRequired}}\n*Where to Deliver it* : &amp;ensp; Waypoint {{contract.terms.deliver.destinationSymbol}}  \n*Due Date*: &amp;ensp; {{contract.expiration}}\n*Payment on Accept* &amp;ensp; {{contract.terms.payment.onAccepted}}\n*Payment on Fulfilment* &amp;ensp; {{contract.terms.payment.onFulfilled}}\n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1a22nf4",
+        "columns": null
+      },
+      "id": "Field_0nr3704"
+    },
+    {
+      "text": "#### Contract Status\n*Contract Accepted* : {{contract.accepted}}\n*Fulfilled So Far* : {{contract.terms.deliver.unitsFulfilled}}",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1a22nf4",
+        "columns": null
+      },
+      "id": "Field_0zqd4wy"
+    },
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ],
+      "label": "Would you like to Accept the Contract",
+      "type": "select",
+      "layout": {
+        "row": "Row_0go7xqw",
+        "columns": null
+      },
+      "id": "Field_1x1ytwt",
+      "key": "acceptContract",
+      "conditional": {
+        "hide": "=contract.accepted"
+      },
+      "defaultValue": "no"
+    },
+    {
+      "height": 60,
+      "label": "Spacer",
+      "type": "spacer",
+      "layout": {
+        "row": null,
+        "columns": null
+      },
+      "id": "Field_1h7p24r"
+    },
+    {
+      "text": "### Your Token If you want to continue later\n{{token}}",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0emlz54",
+        "columns": null
+      },
+      "id": "Field_11344bm"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0fqf4af"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_0ohebr4">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Welcome to Space Traders, {{agent.symbol}} \n\n#### You're part of the {{faction.name}} faction and to survive this game you need to try to fulfil contracts by mining asteroids. \n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_03do50y",
+        "columns": null
+      },
+      "id": "Field_1gko7m3"
+    },
+    {
+      "label": "Image view",
+      "type": "image",
+      "layout": {
+        "row": "Row_1ahwng8",
+        "columns": null
+      },
+      "id": "Field_1u3kkdr",
+      "source": "https://spacetraders.io/og-image.jpg"
+    },
+    {
+      "text": "#### Current Status\n\n\n* Credits : {{agent.credits}}\n* Current Waypoint : {{waypoint.symbol}}\n* Ship Name : {{ship.symbol}}\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_14t5piq",
+        "columns": null
+      },
+      "id": "Field_0qq1kjg"
+    },
+    {
+      "text": "#### Contract Details\n\n*What to Deliver* : &amp;ensp;  {{contract.terms.deliver.tradeSymbol}}\n*How Much* : &amp;ensp; {{contract.terms.deliver.unitsRequired}}\n*Where to Deliver it* : &amp;ensp; Waypoint {{contract.terms.deliver.destinationSymbol}}  \n*Due Date*: &amp;ensp; {{contract.expiration}}\n*Payment on Accept* &amp;ensp; {{contract.terms.payment.onAccepted}}\n*Payment on Fulfilment* &amp;ensp; {{contract.terms.payment.onFulfilled}}\n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1a22nf4",
+        "columns": null
+      },
+      "id": "Field_0nr3704"
+    },
+    {
+      "text": "#### Contract Status\n*Contract Accepted* : {{contract.accepted}}\n*Fulfilled So Far* : {{contract.terms.deliver.unitsFulfilled}}",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1a22nf4",
+        "columns": null
+      },
+      "id": "Field_0zqd4wy"
+    },
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ],
+      "label": "Would you like to Accept the Contract",
+      "type": "select",
+      "layout": {
+        "row": "Row_0go7xqw",
+        "columns": null
+      },
+      "id": "Field_1x1ytwt",
+      "key": "acceptContract",
+      "conditional": {
+        "hide": "=contract.accepted"
+      },
+      "defaultValue": "no"
+    },
+    {
+      "height": 60,
+      "label": "Spacer",
+      "type": "spacer",
+      "layout": {
+        "row": null,
+        "columns": null
+      },
+      "id": "Field_1h7p24r"
+    },
+    {
+      "text": "### Your Token If you want to continue later\n{{token}}",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0emlz54",
+        "columns": null
+      },
+      "id": "Field_11344bm"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0fqf4af"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_2f3vj0b">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Play SpaceTraders\nSpaceTraders is a programmable fleet-management game played through a headless API.\nI've used BPMN and Camunda 8 to orchestrate the call so you can play the game!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0ukqkmm",
+        "columns": null
+      },
+      "id": "Field_1kajr40"
+    },
+    {
+      "values": [
+        {
+          "label": "New Game",
+          "value": "newGame"
+        },
+        {
+          "label": "Continue Game",
+          "value": "continueGame"
+        }
+      ],
+      "label": "Game Mode",
+      "type": "select",
+      "layout": {
+        "row": "Row_0ckolyd",
+        "columns": null
+      },
+      "id": "Field_1g18gmk",
+      "key": "gameType",
+      "defaultValue": "newGame"
+    },
+    {
+      "text": "### To Continue a game you need to enter your **token**",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0wrk0gf",
+        "columns": null
+      },
+      "id": "Field_0qrg0dl",
+      "conditional": {
+        "hide": "=gameType = \"newGame\" "
+      }
+    },
+    {
+      "label": "Token",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0pinalz",
+        "columns": null
+      },
+      "id": "Field_1gbaena",
+      "key": "token",
+      "conditional": {
+        "hide": "=gameType = \"newGame\""
+      }
+    },
+    {
+      "text": "### To start a new game you need a name",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_02vdl68",
+        "columns": null
+      },
+      "id": "Field_0ezbsj7",
+      "conditional": {
+        "hide": "=gameType = \"continueGame\" "
+      }
+    },
+    {
+      "label": "Player Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0wbfnou",
+        "columns": null
+      },
+      "id": "Field_1grwpnn",
+      "key": "playerName",
+      "conditional": {
+        "hide": "=gameType = \"continueGame\" "
+      },
+      "validate": {
+        "maxLength": 14,
+        "minLength": 5
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Cosmic Engineers",
+          "value": "COSMIC"
+        },
+        {
+          "label": "Voidfarers",
+          "value": "VOID"
+        },
+        {
+          "label": "Galactic Alliance",
+          "value": "GALACTIC"
+        },
+        {
+          "label": "Quantum Federation",
+          "value": "QUANTUM"
+        }
+      ],
+      "label": "Select your Faction",
+      "type": "select",
+      "layout": {
+        "row": "Row_1xunbp1",
+        "columns": null
+      },
+      "id": "Field_09msoe2",
+      "key": "factionName",
+      "conditional": {
+        "hide": "=gameType = \"continueGame\" "
+      },
+      "defaultValue": "COSMIC"
+    }
+  ],
+  "type": "default",
+  "id": "start-new-game-1st6572"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_0n2d78t">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Waypoints are as follow\n&lt;br /&gt;\n{{for x in waypoints return x.type + \" [\" + x.symbol + \"] &lt;br /&gt;\" }}\n&lt;br /&gt;",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0z6tf8q",
+        "columns": null
+      },
+      "id": "Field_0ejajik"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0u10d4v"
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_2f3vj0b" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_0qkbtfi</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0qkbtfi" sourceRef="StartEvent_1" targetRef="Gateway_0w3yqb7" />
+    <bpmn:exclusiveGateway id="Gateway_0w3yqb7">
+      <bpmn:incoming>Flow_0qkbtfi</bpmn:incoming>
+      <bpmn:outgoing>Flow_0y6a6ej</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1c3yd79</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0y6a6ej" name="New Game" sourceRef="Gateway_0w3yqb7" targetRef="Activity_1uxu1kz">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=gameType = "newGame"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1c3yd79" name="Continue Game" sourceRef="Gateway_0w3yqb7" targetRef="Activity_0uguauk">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=gameType = "continueGame"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_00p02v8">
+      <bpmn:incoming>Flow_1yxjtwx</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_1uxu1kz" name="Register Agent" zeebe:modelerTemplate="e6fe30b0-cc5c-4e14-a8da-df2af559dc26" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=playerName" target="objects.register_registerRequest.symbol" />
+          <zeebe:input source="=factionName" target="objects.register_registerRequest.faction" />
+          <zeebe:input source="post" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/register&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+          <zeebe:input source="= objects.register_registerRequest" target="body" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="register" />
+          <zeebe:header key="resultExpression" value="={&#34;agent&#34;: response.body.data.agent, &#10; &#34;contract&#34;: response.body.data.contract, &#10; &#34;faction&#34;: response.body.data.faction,&#10; &#34;ship&#34;: response.body.data.ship,&#10; &#34;token&#34;: response.body.data.token}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0y6a6ej</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pt4yne</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1pt4yne" sourceRef="Activity_1uxu1kz" targetRef="Gateway_1vb1tvb" />
+    <bpmn:serviceTask id="Activity_0a065mn" name="Get Waypoint Details" zeebe:modelerTemplate="a667908e-44d4-463e-af15-8cd46765fc1d" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=ship.nav.systemSymbol" target="objects.getWaypoint_systemSymbol" />
+          <zeebe:input source="=ship.nav.waypointSymbol" target="objects.getWaypoint_waypointSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="= token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/systems/&#34; + string(objects.getWaypoint_systemSymbol) + &#34;/waypoints/&#34; + string(objects.getWaypoint_waypointSymbol) + &#34;&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getWaypoint" />
+          <zeebe:header key="resultExpression" value="={&#34;waypoint&#34;: response.body.data}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0alju3k</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yndbyl</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1yndbyl" sourceRef="Activity_0a065mn" targetRef="Activity_1g7prlz" />
+    <bpmn:sequenceFlow id="Flow_0q3wm9z" sourceRef="Activity_1g7prlz" targetRef="Gateway_0mz55n7" />
+    <bpmn:userTask id="Activity_1g7prlz" name="Display details">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_2ohkvv2" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1yndbyl</bpmn:incoming>
+      <bpmn:outgoing>Flow_0q3wm9z</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0j49w6v" name="Accept Contract">
+      <bpmn:incoming>Flow_1qp362j</bpmn:incoming>
+      <bpmn:outgoing>Flow_1s3h37a</bpmn:outgoing>
+      <bpmn:outgoing>Flow_09ebq3t</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1s3h37a" name="Yes" sourceRef="Gateway_0j49w6v" targetRef="Activity_03f5b0i">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=acceptContract = "yes"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_0bcy67i">
+      <bpmn:incoming>Flow_09ebq3t</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_09ebq3t" name="No" sourceRef="Gateway_0j49w6v" targetRef="Event_0bcy67i">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=acceptContract = "no"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_03n4zva" sourceRef="Activity_1d7wnb7" targetRef="Gateway_078aauz" />
+    <bpmn:userTask id="Activity_1d7wnb7" name="See New Details">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_0ohebr4" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0odskiz</bpmn:incoming>
+      <bpmn:outgoing>Flow_03n4zva</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0odskiz" sourceRef="Activity_03f5b0i" targetRef="Activity_1d7wnb7" />
+    <bpmn:serviceTask id="Activity_03f5b0i" name="Accept Contract" zeebe:modelerTemplate="194d4bd2-8874-414b-a0aa-135ccca5ff8d" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=contract.id" target="objects.acceptContract_contractId" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="post" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts/&#34; + string(objects.acceptContract_contractId) + &#34;/accept&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="acceptContract" />
+          <zeebe:header key="resultExpression" value="={&#34;agent&#34;: response.body.data.agent, &#10;&#34;contract&#34;: response.body.data.contract}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1s3h37a</bpmn:incoming>
+      <bpmn:outgoing>Flow_0odskiz</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0swotoh" sourceRef="Activity_1lcms7u" targetRef="Activity_170ijh5" />
+    <bpmn:serviceTask id="Activity_1lcms7u" name="Get nearby Waypoints" zeebe:modelerTemplate="56dc7102-1910-4719-932f-05357d8ba6ab" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=ship.nav.systemSymbol" target="objects.getSystemWaypoints_systemSymbol" />
+          <zeebe:input source="1" target="objects.getSystemWaypoints_page" />
+          <zeebe:input source="10" target="objects.getSystemWaypoints_limit" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="= token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/systems/&#34; + string(objects.getSystemWaypoints_systemSymbol) + &#34;/waypoints&#34;" target="url" />
+          <zeebe:input source="={&#10; &#34;page&#34;: objects.getSystemWaypoints_page,&#10; &#34;limit&#34;: objects.getSystemWaypoints_limit&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getSystemWaypoints" />
+          <zeebe:header key="resultExpression" value="={&#34;waypoints&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1mi6hs1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0swotoh</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_1vb1tvb">
+      <bpmn:incoming>Flow_1pt4yne</bpmn:incoming>
+      <bpmn:incoming>Flow_1v7mpro</bpmn:incoming>
+      <bpmn:outgoing>Flow_0alju3k</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0alju3k" sourceRef="Gateway_1vb1tvb" targetRef="Activity_0a065mn" />
+    <bpmn:sequenceFlow id="Flow_0acmt19" sourceRef="Activity_0uodsiy" targetRef="Activity_1edthg5" />
+    <bpmn:serviceTask id="Activity_0uodsiy" name="Get Contracts" zeebe:modelerTemplate="d38668ca-54e2-4872-87f0-1ba8bef704bf" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="1" target="objects.getContracts_page" />
+          <zeebe:input source="10" target="objects.getContracts_limit" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts&#34;" target="url" />
+          <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getContracts" />
+          <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data,&#10; &#34;contract&#34; : response.body.data[1],&#10;&#34;meta&#34;: response.body.meta}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0dbshc6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0acmt19</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0kgop0b" sourceRef="Activity_1edthg5" targetRef="Activity_1byu1en" />
+    <bpmn:serviceTask id="Activity_1edthg5" name="Get Ships" zeebe:modelerTemplate="b8e816a7-a967-433c-80e4-929a9ed90b69" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="1" target="objects.getMyShips_page" />
+          <zeebe:input source="10" target="objects.getMyShips_limit" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships&#34;" target="url" />
+          <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getMyShips" />
+          <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10;    &#34;ship&#34; : response.body.data[1],&#10; &#34;meta&#34;: response.body.meta&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0acmt19</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kgop0b</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1v7mpro" sourceRef="Activity_1byu1en" targetRef="Gateway_1vb1tvb" />
+    <bpmn:serviceTask id="Activity_1byu1en" name="Get Faction Details" zeebe:modelerTemplate="353ed707-a6ee-4458-8204-62cd5facf164" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=agent.startingFaction" target="objects.getFaction_factionSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/factions/&#34; + string(objects.getFaction_factionSymbol) + &#34;&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getFaction" />
+          <zeebe:header key="resultExpression" value="={&#34;faction&#34;: response.body.data}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0kgop0b</bpmn:incoming>
+      <bpmn:outgoing>Flow_1v7mpro</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0dbshc6" sourceRef="Activity_0uguauk" targetRef="Activity_0uodsiy" />
+    <bpmn:serviceTask id="Activity_0uguauk" name="Get My Agent" zeebe:modelerTemplate="9fcb247e-c518-491d-a550-975d649397f5" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="= token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/agent&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getMyAgent" />
+          <zeebe:header key="resultExpression" value="={&#34;agent&#34;: response.body.data}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1c3yd79</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dbshc6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_0mz55n7" name="Is Contract Already Accepted">
+      <bpmn:incoming>Flow_0q3wm9z</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qp362j</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1jylnyi</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1qp362j" sourceRef="Gateway_0mz55n7" targetRef="Gateway_0j49w6v">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=not(contract.accepted)</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_078aauz">
+      <bpmn:incoming>Flow_03n4zva</bpmn:incoming>
+      <bpmn:incoming>Flow_1jylnyi</bpmn:incoming>
+      <bpmn:outgoing>Flow_1mi6hs1</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1mi6hs1" sourceRef="Gateway_078aauz" targetRef="Activity_1lcms7u" />
+    <bpmn:sequenceFlow id="Flow_1jylnyi" sourceRef="Gateway_0mz55n7" targetRef="Gateway_078aauz">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=contract.accepted</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1yxjtwx" sourceRef="Activity_170ijh5" targetRef="Event_00p02v8" />
+    <bpmn:userTask id="Activity_170ijh5" name="See Nearby Waypoints">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_0n2d78t" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0swotoh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yxjtwx</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SpaceTradersSimpleExample">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="150" y="330" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0w3yqb7_di" bpmnElement="Gateway_0w3yqb7" isMarkerVisible="true">
+        <dc:Bounds x="245" y="323" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0x40b60_di" bpmnElement="Activity_1uxu1kz">
+        <dc:Bounds x="550" y="308" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_194ifwz_di" bpmnElement="Activity_0a065mn">
+        <dc:Bounds x="1030" y="308" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13vk0yv_di" bpmnElement="Activity_1g7prlz">
+        <dc:Bounds x="1210" y="308" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0j49w6v_di" bpmnElement="Gateway_0j49w6v" isMarkerVisible="true">
+        <dc:Bounds x="1465" y="323" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1450" y="380" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0bcy67i_di" bpmnElement="Event_0bcy67i">
+        <dc:Bounds x="1692" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04dob42_di" bpmnElement="Activity_1d7wnb7">
+        <dc:Bounds x="1770" y="308" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rwf1fr_di" bpmnElement="Activity_03f5b0i">
+        <dc:Bounds x="1620" y="308" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ilyc1h_di" bpmnElement="Activity_1lcms7u">
+        <dc:Bounds x="2000" y="308" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1vb1tvb_di" bpmnElement="Gateway_1vb1tvb" isMarkerVisible="true">
+        <dc:Bounds x="925" y="323" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1vqs414_di" bpmnElement="Activity_0uodsiy">
+        <dc:Bounds x="480" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_088i57m_di" bpmnElement="Activity_1edthg5">
+        <dc:Bounds x="630" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1e3lf4g_di" bpmnElement="Activity_1byu1en">
+        <dc:Bounds x="790" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1nvhqgd_di" bpmnElement="Activity_0uguauk">
+        <dc:Bounds x="320" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0mz55n7_di" bpmnElement="Gateway_0mz55n7" isMarkerVisible="true">
+        <dc:Bounds x="1385" y="323" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1365" y="285.5" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_078aauz_di" bpmnElement="Gateway_078aauz" isMarkerVisible="true">
+        <dc:Bounds x="1905" y="323" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0n0r1js_di" bpmnElement="Activity_170ijh5">
+        <dc:Bounds x="2190" y="308" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00p02v8_di" bpmnElement="Event_00p02v8">
+        <dc:Bounds x="2392" y="330" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0qkbtfi_di" bpmnElement="Flow_0qkbtfi">
+        <di:waypoint x="186" y="348" />
+        <di:waypoint x="245" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y6a6ej_di" bpmnElement="Flow_0y6a6ej">
+        <di:waypoint x="295" y="348" />
+        <di:waypoint x="550" y="348" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="334" y="330" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1c3yd79_di" bpmnElement="Flow_1c3yd79">
+        <di:waypoint x="270" y="323" />
+        <di:waypoint x="270" y="120" />
+        <di:waypoint x="320" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="163" y="153" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pt4yne_di" bpmnElement="Flow_1pt4yne">
+        <di:waypoint x="650" y="348" />
+        <di:waypoint x="925" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yndbyl_di" bpmnElement="Flow_1yndbyl">
+        <di:waypoint x="1130" y="348" />
+        <di:waypoint x="1210" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0q3wm9z_di" bpmnElement="Flow_0q3wm9z">
+        <di:waypoint x="1310" y="348" />
+        <di:waypoint x="1385" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1s3h37a_di" bpmnElement="Flow_1s3h37a">
+        <di:waypoint x="1515" y="348" />
+        <di:waypoint x="1620" y="348" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1545" y="330" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09ebq3t_di" bpmnElement="Flow_09ebq3t">
+        <di:waypoint x="1490" y="323" />
+        <di:waypoint x="1490" y="190" />
+        <di:waypoint x="1692" y="190" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1498" y="254" width="14" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03n4zva_di" bpmnElement="Flow_03n4zva">
+        <di:waypoint x="1870" y="348" />
+        <di:waypoint x="1905" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0odskiz_di" bpmnElement="Flow_0odskiz">
+        <di:waypoint x="1720" y="348" />
+        <di:waypoint x="1770" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0swotoh_di" bpmnElement="Flow_0swotoh">
+        <di:waypoint x="2100" y="348" />
+        <di:waypoint x="2190" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0alju3k_di" bpmnElement="Flow_0alju3k">
+        <di:waypoint x="975" y="348" />
+        <di:waypoint x="1030" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0acmt19_di" bpmnElement="Flow_0acmt19">
+        <di:waypoint x="580" y="120" />
+        <di:waypoint x="630" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kgop0b_di" bpmnElement="Flow_0kgop0b">
+        <di:waypoint x="730" y="120" />
+        <di:waypoint x="790" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1v7mpro_di" bpmnElement="Flow_1v7mpro">
+        <di:waypoint x="890" y="120" />
+        <di:waypoint x="950" y="120" />
+        <di:waypoint x="950" y="323" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dbshc6_di" bpmnElement="Flow_0dbshc6">
+        <di:waypoint x="420" y="120" />
+        <di:waypoint x="480" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qp362j_di" bpmnElement="Flow_1qp362j">
+        <di:waypoint x="1435" y="348" />
+        <di:waypoint x="1465" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mi6hs1_di" bpmnElement="Flow_1mi6hs1">
+        <di:waypoint x="1955" y="348" />
+        <di:waypoint x="2000" y="348" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jylnyi_di" bpmnElement="Flow_1jylnyi">
+        <di:waypoint x="1410" y="373" />
+        <di:waypoint x="1410" y="500" />
+        <di:waypoint x="1930" y="500" />
+        <di:waypoint x="1930" y="373" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yxjtwx_di" bpmnElement="Flow_1yxjtwx">
+        <di:waypoint x="2290" y="348" />
+        <di:waypoint x="2392" y="348" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

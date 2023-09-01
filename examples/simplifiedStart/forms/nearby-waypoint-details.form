@@ -1,0 +1,23 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Waypoints are as follow\n<br />\n{{for x in waypoints return x.type + \" [\" + x.symbol + \"] <br />\" }}\n<br />",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0z6tf8q",
+        "columns": null
+      },
+      "id": "Field_0ejajik"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0u10d4v"
+}

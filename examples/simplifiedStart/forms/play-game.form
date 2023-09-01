@@ -1,0 +1,132 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Play SpaceTraders\nSpaceTraders is a programmable fleet-management game played through a headless API.\nI've used BPMN and Camunda 8 to orchestrate the call so you can play the game!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0ukqkmm",
+        "columns": null
+      },
+      "id": "Field_1kajr40"
+    },
+    {
+      "values": [
+        {
+          "label": "New Game",
+          "value": "newGame"
+        },
+        {
+          "label": "Continue Game",
+          "value": "continueGame"
+        }
+      ],
+      "label": "Game Mode",
+      "type": "select",
+      "layout": {
+        "row": "Row_0ckolyd",
+        "columns": null
+      },
+      "id": "Field_1g18gmk",
+      "key": "gameType",
+      "defaultValue": "newGame"
+    },
+    {
+      "text": "### To Continue a game you need to enter your **token**",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0wrk0gf",
+        "columns": null
+      },
+      "id": "Field_0qrg0dl",
+      "conditional": {
+        "hide": "=gameType = \"newGame\" "
+      }
+    },
+    {
+      "label": "Token",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0pinalz",
+        "columns": null
+      },
+      "id": "Field_1gbaena",
+      "key": "token",
+      "conditional": {
+        "hide": "=gameType = \"newGame\""
+      }
+    },
+    {
+      "text": "### To start a new game you need a name",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_02vdl68",
+        "columns": null
+      },
+      "id": "Field_0ezbsj7",
+      "conditional": {
+        "hide": "=gameType = \"continueGame\" "
+      }
+    },
+    {
+      "label": "Player Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0wbfnou",
+        "columns": null
+      },
+      "id": "Field_1grwpnn",
+      "key": "playerName",
+      "conditional": {
+        "hide": "=gameType = \"continueGame\" "
+      },
+      "validate": {
+        "maxLength": 14,
+        "minLength": 5
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Cosmic Engineers",
+          "value": "COSMIC"
+        },
+        {
+          "label": "Voidfarers",
+          "value": "VOID"
+        },
+        {
+          "label": "Galactic Alliance",
+          "value": "GALACTIC"
+        },
+        {
+          "label": "Quantum Federation",
+          "value": "QUANTUM"
+        }
+      ],
+      "label": "Select your Faction",
+      "type": "select",
+      "layout": {
+        "row": "Row_1xunbp1",
+        "columns": null
+      },
+      "id": "Field_09msoe2",
+      "key": "factionName",
+      "conditional": {
+        "hide": "=gameType = \"continueGame\" "
+      },
+      "defaultValue": "COSMIC"
+    }
+  ],
+  "type": "default",
+  "id": "start-new-game-1st6572"
+}

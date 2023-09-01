@@ -1,0 +1,4578 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "SpaceTraders-Simple-GetShips",
+  "id": "b8e816a7-a967-433c-80e4-929a9ed90b69",
+  "version": 1,
+  "metadata": {
+    "created": 1693577771428
+  },
+  "description": "SpaceTraders API - Fleet, Schema Version 2.0.0. Generated using the OpenAPI generator.",
+  "icon": {
+    "contents": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg=="
+  },
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  },
+  "groups": [
+    {
+      "id": "authentication",
+      "label": "Authentication"
+    },
+    {
+      "id": "operation",
+      "label": "Operation"
+    },
+    {
+      "id": "responseMapping",
+      "label": "Response Mapping"
+    },
+    {
+      "id": "createChart",
+      "label": "Parameters"
+    },
+    {
+      "id": "createShipShipScan",
+      "label": "Parameters"
+    },
+    {
+      "id": "createShipSystemScan",
+      "label": "Parameters"
+    },
+    {
+      "id": "createShipWaypointScan",
+      "label": "Parameters"
+    },
+    {
+      "id": "createSurvey",
+      "label": "Parameters"
+    },
+    {
+      "id": "dockShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "extractResources",
+      "label": "Parameters"
+    },
+    {
+      "id": "getMounts",
+      "label": "Parameters"
+    },
+    {
+      "id": "getMyShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "getMyShipCargo",
+      "label": "Parameters"
+    },
+    {
+      "id": "getMyShips",
+      "label": "Parameters"
+    },
+    {
+      "id": "getShipCooldown",
+      "label": "Parameters"
+    },
+    {
+      "id": "getShipNav",
+      "label": "Parameters"
+    },
+    {
+      "id": "installMount",
+      "label": "Parameters"
+    },
+    {
+      "id": "jettison",
+      "label": "Parameters"
+    },
+    {
+      "id": "jumpShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "navigateShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "negotiateContract",
+      "label": "Parameters"
+    },
+    {
+      "id": "orbitShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "patchShipNav",
+      "label": "Parameters"
+    },
+    {
+      "id": "purchaseCargo",
+      "label": "Parameters"
+    },
+    {
+      "id": "purchaseShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "refuelShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "removeMount",
+      "label": "Parameters"
+    },
+    {
+      "id": "sellCargo",
+      "label": "Parameters"
+    },
+    {
+      "id": "shipRefine",
+      "label": "Parameters"
+    },
+    {
+      "id": "transferCargo",
+      "label": "Parameters"
+    },
+    {
+      "id": "warpShip",
+      "label": "Parameters"
+    },
+    {
+      "id": "modificationWarning",
+      "label": "Generated (DO NOT MODIFY)"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "value": "io.camunda:http-json:1",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "placeholder",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects"
+      }
+    },
+    {
+      "label": "Operation",
+      "id": "operation",
+      "description": "Specify the operation to call.",
+      "type": "Hidden",
+      "group": "operation",
+      "value": "getMyShips",
+      "choices": [
+        {
+          "name": "Reset choice",
+          "value": "-"
+        },
+        {
+          "name": "createChart - Create Chart",
+          "value": "createChart"
+        },
+        {
+          "name": "createShipShipScan - Scan Ships",
+          "value": "createShipShipScan"
+        },
+        {
+          "name": "createShipSystemScan - Scan Systems",
+          "value": "createShipSystemScan"
+        },
+        {
+          "name": "createShipWaypointScan - Scan Waypoints",
+          "value": "createShipWaypointScan"
+        },
+        {
+          "name": "createSurvey - Create Survey",
+          "value": "createSurvey"
+        },
+        {
+          "name": "dockShip - Dock Ship",
+          "value": "dockShip"
+        },
+        {
+          "name": "extractResources - Extract Resources",
+          "value": "extractResources"
+        },
+        {
+          "name": "getMounts - Get Mounts",
+          "value": "getMounts"
+        },
+        {
+          "name": "getMyShip - Get Ship",
+          "value": "getMyShip"
+        },
+        {
+          "name": "getMyShipCargo - Get Ship Cargo",
+          "value": "getMyShipCargo"
+        },
+        {
+          "name": "getMyShips - List Ships",
+          "value": "getMyShips"
+        },
+        {
+          "name": "getShipCooldown - Get Ship Cooldown",
+          "value": "getShipCooldown"
+        },
+        {
+          "name": "getShipNav - Get Ship Nav",
+          "value": "getShipNav"
+        },
+        {
+          "name": "installMount - Install Mount",
+          "value": "installMount"
+        },
+        {
+          "name": "jettison - Jettison Cargo",
+          "value": "jettison"
+        },
+        {
+          "name": "jumpShip - Jump Ship",
+          "value": "jumpShip"
+        },
+        {
+          "name": "navigateShip - Navigate Ship",
+          "value": "navigateShip"
+        },
+        {
+          "name": "negotiateContract - Negotiate Contract",
+          "value": "negotiateContract"
+        },
+        {
+          "name": "orbitShip - Orbit Ship",
+          "value": "orbitShip"
+        },
+        {
+          "name": "patchShipNav - Patch Ship Nav",
+          "value": "patchShipNav"
+        },
+        {
+          "name": "purchaseCargo - Purchase Cargo",
+          "value": "purchaseCargo"
+        },
+        {
+          "name": "purchaseShip - Purchase Ship",
+          "value": "purchaseShip"
+        },
+        {
+          "name": "refuelShip - Refuel Ship",
+          "value": "refuelShip"
+        },
+        {
+          "name": "removeMount - Remove Mount",
+          "value": "removeMount"
+        },
+        {
+          "name": "sellCargo - Sell Cargo",
+          "value": "sellCargo"
+        },
+        {
+          "name": "shipRefine - Ship Refine",
+          "value": "shipRefine"
+        },
+        {
+          "name": "transferCargo - Transfer Cargo",
+          "value": "transferCargo"
+        },
+        {
+          "name": "warpShip - Warp Ship",
+          "value": "warpShip"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "operation"
+      }
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "createChart",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.createChart_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createChart"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "createShipShipScan",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.createShipShipScan_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipShipScan"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "createShipSystemScan",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.createShipSystemScan_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipSystemScan"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "createShipWaypointScan",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.createShipWaypointScan_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createShipWaypointScan"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "createSurvey",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.createSurvey_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "createSurvey"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "dockShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.dockShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "dockShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "extractResources",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.extractResources_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "survey",
+      "description": "A resource survey of a waypoint, detailing a specific extraction location and the types of resources that can be found there.",
+      "type": "String",
+      "feel": "required",
+      "group": "extractResources",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.extractResources_extractResourcesRequest.survey"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      },
+      "optional": true
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.extractResources_extractResourcesRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "extractResources"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship&#39;s symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "getMounts",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getMounts_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMounts"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "getMyShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getMyShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "getMyShipCargo",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getMyShipCargo_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShipCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "page",
+      "description": "What entry offset to request",
+      "type": "Hidden",
+      "group": "getMyShips",
+      "value": "1",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getMyShips_page"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "limit",
+      "description": "How many entries to return per page",
+      "type": "Hidden",
+      "group": "getMyShips",
+      "value": "10",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getMyShips_limit"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Hidden",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "Hidden",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "Hidden",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getMyShips"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "getShipCooldown",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getShipCooldown_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipCooldown"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "getShipNav",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getShipNav_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getShipNav"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship&#39;s symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "installMount",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.installMount_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "mount symbol",
+      "description": "The mount's symbol to install.",
+      "type": "String",
+      "feel": "required",
+      "group": "installMount",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.installMount_installMountRequest.symbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.installMount_installMountRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "installMount"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "jettison",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.jettison_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "symbol",
+      "description": "The good's symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "jettison",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.jettison_jettisonRequest.symbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "units",
+      "description": "Amount of units to jettison of this good.",
+      "type": "String",
+      "feel": "optional",
+      "group": "jettison",
+      "value": "=0",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.jettison_jettisonRequest.units"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.jettison_jettisonRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jettison"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "jumpShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.jumpShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "systemSymbol",
+      "description": "The system symbol to jump to.",
+      "type": "String",
+      "feel": "required",
+      "group": "jumpShip",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.jumpShip_jumpShipRequest.systemSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.jumpShip_jumpShipRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "jumpShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "navigateShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.navigateShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "waypointSymbol",
+      "description": "The target destination.",
+      "type": "String",
+      "feel": "required",
+      "group": "navigateShip",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.navigateShip_navigateShipRequest.waypointSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.navigateShip_navigateShipRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "navigateShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship&#39;s symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "negotiateContract",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.negotiateContract_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "negotiateContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "orbitShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.orbitShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "orbitShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "patchShipNav",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.patchShipNav_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "flightMode",
+      "description": "The ship's set speed when traveling between waypoints or systems.",
+      "type": "String",
+      "feel": "optional",
+      "group": "patchShipNav",
+      "value": "CRUISE",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.patchShipNav_patchShipNavRequest.flightMode"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.patchShipNav_patchShipNavRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "patchShipNav"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship&#39;s symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "purchaseCargo",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.purchaseCargo_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "symbol",
+      "description": "The good's symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "purchaseCargo",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.purchaseCargo_purchaseCargoRequest.symbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "units",
+      "description": "Amounts of units to purchase.",
+      "type": "String",
+      "feel": "optional",
+      "group": "purchaseCargo",
+      "value": "=0",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.purchaseCargo_purchaseCargoRequest.units"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.purchaseCargo_purchaseCargoRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipType",
+      "description": "Type of ship",
+      "type": "String",
+      "feel": "optional",
+      "group": "purchaseShip",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.purchaseShip_purchaseShipRequest.shipType"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "waypointSymbol",
+      "description": "The symbol of the waypoint you want to purchase the ship at.",
+      "type": "String",
+      "feel": "optional",
+      "group": "purchaseShip",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.purchaseShip_purchaseShipRequest.waypointSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.purchaseShip_purchaseShipRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "purchaseShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "refuelShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.refuelShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "units",
+      "description": "The amount of fuel to fill in the ship's tanks. When not specified, the ship will be refueled to its maximum fuel capacity. If the amount specified is greater than the ship's remaining capacity, the ship will only be refueled to its maximum fuel capacity. The amount specified is not in market units but in ship fuel units.",
+      "type": "String",
+      "feel": "optional",
+      "group": "refuelShip",
+      "value": "=null",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.refuelShip_refuelShipRequest.units"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.refuelShip_refuelShipRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "refuelShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship&#39;s symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "removeMount",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.removeMount_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "symbol",
+      "description": "The symbol of the mount to remove.",
+      "type": "String",
+      "feel": "optional",
+      "group": "removeMount",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.removeMount_removeMountRequest.symbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.removeMount_removeMountRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "removeMount"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "Symbol of a ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "sellCargo",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.sellCargo_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "symbol",
+      "description": "The good's symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "sellCargo",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.sellCargo_sellCargoRequest.symbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "units",
+      "description": "Amounts of units to sell of the selected good.",
+      "type": "String",
+      "feel": "optional",
+      "group": "sellCargo",
+      "value": "=0",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.sellCargo_sellCargoRequest.units"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.sellCargo_sellCargoRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "sellCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship.",
+      "type": "String",
+      "feel": "optional",
+      "group": "shipRefine",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.shipRefine_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "produce",
+      "description": "The type of good to produce out of the refining process.",
+      "type": "String",
+      "feel": "optional",
+      "group": "shipRefine",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.shipRefine_shipRefineRequest.produce"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.shipRefine_shipRefineRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "shipRefine"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The transferring ship&#39;s symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "transferCargo",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.transferCargo_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "tradeSymbol",
+      "description": "The good's symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "transferCargo",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.transferCargo_transferCargoRequest.tradeSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "units",
+      "description": "Amount of units to transfer.",
+      "type": "String",
+      "feel": "optional",
+      "group": "transferCargo",
+      "value": "=0",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.transferCargo_transferCargoRequest.units"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The symbol of the ship to transfer to.",
+      "type": "String",
+      "feel": "optional",
+      "group": "transferCargo",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.transferCargo_transferCargoRequest.shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.transferCargo_transferCargoRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "transferCargo"
+      },
+      "optional": true
+    },
+    {
+      "label": "shipSymbol",
+      "description": "The ship symbol.",
+      "type": "String",
+      "feel": "optional",
+      "group": "warpShip",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.warpShip_shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "waypointSymbol",
+      "description": "The target destination.",
+      "type": "String",
+      "feel": "optional",
+      "group": "warpShip",
+      "value": "=null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.warpShip_navigateShipRequest.waypointSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\n\t\"ships\": response.body.data,\n    \"ship\" : response.body.data[1],\n\t\"meta\": response.body.meta\n}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/ships\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getMyShips_page,\n\t\"limit\": objects.getMyShips_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.warpShip_navigateShipRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "warpShip"
+      },
+      "optional": true
+    }
+  ],
+  "category": {
+    "id": "connectors",
+    "name": "Connectors"
+  }
+}

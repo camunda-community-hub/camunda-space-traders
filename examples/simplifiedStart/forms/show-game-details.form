@@ -1,0 +1,110 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "54e0234"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Welcome to Space Traders, {{agent.symbol}} \n\n#### You're part of the {{faction.name}} faction and to survive this game you need to try to fulfil contracts by mining asteroids. \n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_03do50y",
+        "columns": null
+      },
+      "id": "Field_1gko7m3"
+    },
+    {
+      "label": "Image view",
+      "type": "image",
+      "layout": {
+        "row": "Row_1ahwng8",
+        "columns": null
+      },
+      "id": "Field_1u3kkdr",
+      "source": "https://spacetraders.io/og-image.jpg"
+    },
+    {
+      "text": "#### Current Status\n\n\n* Credits : {{agent.credits}}\n* Current Waypoint : {{waypoint.symbol}}\n* Ship Name : {{ship.symbol}}\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_14t5piq",
+        "columns": null
+      },
+      "id": "Field_0qq1kjg"
+    },
+    {
+      "text": "#### Contract Details\n\n*What to Deliver* : &ensp;  {{contract.terms.deliver.tradeSymbol}}\n*How Much* : &ensp; {{contract.terms.deliver.unitsRequired}}\n*Where to Deliver it* : &ensp; Waypoint {{contract.terms.deliver.destinationSymbol}}  \n*Due Date*: &ensp; {{contract.expiration}}\n*Payment on Accept* &ensp; {{contract.terms.payment.onAccepted}}\n*Payment on Fulfilment* &ensp; {{contract.terms.payment.onFulfilled}}\n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1a22nf4",
+        "columns": null
+      },
+      "id": "Field_0nr3704"
+    },
+    {
+      "text": "#### Contract Status\n*Contract Accepted* : {{contract.accepted}}\n*Fulfilled So Far* : {{contract.terms.deliver.unitsFulfilled}}",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1a22nf4",
+        "columns": null
+      },
+      "id": "Field_0zqd4wy"
+    },
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ],
+      "label": "Would you like to Accept the Contract",
+      "type": "select",
+      "layout": {
+        "row": "Row_0go7xqw",
+        "columns": null
+      },
+      "id": "Field_1x1ytwt",
+      "key": "acceptContract",
+      "conditional": {
+        "hide": "=contract.accepted"
+      },
+      "defaultValue": "no",
+      "validate": {
+        "required": false
+      }
+    },
+    {
+      "height": 60,
+      "label": "Spacer",
+      "type": "spacer",
+      "layout": {
+        "row": null,
+        "columns": null
+      },
+      "id": "Field_1h7p24r"
+    },
+    {
+      "text": "### Your Token If you want to continue later\n{{token}}",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0emlz54",
+        "columns": null
+      },
+      "id": "Field_11344bm"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0fqf4af"
+}

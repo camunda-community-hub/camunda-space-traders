@@ -1,0 +1,877 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "SpaceTraders-Simple-GetContracts",
+  "id": "d38668ca-54e2-4872-87f0-1ba8bef704bf",
+  "version": 1,
+  "metadata": {
+    "created": 1693571458951
+  },
+  "description": "SpaceTraders API - Contracts, Schema Version 2.0.0. Generated using the OpenAPI generator.",
+  "icon": {
+    "contents": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIxIiBoZWlnaHQ9IjEyMSIgdmlld0JveD0iMCAwIDEyMSAxMjEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjkuNTA1OCA2OS45MDUxTDY3LjU5MDEgNzIuMTc1Nkw3My45NDQ0IDc2LjUxOTZMODcuNzY0NSA1OC44MTI3TDgzLjA2NTggNTUuNDkzN0M4Mi45Mzk3IDU0LjkxODEgODIuNzk3OCA1NC4zMTkgODIuNjQwMSA1My43MzU2Qzg1LjkxIDUwLjc3ODkgOTMuNjM5MyA0Mi44MzA0IDk3LjEyMTggMzAuOTc2OUMxMDUuMzI5IDM5Ljk4MTEgMTEwLjMzMSA1MS45NTcxIDExMC4zMjggNjUuMTAzOUMxMTAuMzI4IDkwLjExMTEgOTIuMjAzIDExMC44NjkgNjguMzc4NCAxMTVDNzMuMTk1NCAxMDAuNTQxIDU5LjA1MiA5OS41MzIyIDU5LjA1MiA5OS41MzIyQzU5LjYyNzUgOTAuNzU3NiA1MS45MDE1IDg3LjAzNjQgNTEuOTAxNSA4Ny4wMzY0QzUxLjkwMTUgODcuMDM2NCA1NC4yODIzIDg0LjE3NDYgNTMuOTAzOSA4MC41NDgxQzUzLjUyNTUgNzYuOTI5NSA1Ni4wMDEgNzAuMjUyIDU2LjAwMSA3MC4yNTJMNDQuODUzNCA3OS41OTQyTDUxLjE0NDYgNjQuNjIzQzUxLjE0NDYgNjQuNjIzIDQ4LjI4MjggNjkuNDg3MyA0My4zMzE4IDY5LjIwMzVDMzguMzgwOSA2OC45MTE4IDM1LjIxOTUgNzEuOTU0OSAzNS4yMTk1IDcxLjk1NDlDMzAuMTY2IDYyLjExNiAxOS41NzgyIDY3Ljc2ODYgMTkuNTc4MiA2Ny43Njg2QzE3LjA4NjkgNjIuMjUgMTEuOTQ2OCA2MS43MjE4IDkuMTMyMjYgNjEuODg3NEMxMC43ODc4IDM1LjQwNTkgMzIuNzc1NSAxNC40MzUyIDU5LjY3NDggMTQuNDM1MkM2NS42NTU4IDE0LjQzNTIgNzEuMzk0NyAxNS40NzE3IDc2LjcyMTYgMTcuMzc0OEM3MS4yMDAyIDIxLjA3IDY1LjI4NTYgMjYuOTA2NCA2MC4xMTYzIDM2LjExNTVINTcuOTg3N1YzNS42MzQ2TDUzLjQ4NjEgMzMuMDA5M0wzOS42ODk2IDUwLjQ3MTdMNDIuOTM3NyA1My40OTkxTDQ1LjAzNDcgNTUuNDMwNkw0Ni44NTU5IDUzLjIzMUw0Ni44NjMyIDUzLjIyMjZDNDcuMDUwNSA1My4wMDYzIDQ5LjYyNzkgNTAuMDMwMiA1My43NjIgNTAuMDMwMkM1NC4wNjk1IDUwLjAzMDIgNTQuMzc3IDUwLjA0NiA1NC42OTIzIDUwLjA3NzVDNTQuNDA4NSA1MS41MDQ1IDU0LjA4NTMgNTMuNDUxOCA1My44NDg4IDU1Ljg0ODRMNDkuNzY1IDYwLjM1NzlMNjEuNjQ1OCA2OS45NjAzTDY1LjU0ODIgNjQuNTgzNkM2Ni42MTI1IDY0LjI1MjUgNjguNDU3MyA2My42MTM5IDcwLjU3OCA2Mi42MDQ4QzcxLjI5NTQgNjQuNDI1OSA3MS43NDQ4IDY3LjI0MDQgNjkuNTA1OCA2OS45MDUxWk01NC44ODE1IDI4LjkxNzZMNTMuMzk5NCAyOS4xMjI2TDUzLjI5NjkgMzAuNjEyNkw1My4wOTE5IDI5LjEzODRMNTEuNjAxOSAyOS4wMzU5TDUzLjA3NjEgMjguODIzTDUzLjE4NjUgMjcuMzMzTDUzLjM5MTUgMjguODE1MUw1NC44ODE1IDI4LjkxNzZaTTI1LjA1NzQgNTYuMDE0TDI2LjQ3NjQgNTUuODE2OUwyNS4wNDk1IDU1LjcyMjNMMjQuODUyNCA1NC4zMDMyTDI0Ljc0OTkgNTUuNzMwMkwyMy4zMzg3IDU1LjkyNzNMMjQuNzY1NyA1Ni4wMjk3TDI0Ljk2MjggNTcuNDQwOUwyNS4wNTc0IDU2LjAxNFpNNzQuODE5NCA5MC44OTE2TDczLjQwODIgOTEuMDk2NUw3My4zMDU3IDkyLjUxNTZMNzMuMTA4NyA5MS4xMDQ0TDcxLjY4MTcgOTEuMDAxOUw3My4xMDA4IDkwLjgwNDhMNzMuMTk1NCA4OS4zNzc5TDczLjQwMDQgOTAuNzk3TDc0LjgxOTQgOTAuODkxNlpNOTIuNTE4NCA2NS40ODIzTDkzLjkyOTUgNjUuMjg1Mkw5Mi41MDI2IDY1LjE4MjhMOTIuMzA1NSA2My43NzE2TDkyLjIxMDkgNjUuMTk4NUw5MC43OTE4IDY1LjM5NTZMOTIuMjE4OCA2NS40OTAyTDkyLjQxNTkgNjYuOTA5M0w5Mi41MTg0IDY1LjQ4MjNaIiBmaWxsPSIjREU4RTJCIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjEuNzA4OCAzOS4wNDgyQzc1LjY3ODcgMTIuODI2OSA5NS44NjkgMTMuOTc4IDk1Ljg2OSAxMy45NzhDOTguODMzMiAzOC4wOTQzIDc5LjUwMjMgNTMuMTIwNiA3OS41MTAyIDUzLjEwNDlDODAuMzY5NiA1NS4wMjA2IDgwLjk0NTEgNTkuMTM1OSA4MC45NDUxIDU5LjEzNTlMODIuMjg1MyA1OC40NjU4TDgzLjkwOTMgNTkuNjE2OEw3My4zODQ2IDczLjExMzhMNzEuNTYzNCA3MS44NjgxQzc2LjYzMjcgNjUuODQ1IDcxLjY1OCA1OS4yMzg0IDcxLjY1OCA1OS4yMzg0QzY3LjYzNzMgNjEuNTQwNSA2My45MDgzIDYyLjQ5NDQgNjMuOTA4MyA2Mi40OTQ0TDYxLjEzMzMgNjYuMzI1OUw1My42Njc0IDYwLjI5NDhMNTYuNDQyNSA1Ny4yMzU5QzU2LjkyMzQgNTEuNTkxMiA1Ny45MjQ2IDQ4LjMzNTIgNTcuOTI0NiA0OC4zMzUyQzQ5LjgzNTkgNDUuNDY1NiA0NC43NjY3IDUxLjc4MDQgNDQuNzY2NyA1MS43ODA0TDQzLjMzMTggNTAuNDQwMkw1NC4xNDgzIDM2Ljc1NEw1NS4yOTkzIDM3LjQyNDJWMzkuMDQ4Mkg2MS43MDg4Wk04Ni40NCAzMi40MTAxQzg2LjQ0IDM1LjIxNDEgODQuMTY2OSAzNy40ODcyIDgxLjM2MjkgMzcuNDg3MkM3OC41NTg5IDM3LjQ4NzIgNzYuMjg1OCAzNS4yMTQxIDc2LjI4NTggMzIuNDEwMUM3Ni4yODU4IDI5LjYwNjEgNzguNTU4OSAyNy4zMzMgODEuMzYyOSAyNy4zMzNDODQuMTY2OSAyNy4zMzMgODYuNDQgMjkuNjA2MSA4Ni40NCAzMi40MTAxWk03Ny43OTE2IDQxLjg0NjlDNzcuNzkxNiA0My43MTA1IDc2LjI4MDkgNDUuMjIxMiA3NC40MTc0IDQ1LjIyMTJDNzIuNTUzOCA0NS4yMjEyIDcxLjA0MzEgNDMuNzEwNSA3MS4wNDMxIDQxLjg0NjlDNzEuMDQzMSAzOS45ODM0IDcyLjU1MzggMzguNDcyNyA3NC40MTc0IDM4LjQ3MjdDNzYuMjgwOSAzOC40NzI3IDc3Ljc5MTYgMzkuOTgzNCA3Ny43OTE2IDQxLjg0NjlaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik05My45MjE3IDE2LjIwOTFDODguOTQ3IDE2LjcwNTggNzQuMzQ2NCAxOS44OTg3IDYzLjYwMDkgNDAuMDU3M0w2Mi45OTM4IDQxLjIwMDVINTMuMzY3OEw0OS40NjU0IDQ2LjEzNTdDNTAuNzI2OCA0NS43MSA1Mi4xNjE2IDQ1LjQyNjIgNTMuNzU0MSA0NS40MjYyQzU1LjM3MDMgNDUuNDI2MiA1Ny4wMTAxIDQ1LjcxNzggNTguNjQyIDQ2LjMwMTJMNjAuNTgxNCA0Ni45OTVMNTkuOTgyMiA0OC45NjU5QzU5Ljk3NDQgNDguOTk3NSA1OS4wMzYyIDUyLjExMTUgNTguNTg2OCA1Ny40MTczTDU4LjUyMzggNTguMTQyNkw1Ni43ODkzIDYwLjA1ODNMNTguNTU1MyA2MS40ODUzQzY0LjMzNDEgMzkuNjQ3NCA3NS41OTIgMjQuMDE0IDkzLjkyOTUgMTYuMzk4M0M5My45Mjk1IDE2LjMyNzMgOTMuOTI5NiAxNi4yNzIxIDkzLjkyMTcgMTYuMjA5MVoiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTgxLjM2MjkgMzUuOTg5M0M4My4zMzk2IDM1Ljk4OTMgODQuOTQyMSAzNC4zODY5IDg0Ljk0MjEgMzIuNDEwMUM4NC45NDIxIDMwLjQzMzQgODMuMzM5NiAyOC44MzA5IDgxLjM2MjkgMjguODMwOUM3OS4zODYyIDI4LjgzMDkgNzcuNzgzNyAzMC40MzM0IDc3Ljc4MzcgMzIuNDEwMUM3Ny43ODM3IDM0LjM4NjkgNzkuMzg2MiAzNS45ODkzIDgxLjM2MjkgMzUuOTg5M1oiIGZpbGw9IiNGRkYzQkQiLz4KPHBhdGggZD0iTTc0LjQxNzQgNDQuMjI3OEM3NS43MzIzIDQ0LjIyNzggNzYuNzk4MiA0My4xNjE5IDc2Ljc5ODIgNDEuODQ2OUM3Ni43OTgyIDQwLjUzMiA3NS43MzIzIDM5LjQ2NiA3NC40MTc0IDM5LjQ2NkM3My4xMDI0IDM5LjQ2NiA3Mi4wMzY1IDQwLjUzMiA3Mi4wMzY1IDQxLjg0NjlDNzIuMDM2NSA0My4xNjE5IDczLjEwMjQgNDQuMjI3OCA3NC40MTc0IDQ0LjIyNzhaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik01NS42OTM1IDYxLjQ3NzRMNTAuNjA4NSA3Mi4xOTkzTDU5Ljk1MDcgNjQuMzM5Mkw1NS42OTM1IDYxLjQ3NzRaIiBmaWxsPSIjNjJDMEI1Ii8+CjxwYXRoIGQ9Ik03OC42MTE1IDUzLjU1NDNDNzguNjExNSA1My41NTQzIDgwLjEzMzEgNTkuMjA2OSA3OS41MTgxIDYxLjQ3NzRMNzcuMzQyMiA2NC4yODRDNzcuMzQyMiA2NC4yODQgNzguMTIyNyA1Ny44MjcyIDc3LjU0NzIgNTQuNzQ0N0w3OC42MTE1IDUzLjU1NDNaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS4xODggMzUuNDI5NkwzMi41ODYzIDM1Ljc5MjJMMzIuNDA1IDM4LjQxNzVMMzIuMDQyNCAzNS44MTU5TDI5LjQyNSAzNS42MzQ2TDMyLjAyNjYgMzUuMjY0TDMyLjIwNzkgMzIuNjQ2NkwzMi41NzA2IDM1LjI0ODNMMzUuMTg4IDM1LjQyOTZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik0zNS41NTA2IDQ5LjQ2MjZMMzQuMTMxNSA0OS42NTk3TDM0LjAzNjkgNTEuMDg2N0wzMy44Mzk4IDQ5LjY2NzZMMzIuNDEyOSA0OS41NzNMMzMuODI0MSA0OS4zNjhMMzMuOTI2NSA0Ny45NDg5TDM0LjEyMzYgNDkuMzYwMUwzNS41NTA2IDQ5LjQ2MjZaIiBmaWxsPSIjRkZGM0JEIi8+CjxwYXRoIGQ9Ik05Mi4wMjE3IDgzLjIxMjhMODkuMDEwMSA4My42Mzg2TDg4LjgwNTEgODYuNjczOEw4OC4zNzk0IDgzLjY2MjJMODUuMzQ0MiA4My40NDkzTDg4LjM1NTggODMuMDMxNUw4OC41Njg2IDc5Ljk5NjNMODguOTk0NCA4My4wMDc4TDkyLjAyMTcgODMuMjEyOFoiIGZpbGw9IiNGRkYzQkQiLz4KPC9zdmc+Cg=="
+  },
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  },
+  "groups": [
+    {
+      "id": "authentication",
+      "label": "Authentication"
+    },
+    {
+      "id": "operation",
+      "label": "Operation"
+    },
+    {
+      "id": "responseMapping",
+      "label": "Response Mapping"
+    },
+    {
+      "id": "acceptContract",
+      "label": "Parameters"
+    },
+    {
+      "id": "deliverContract",
+      "label": "Parameters"
+    },
+    {
+      "id": "fulfillContract",
+      "label": "Parameters"
+    },
+    {
+      "id": "getContract",
+      "label": "Parameters"
+    },
+    {
+      "id": "getContracts",
+      "label": "Parameters"
+    },
+    {
+      "id": "modificationWarning",
+      "label": "Generated (DO NOT MODIFY)"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "value": "io.camunda:http-json:1",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "placeholder",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects"
+      }
+    },
+    {
+      "label": "Operation",
+      "id": "operation",
+      "description": "Specify the operation to call.",
+      "type": "Hidden",
+      "group": "operation",
+      "value": "getContracts",
+      "choices": [
+        {
+          "name": "Reset choice",
+          "value": "-"
+        },
+        {
+          "name": "acceptContract - Accept Contract",
+          "value": "acceptContract"
+        },
+        {
+          "name": "deliverContract - Deliver Cargo to Contract",
+          "value": "deliverContract"
+        },
+        {
+          "name": "fulfillContract - Fulfill Contract",
+          "value": "fulfillContract"
+        },
+        {
+          "name": "getContract - Get Contract",
+          "value": "getContract"
+        },
+        {
+          "name": "getContracts - List Contracts",
+          "value": "getContracts"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "operation"
+      }
+    },
+    {
+      "label": "contractId",
+      "description": "The contract ID to accept.",
+      "type": "String",
+      "feel": "optional",
+      "group": "acceptContract",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.acceptContract_contractId"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\"contracts\": response.body.data,\n \"contract\" : response.body.data[1],\n\"meta\": response.body.meta}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/contracts\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getContracts_page,\n\t\"limit\": objects.getContracts_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "acceptContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "contractId",
+      "description": "The ID of the contract.",
+      "type": "String",
+      "feel": "optional",
+      "group": "deliverContract",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.deliverContract_contractId"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "ship symbol",
+      "description": "Symbol of a ship located in the destination to deliver a contract and that has a good to deliver in its cargo.",
+      "type": "String",
+      "feel": "optional",
+      "value": "null",
+      "group": "deliverContract",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.deliverContract_deliverContractRequest.shipSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "trade symbol",
+      "description": "The symbol of the good to deliver.",
+      "type": "String",
+      "feel": "optional",
+      "value": "null",
+      "group": "deliverContract",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.deliverContract_deliverContractRequest.tradeSymbol"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "units",
+      "description": "Amount of units to deliver.",
+      "type": "Text",
+      "feel": "optional",
+      "group": "deliverContract",
+      "value": "0",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.deliverContract_deliverContractRequest.units"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\"contracts\": response.body.data,\n \"contract\" : response.body.data[1],\n\"meta\": response.body.meta}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/contracts\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getContracts_page,\n\t\"limit\": objects.getContracts_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "= objects.deliverContract_deliverContractRequest",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "deliverContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "contractId",
+      "description": "The ID of the contract to fulfill.",
+      "type": "String",
+      "feel": "optional",
+      "group": "fulfillContract",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.fulfillContract_contractId"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\"contracts\": response.body.data,\n \"contract\" : response.body.data[1],\n\"meta\": response.body.meta}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/contracts\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getContracts_page,\n\t\"limit\": objects.getContracts_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "Request Body",
+      "description": "JSON payload to send with the request",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "=",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "fulfillContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "contractId",
+      "description": "The contract ID",
+      "type": "String",
+      "feel": "optional",
+      "group": "getContract",
+      "value": "null",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getContract_contractId"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\"contracts\": response.body.data,\n \"contract\" : response.body.data[1],\n\"meta\": response.body.meta}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Dropdown",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "optional",
+      "value": "=\"https://api.spacetraders.io/v2/my/contracts\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "String",
+      "feel": "required",
+      "value": "={\n\t\"page\": objects.getContracts_page,\n\t\"limit\": objects.getContracts_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContract"
+      },
+      "optional": true
+    },
+    {
+      "label": "page",
+      "description": "What entry offset to request",
+      "type": "Hidden",
+      "group": "getContracts",
+      "value": "1",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getContracts_page"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "limit",
+      "description": "How many entries to return per page",
+      "type": "Hidden",
+      "group": "getContracts",
+      "value": "10",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "objects.getContracts_limit"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },
+    {
+      "label": "Result Expression",
+      "description": "Expression to map the response into process variables",
+      "group": "responseMapping",
+      "type": "Text",
+      "feel": "required",
+      "value": "={\"contracts\": response.body.data,\n \"contract\" : response.body.data[1],\n\"meta\": response.body.meta}",
+      "binding": {
+        "type": "zeebe:taskHeader",
+        "key": "resultExpression"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      }
+    },
+    {
+      "type": "Hidden",
+      "value": "bearer",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.type"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      }
+    },
+    {
+      "label": "API Bearer Token (Bearer Authentication)",
+      "group": "authentication",
+      "type": "String",
+      "feel": "optional",
+      "value": "=token",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "authentication.token"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      }
+    },
+    {
+      "label": "Method",
+      "group": "modificationWarning",
+      "type": "Hidden",
+      "value": "get",
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      },
+      "choices": [
+        {
+          "name": "GET",
+          "value": "get"
+        },
+        {
+          "name": "POST",
+          "value": "post"
+        },
+        {
+          "name": "PATCH",
+          "value": "patch"
+        },
+        {
+          "name": "PUT",
+          "value": "put"
+        },
+        {
+          "name": "DELETE",
+          "value": "delete"
+        }
+      ],
+      "binding": {
+        "type": "zeebe:input",
+        "name": "method"
+      }
+    },
+    {
+      "label": "URL",
+      "group": "modificationWarning",
+      "type": "Hidden",
+      "value": "=\"https://api.spacetraders.io/v2/my/contracts\"",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "url"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "description": "FEEL map containing the query parameters",
+      "group": "modificationWarning",
+      "type": "Hidden",
+      "value": "={\n\t\"page\": objects.getContracts_page,\n\t\"limit\": objects.getContracts_limit\n}",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "queryParameters"
+      },
+      "condition": {
+        "property": "operation",
+        "equals": "getContracts"
+      },
+      "optional": true
+    }
+  ],
+  "category": {
+    "id": "connectors",
+    "name": "Connectors"
+  }
+}
