@@ -5,6 +5,8 @@ especially the REST connector. The SDK eases the usage by providing connector te
 
 The connector templates are generated from the SpaceTraders OpenAPI. See the [openapi](/openapi) module for details.
 
+![SDK modeler demo](../assets/space-traders-sdk-demo-modeler.gif)
+
 ## Install
 
 ### Publish the templates
@@ -27,8 +29,6 @@ per [SpaceTraders API](https://spacetraders.stoplight.io/docs/spacetraders/11f27
 - **Systems**: get details about a star system (e.g. waypoints, shipyard, market)
 - **Fleet**: get details about a ship, interact with a ship (e.g. dock, orbit, navigate, extract resources, sell cargo)
 - **Factions**: get details about a faction
-
-![SDK modeler demo](../assets/space-traders-sdk-demo-modeler.gif)
 
 ### Add a connector to your process
 
