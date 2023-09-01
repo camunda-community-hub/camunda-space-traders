@@ -21,12 +21,14 @@ The connector templates are generated from the SpaceTraders OpenAPI. See the [op
 There is one connector
 per [SpaceTraders API](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api):
 
-- Game/Default: register a new agent, get server status
-- Agents: get details about an agent
-- Contracts: get details about a contract, interact with a contract (e.g. accept, deliver, fulfill)
-- Systems: get details about a star system (e.g. waypoints, shipyard, market)
-- Fleet: get details about a ship, interact with a ship (e.g. dock, orbit, navigate, extract resources, sell cargo)
-- Factions: get details about a faction
+- **Game/Default**: register a new agent, get server status
+- **Agents**: get details about an agent
+- **Contracts**: get details about a contract, interact with a contract (e.g. accept, deliver, fulfill)
+- **Systems**: get details about a star system (e.g. waypoints, shipyard, market)
+- **Fleet**: get details about a ship, interact with a ship (e.g. dock, orbit, navigate, extract resources, sell cargo)
+- **Factions**: get details about a faction
+
+![SDK modeler demo](../assets/space-traders-sdk-demo-modeler.gif)
 
 ### Add a connector to your process
 
