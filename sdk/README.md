@@ -21,7 +21,7 @@ The connector templates are generated from the SpaceTraders OpenAPI. See the [op
 There is one connector
 per [SpaceTraders API](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api):
 
-- Default: register a new agent, get server status
+- Game/Default: register a new agent, get server status
 - Agents: get details about an agent
 - Contracts: get details about a contract, interact with a contract (e.g. accept, deliver, fulfill)
 - Systems: get details about a star system (e.g. waypoints, shipyard, market)
@@ -31,7 +31,7 @@ per [SpaceTraders API](https://spacetraders.stoplight.io/docs/spacetraders/11f27
 ### Add a connector to your process
 
 1. Add a new task to your process
-2. Select one of the SpaceTraders connectors as the task type (e.g. `SpaceTraders-API-Fleet`)
+2. Select one of the SpaceTraders connectors as the task type (e.g. `SpaceTraders Fleet`)
 3. Select the operation for the connector (e.g. `getMyShip - Get Ship`)
 4. Fill the required parameters (e.g. `shipSymbol`)
 5. Optionally, adjust the result expression to customize the resulting process variables
