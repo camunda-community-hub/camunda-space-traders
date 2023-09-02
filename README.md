@@ -44,6 +44,11 @@ The challenge includes the following stages:
 
 - Accept your first contract.
 - Purchase your first ship.
+- Arrive at an asteroid field.
 - Mine your first ore.
 - Deliver your first goods to the contract.
-- Fulfill your first contract. (This is not easy to reach and requires an advanced strategy.)
+- Deliver 10/25/50/75 % of your contract goods.
+- Fulfill your first contract. 
+
+Note that delivering 10% or more of your contract goods is not easy to reach. You may need to optimize your process and 
+consider advanced strategies.  

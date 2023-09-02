@@ -59,6 +59,11 @@
           <zeebe:output source="=false" target="first_ore_mined" />
           <zeebe:output source="=false" target="first_contract_goods_delivered" />
           <zeebe:output source="=false" target="first_contract_fulfilled" />
+          <zeebe:output source="=false" target="first_asteroid_field_visited" />
+          <zeebe:output source="=false" target="contract_fufilled_10" />
+          <zeebe:output source="=false" target="contract_fufilled_25" />
+          <zeebe:output source="=false" target="contract_fufilled_50" />
+          <zeebe:output source="=false" target="contract_fufilled_75" />
         </zeebe:ioMapping>
         <zeebe:properties>
           <zeebe:property name="publicAccess" value="true" />
@@ -133,7 +138,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1sndc58" sourceRef="Event_0dqcxnk" targetRef="Event_195c4gb" />
     <bpmn:subProcess id="Activity_1lxim9c" triggeredByEvent="true">
-      <bpmn:startEvent id="Event_1g3nm4p" isInterrupting="false">
+      <bpmn:startEvent id="Event_1g3nm4p" name="Every minute" isInterrupting="false">
         <bpmn:outgoing>Flow_02bkoye</bpmn:outgoing>
         <bpmn:timerEventDefinition id="TimerEventDefinition_0cu8wq9">
           <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R/PT1M</bpmn:timeCycle>
@@ -145,6 +150,11 @@
         <bpmn:outgoing>Flow_02clum5</bpmn:outgoing>
         <bpmn:outgoing>Flow_0ap4bl5</bpmn:outgoing>
         <bpmn:outgoing>Flow_1fs0o7e</bpmn:outgoing>
+        <bpmn:outgoing>Flow_10gxxei</bpmn:outgoing>
+        <bpmn:outgoing>Flow_0h3gfx3</bpmn:outgoing>
+        <bpmn:outgoing>Flow_0notknd</bpmn:outgoing>
+        <bpmn:outgoing>Flow_1o7hjid</bpmn:outgoing>
+        <bpmn:outgoing>Flow_1km0jk5</bpmn:outgoing>
       </bpmn:inclusiveGateway>
       <bpmn:sequenceFlow id="Flow_02clum5" name="contract not yet accepted" sourceRef="Gateway_1kilxbg" targetRef="Activity_1t1bkz8">
         <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_contract_accepted = false</bpmn:conditionExpression>
@@ -170,9 +180,6 @@
         <bpmn:incoming>Flow_02clum5</bpmn:incoming>
         <bpmn:outgoing>Flow_19t1ddu</bpmn:outgoing>
       </bpmn:serviceTask>
-      <bpmn:endEvent id="Event_1deqn7v">
-        <bpmn:incoming>Flow_0ap4bl5</bpmn:incoming>
-      </bpmn:endEvent>
       <bpmn:sequenceFlow id="Flow_0ap4bl5" sourceRef="Gateway_1kilxbg" targetRef="Event_1deqn7v" />
       <bpmn:exclusiveGateway id="Gateway_1lxotbl" name="Contract accepted?" default="Flow_1qwewei">
         <bpmn:incoming>Flow_19t1ddu</bpmn:incoming>
@@ -256,8 +263,301 @@
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="Flow_1pa6gwo" sourceRef="Activity_0jckw0e" targetRef="Event_0m2oszj" />
       <bpmn:sequenceFlow id="Flow_0uxk1q1" name="No" sourceRef="Gateway_1uom2ux" targetRef="Event_0m2oszj" />
+      <bpmn:serviceTask id="Activity_17z8jnk" name="Check ship navigation" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:http-json:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="placeholder" target="objects" />
+            <zeebe:input source="1" target="objects.getMyShips_page" />
+            <zeebe:input source="10" target="objects.getMyShips_limit" />
+            <zeebe:input source="bearer" target="authentication.type" />
+            <zeebe:input source="=token" target="authentication.token" />
+            <zeebe:input source="get" target="method" />
+            <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships&#34;" target="url" />
+            <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders>
+            <zeebe:header key="operation" value="getMyShips" />
+            <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta,&#10;    &#34;first_asteroid_field_visited&#34;: some destination in ships.nav.route.destination satisfies destination.type = &#34;ASTEROID_FIELD&#34;&#10;}" />
+          </zeebe:taskHeaders>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_10gxxei</bpmn:incoming>
+        <bpmn:outgoing>Flow_1fv6fxq</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_10gxxei" name="asteroid field not yet visited" sourceRef="Gateway_1kilxbg" targetRef="Activity_17z8jnk">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_asteroid_field_visited = false</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:exclusiveGateway id="Gateway_19fxtpg" name="Asteroid field visited?" default="Flow_1uxahx4">
+        <bpmn:incoming>Flow_1fv6fxq</bpmn:incoming>
+        <bpmn:outgoing>Flow_1fn45d3</bpmn:outgoing>
+        <bpmn:outgoing>Flow_1uxahx4</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:sequenceFlow id="Flow_1fv6fxq" sourceRef="Activity_17z8jnk" targetRef="Gateway_19fxtpg" />
+      <bpmn:serviceTask id="Activity_0b7tyox" name="Congrats the player" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20%20viewBox%3D%220%200%20127%20127%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M27.2%2080c0%207.3-5.9%2013.2-13.2%2013.2C6.7%2093.2.8%2087.3.8%2080c0-7.3%205.9-13.2%2013.2-13.2h13.2V80zm6.6%200c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2v33c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V80z%22%20fill%3D%22%23E01E5A%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M47%2027c-7.3%200-13.2-5.9-13.2-13.2C33.8%206.5%2039.7.6%2047%20.6c7.3%200%2013.2%205.9%2013.2%2013.2V27H47zm0%206.7c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H13.9C6.6%2060.1.7%2054.2.7%2046.9c0-7.3%205.9-13.2%2013.2-13.2H47z%22%20fill%3D%22%2336C5F0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99.9%2046.9c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H99.9V46.9zm-6.6%200c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V13.8C66.9%206.5%2072.8.6%2080.1.6c7.3%200%2013.2%205.9%2013.2%2013.2v33.1z%22%20fill%3D%22%232EB67D%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M80.1%2099.8c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3%200-13.2-5.9-13.2-13.2%200-7.3%205.9-13.2%2013.2-13.2h33.1c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H80.1z%22%20fill%3D%22%23ECB22E%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:slack:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="chat.postMessage" target="method" />
+            <zeebe:input source="secrets.SLACK_TOKEN" target="token" />
+            <zeebe:input source="=&#34;{{secrets.SLACK_CHANNEL}}&#34;" target="data.channel" />
+            <zeebe:input source="=&#34;Agent `&#34; + agent.symbol + &#34;` arrived at an asteroid field. :tada:&#34;" target="data.text" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_1fn45d3</bpmn:incoming>
+        <bpmn:outgoing>Flow_0gsei16</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_1fn45d3" name="Yes" sourceRef="Gateway_19fxtpg" targetRef="Activity_0b7tyox">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_asteroid_field_visited</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:endEvent id="Event_1ct0k50">
+        <bpmn:incoming>Flow_0gsei16</bpmn:incoming>
+        <bpmn:incoming>Flow_1uxahx4</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0gsei16" sourceRef="Activity_0b7tyox" targetRef="Event_1ct0k50" />
+      <bpmn:sequenceFlow id="Flow_1uxahx4" name="No" sourceRef="Gateway_19fxtpg" targetRef="Event_1ct0k50" />
+      <bpmn:sequenceFlow id="Flow_0h3gfx3" name="ore not yet mined" sourceRef="Gateway_1kilxbg" targetRef="Activity_04lg3r7">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_ore_mined = false</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:serviceTask id="Activity_04lg3r7" name="Check ship cargo" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:http-json:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="placeholder" target="objects" />
+            <zeebe:input source="1" target="objects.getMyShips_page" />
+            <zeebe:input source="10" target="objects.getMyShips_limit" />
+            <zeebe:input source="bearer" target="authentication.type" />
+            <zeebe:input source="=token" target="authentication.token" />
+            <zeebe:input source="get" target="method" />
+            <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships&#34;" target="url" />
+            <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders>
+            <zeebe:header key="operation" value="getMyShips" />
+            <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta,&#10;    &#34;cargo&#34;: ships.cargo[units &#62; 0],&#10;    &#34;first_ore_mined&#34;: count(cargo) &#62; 0,&#10;    &#34;mined_ore&#34;: string join(flatten(cargo.inventory.symbol), &#34;, &#34;)&#10;}" />
+          </zeebe:taskHeaders>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_0h3gfx3</bpmn:incoming>
+        <bpmn:outgoing>Flow_0sv5atp</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:exclusiveGateway id="Gateway_13cgki2" name="Ore mined?" default="Flow_0lnq302">
+        <bpmn:incoming>Flow_0sv5atp</bpmn:incoming>
+        <bpmn:outgoing>Flow_18ox64c</bpmn:outgoing>
+        <bpmn:outgoing>Flow_0lnq302</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:sequenceFlow id="Flow_0sv5atp" sourceRef="Activity_04lg3r7" targetRef="Gateway_13cgki2" />
+      <bpmn:serviceTask id="Activity_1o47s2h" name="Congrats the player" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20%20viewBox%3D%220%200%20127%20127%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M27.2%2080c0%207.3-5.9%2013.2-13.2%2013.2C6.7%2093.2.8%2087.3.8%2080c0-7.3%205.9-13.2%2013.2-13.2h13.2V80zm6.6%200c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2v33c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V80z%22%20fill%3D%22%23E01E5A%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M47%2027c-7.3%200-13.2-5.9-13.2-13.2C33.8%206.5%2039.7.6%2047%20.6c7.3%200%2013.2%205.9%2013.2%2013.2V27H47zm0%206.7c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H13.9C6.6%2060.1.7%2054.2.7%2046.9c0-7.3%205.9-13.2%2013.2-13.2H47z%22%20fill%3D%22%2336C5F0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99.9%2046.9c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H99.9V46.9zm-6.6%200c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V13.8C66.9%206.5%2072.8.6%2080.1.6c7.3%200%2013.2%205.9%2013.2%2013.2v33.1z%22%20fill%3D%22%232EB67D%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M80.1%2099.8c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3%200-13.2-5.9-13.2-13.2%200-7.3%205.9-13.2%2013.2-13.2h33.1c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H80.1z%22%20fill%3D%22%23ECB22E%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:slack:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="chat.postMessage" target="method" />
+            <zeebe:input source="secrets.SLACK_TOKEN" target="token" />
+            <zeebe:input source="=&#34;{{secrets.SLACK_CHANNEL}}&#34;" target="data.channel" />
+            <zeebe:input source="=&#34;Agent `&#34; + agent.symbol + &#34;` mined the first ore of type `&#34; + mined_ore + &#34;`. :tada:&#34;" target="data.text" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_18ox64c</bpmn:incoming>
+        <bpmn:outgoing>Flow_0ukaipp</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_18ox64c" name="Yes" sourceRef="Gateway_13cgki2" targetRef="Activity_1o47s2h">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_ore_mined</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:endEvent id="Event_1al4c6a">
+        <bpmn:incoming>Flow_0ukaipp</bpmn:incoming>
+        <bpmn:incoming>Flow_0lnq302</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0ukaipp" sourceRef="Activity_1o47s2h" targetRef="Event_1al4c6a" />
+      <bpmn:sequenceFlow id="Flow_0lnq302" name="No" sourceRef="Gateway_13cgki2" targetRef="Event_1al4c6a" />
+      <bpmn:serviceTask id="Activity_02b5kg0" name="Check contracts" zeebe:modelerTemplate="b03371d9-e2ce-4993-8230-1150f61b66a8" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:http-json:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="placeholder" target="objects" />
+            <zeebe:input source="1" target="objects.getContracts_page" />
+            <zeebe:input source="10" target="objects.getContracts_limit" />
+            <zeebe:input source="bearer" target="authentication.type" />
+            <zeebe:input source="=token" target="authentication.token" />
+            <zeebe:input source="get" target="method" />
+            <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts&#34;" target="url" />
+            <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders>
+            <zeebe:header key="operation" value="getContracts" />
+            <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10; &#34;delivered&#34;: flatten(contracts.terms.deliver)[unitsFulfilled &#62; 0],&#10; &#34;first_contract_goods_delivered&#34;: count(delivered) &#62; 0,&#10; &#34;goods_delivered&#34;: string join(for deliver in delivered return string(deliver.unitsFulfilled) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
+          </zeebe:taskHeaders>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_0notknd</bpmn:incoming>
+        <bpmn:outgoing>Flow_0wclgpj</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_0notknd" name="contract goods not yet delivered" sourceRef="Gateway_1kilxbg" targetRef="Activity_02b5kg0">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_contract_goods_delivered = false</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:exclusiveGateway id="Gateway_0cx17c4" name="Goods delivered?" default="Flow_1wfe1oj">
+        <bpmn:incoming>Flow_0wclgpj</bpmn:incoming>
+        <bpmn:outgoing>Flow_19afrch</bpmn:outgoing>
+        <bpmn:outgoing>Flow_1wfe1oj</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:sequenceFlow id="Flow_0wclgpj" sourceRef="Activity_02b5kg0" targetRef="Gateway_0cx17c4" />
+      <bpmn:serviceTask id="Activity_0838ohf" name="Congrats the player" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20%20viewBox%3D%220%200%20127%20127%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M27.2%2080c0%207.3-5.9%2013.2-13.2%2013.2C6.7%2093.2.8%2087.3.8%2080c0-7.3%205.9-13.2%2013.2-13.2h13.2V80zm6.6%200c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2v33c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V80z%22%20fill%3D%22%23E01E5A%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M47%2027c-7.3%200-13.2-5.9-13.2-13.2C33.8%206.5%2039.7.6%2047%20.6c7.3%200%2013.2%205.9%2013.2%2013.2V27H47zm0%206.7c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H13.9C6.6%2060.1.7%2054.2.7%2046.9c0-7.3%205.9-13.2%2013.2-13.2H47z%22%20fill%3D%22%2336C5F0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99.9%2046.9c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H99.9V46.9zm-6.6%200c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V13.8C66.9%206.5%2072.8.6%2080.1.6c7.3%200%2013.2%205.9%2013.2%2013.2v33.1z%22%20fill%3D%22%232EB67D%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M80.1%2099.8c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3%200-13.2-5.9-13.2-13.2%200-7.3%205.9-13.2%2013.2-13.2h33.1c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H80.1z%22%20fill%3D%22%23ECB22E%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:slack:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="chat.postMessage" target="method" />
+            <zeebe:input source="secrets.SLACK_TOKEN" target="token" />
+            <zeebe:input source="=&#34;{{secrets.SLACK_CHANNEL}}&#34;" target="data.channel" />
+            <zeebe:input source="=&#34;Agent `&#34; + agent.symbol + &#34;` delivered the first goods `&#34; + goods_delivered + &#34;` to the contract. :tada:&#34;" target="data.text" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_19afrch</bpmn:incoming>
+        <bpmn:outgoing>Flow_0rsze2p</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_19afrch" name="Yes" sourceRef="Gateway_0cx17c4" targetRef="Activity_0838ohf">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_contract_goods_delivered</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:endEvent id="Event_0j824ys">
+        <bpmn:incoming>Flow_0rsze2p</bpmn:incoming>
+        <bpmn:incoming>Flow_1wfe1oj</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0rsze2p" sourceRef="Activity_0838ohf" targetRef="Event_0j824ys" />
+      <bpmn:sequenceFlow id="Flow_1wfe1oj" name="No" sourceRef="Gateway_0cx17c4" targetRef="Event_0j824ys" />
+      <bpmn:serviceTask id="Activity_14arwqc" name="Check contracts" zeebe:modelerTemplate="b03371d9-e2ce-4993-8230-1150f61b66a8" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:http-json:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="placeholder" target="objects" />
+            <zeebe:input source="1" target="objects.getContracts_page" />
+            <zeebe:input source="10" target="objects.getContracts_limit" />
+            <zeebe:input source="bearer" target="authentication.type" />
+            <zeebe:input source="=token" target="authentication.token" />
+            <zeebe:input source="get" target="method" />
+            <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts&#34;" target="url" />
+            <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders>
+            <zeebe:header key="operation" value="getContracts" />
+            <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10;&#34;first_contract_fulfilled&#34;: some contract in contracts satisfies contract.fulfilled = true,&#10; &#34;contract_fulfilled_goods&#34;: string join(for deliver in flatten(contracts[fulfilled = true].terms.deliver) return string(deliver.unitsFulfilled) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
+          </zeebe:taskHeaders>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_1o7hjid</bpmn:incoming>
+        <bpmn:outgoing>Flow_0kgtwjh</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_1o7hjid" name="contract not yet fulfilled" sourceRef="Gateway_1kilxbg" targetRef="Activity_14arwqc">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_contract_fulfilled</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:exclusiveGateway id="Gateway_1oy9pra" name="Contract fulfilled?" default="Flow_064b6mj">
+        <bpmn:incoming>Flow_0kgtwjh</bpmn:incoming>
+        <bpmn:outgoing>Flow_04vg40d</bpmn:outgoing>
+        <bpmn:outgoing>Flow_064b6mj</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:sequenceFlow id="Flow_0kgtwjh" sourceRef="Activity_14arwqc" targetRef="Gateway_1oy9pra" />
+      <bpmn:serviceTask id="Activity_116n64e" name="Congrats the player" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20%20viewBox%3D%220%200%20127%20127%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M27.2%2080c0%207.3-5.9%2013.2-13.2%2013.2C6.7%2093.2.8%2087.3.8%2080c0-7.3%205.9-13.2%2013.2-13.2h13.2V80zm6.6%200c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2v33c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V80z%22%20fill%3D%22%23E01E5A%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M47%2027c-7.3%200-13.2-5.9-13.2-13.2C33.8%206.5%2039.7.6%2047%20.6c7.3%200%2013.2%205.9%2013.2%2013.2V27H47zm0%206.7c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H13.9C6.6%2060.1.7%2054.2.7%2046.9c0-7.3%205.9-13.2%2013.2-13.2H47z%22%20fill%3D%22%2336C5F0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99.9%2046.9c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H99.9V46.9zm-6.6%200c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V13.8C66.9%206.5%2072.8.6%2080.1.6c7.3%200%2013.2%205.9%2013.2%2013.2v33.1z%22%20fill%3D%22%232EB67D%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M80.1%2099.8c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3%200-13.2-5.9-13.2-13.2%200-7.3%205.9-13.2%2013.2-13.2h33.1c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H80.1z%22%20fill%3D%22%23ECB22E%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:slack:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="chat.postMessage" target="method" />
+            <zeebe:input source="secrets.SLACK_TOKEN" target="token" />
+            <zeebe:input source="=&#34;{{secrets.SLACK_CHANNEL}}&#34;" target="data.channel" />
+            <zeebe:input source="=&#34;Agent `&#34; + agent.symbol + &#34;` fulfilled the first contract and delivered `&#34; + contract_fulfilled_goods + &#34;`. :tada:&#34;" target="data.text" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_04vg40d</bpmn:incoming>
+        <bpmn:outgoing>Flow_0l3n8hg</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_04vg40d" name="Yes" sourceRef="Gateway_1oy9pra" targetRef="Activity_116n64e">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=first_contract_fulfilled</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:endEvent id="Event_0rb1cbj">
+        <bpmn:incoming>Flow_0l3n8hg</bpmn:incoming>
+        <bpmn:incoming>Flow_064b6mj</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0l3n8hg" sourceRef="Activity_116n64e" targetRef="Event_0rb1cbj" />
+      <bpmn:sequenceFlow id="Flow_064b6mj" name="No" sourceRef="Gateway_1oy9pra" targetRef="Event_0rb1cbj" />
+      <bpmn:endEvent id="Event_1deqn7v" name="All challenges fulfilled">
+        <bpmn:incoming>Flow_0ap4bl5</bpmn:incoming>
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_0d27tnf" errorRef="Error_0r44bnx" />
+      </bpmn:endEvent>
+      <bpmn:serviceTask id="Activity_1mh5pt5" name="Check contracts" zeebe:modelerTemplate="b03371d9-e2ce-4993-8230-1150f61b66a8" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:http-json:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="placeholder" target="objects" />
+            <zeebe:input source="1" target="objects.getContracts_page" />
+            <zeebe:input source="10" target="objects.getContracts_limit" />
+            <zeebe:input source="bearer" target="authentication.type" />
+            <zeebe:input source="=token" target="authentication.token" />
+            <zeebe:input source="get" target="method" />
+            <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts&#34;" target="url" />
+            <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders>
+            <zeebe:header key="operation" value="getContracts" />
+            <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10; &#34;contacts_fulfillment&#34;: decimal(mean(for contract in contracts return sum(contract.terms.deliver.unitsFulfilled) / sum(contract.terms.deliver.unitsRequired)) * 100, 0),&#10;&#34;contract_fufilled_10_new&#34;: contacts_fulfillment &#62;= 10,&#10;&#34;contract_fufilled_25_new&#34;: contacts_fulfillment &#62;= 25,&#10;&#34;contract_fufilled_50_new&#34;: contacts_fulfillment &#62;= 50,&#10;&#34;contract_fufilled_75_new&#34;: contacts_fulfillment &#62;= 75,&#10; &#34;contract_goods_delivered&#34;: string join(for deliver in delivered return string(deliver.unitsFulfilled) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
+          </zeebe:taskHeaders>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_1km0jk5</bpmn:incoming>
+        <bpmn:outgoing>Flow_0ogmfja</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_1km0jk5" name="contract fulfillment stages not yet reached" sourceRef="Gateway_1kilxbg" targetRef="Activity_1mh5pt5">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=contract_fufilled_10 = false or contract_fufilled_25 = false or contract_fufilled_50 = false or contract_fufilled_75 = false</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:exclusiveGateway id="Gateway_1iept9g" name="Milestone reached?" default="Flow_0nvhnut">
+        <bpmn:incoming>Flow_0ogmfja</bpmn:incoming>
+        <bpmn:outgoing>Flow_1wgt97u</bpmn:outgoing>
+        <bpmn:outgoing>Flow_0nvhnut</bpmn:outgoing>
+      </bpmn:exclusiveGateway>
+      <bpmn:sequenceFlow id="Flow_0ogmfja" sourceRef="Activity_1mh5pt5" targetRef="Gateway_1iept9g" />
+      <bpmn:serviceTask id="Activity_148ezzj" name="Congrats the player" zeebe:modelerTemplate="io.camunda.connectors.Slack.v1" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20%20viewBox%3D%220%200%20127%20127%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M27.2%2080c0%207.3-5.9%2013.2-13.2%2013.2C6.7%2093.2.8%2087.3.8%2080c0-7.3%205.9-13.2%2013.2-13.2h13.2V80zm6.6%200c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2v33c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V80z%22%20fill%3D%22%23E01E5A%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M47%2027c-7.3%200-13.2-5.9-13.2-13.2C33.8%206.5%2039.7.6%2047%20.6c7.3%200%2013.2%205.9%2013.2%2013.2V27H47zm0%206.7c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H13.9C6.6%2060.1.7%2054.2.7%2046.9c0-7.3%205.9-13.2%2013.2-13.2H47z%22%20fill%3D%22%2336C5F0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99.9%2046.9c0-7.3%205.9-13.2%2013.2-13.2%207.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H99.9V46.9zm-6.6%200c0%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V13.8C66.9%206.5%2072.8.6%2080.1.6c7.3%200%2013.2%205.9%2013.2%2013.2v33.1z%22%20fill%3D%22%232EB67D%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M80.1%2099.8c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2-7.3%200-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3%200-13.2-5.9-13.2-13.2%200-7.3%205.9-13.2%2013.2-13.2h33.1c7.3%200%2013.2%205.9%2013.2%2013.2%200%207.3-5.9%2013.2-13.2%2013.2H80.1z%22%20fill%3D%22%23ECB22E%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+        <bpmn:extensionElements>
+          <zeebe:taskDefinition type="io.camunda:slack:1" />
+          <zeebe:ioMapping>
+            <zeebe:input source="chat.postMessage" target="method" />
+            <zeebe:input source="secrets.SLACK_TOKEN" target="token" />
+            <zeebe:input source="=&#34;{{secrets.SLACK_CHANNEL}}&#34;" target="data.channel" />
+            <zeebe:input source="=&#34;Agent `&#34; + agent.symbol + &#34;` delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + contacts_fulfillment + &#34;% of the contract. :tada:&#34;" target="data.text" />
+          </zeebe:ioMapping>
+          <zeebe:taskHeaders />
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_1wgt97u</bpmn:incoming>
+        <bpmn:outgoing>Flow_0ovqc3d</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_1wgt97u" name="Yes" sourceRef="Gateway_1iept9g" targetRef="Activity_148ezzj">
+        <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=any(contract_fufilled_10 != contract_fufilled_10_new, contract_fufilled_25 != contract_fufilled_25_new, contract_fufilled_50 != contract_fufilled_50_new, contract_fufilled_75 != contract_fufilled_75_new)</bpmn:conditionExpression>
+      </bpmn:sequenceFlow>
+      <bpmn:endEvent id="Event_0sbivrd">
+        <bpmn:incoming>Flow_0nvhnut</bpmn:incoming>
+        <bpmn:incoming>Flow_08qu5xl</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0ovqc3d" sourceRef="Activity_148ezzj" targetRef="Event_0sscp1e" />
+      <bpmn:sequenceFlow id="Flow_0nvhnut" name="No" sourceRef="Gateway_1iept9g" targetRef="Event_0sbivrd" />
+      <bpmn:intermediateThrowEvent id="Event_0sscp1e" name="Update fulfillment">
+        <bpmn:extensionElements>
+          <zeebe:ioMapping>
+            <zeebe:output source="=contract_fufilled_10_new" target="contract_fufilled_10" />
+            <zeebe:output source="=contract_fufilled_25_new" target="contract_fufilled_25" />
+            <zeebe:output source="=contract_fufilled_50_new" target="contract_fufilled_50" />
+            <zeebe:output source="=contract_fufilled_75_new" target="contract_fufilled_75" />
+          </zeebe:ioMapping>
+        </bpmn:extensionElements>
+        <bpmn:incoming>Flow_0ovqc3d</bpmn:incoming>
+        <bpmn:outgoing>Flow_08qu5xl</bpmn:outgoing>
+      </bpmn:intermediateThrowEvent>
+      <bpmn:sequenceFlow id="Flow_08qu5xl" sourceRef="Event_0sscp1e" targetRef="Event_0sbivrd" />
+    </bpmn:subProcess>
+    <bpmn:subProcess id="Activity_00h8cva" triggeredByEvent="true">
+      <bpmn:startEvent id="Event_0yo94xo" name="All challenges fulfilled">
+        <bpmn:outgoing>Flow_0zolliy</bpmn:outgoing>
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_1txkyj8" errorRef="Error_0r44bnx" />
+      </bpmn:startEvent>
+      <bpmn:endEvent id="Event_1yatjf1" name="Challenge process completed">
+        <bpmn:incoming>Flow_0zolliy</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0zolliy" sourceRef="Event_0yo94xo" targetRef="Event_1yatjf1" />
     </bpmn:subProcess>
   </bpmn:process>
+  <bpmn:error id="Error_0r44bnx" name="All challenges fulfilled" errorCode="all-challenges-fulfilled" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-challenge">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
@@ -266,9 +566,6 @@
           <dc:Bounds x="136" y="143" width="65" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0n9lwel_di" bpmnElement="Activity_1dsbirm">
-        <dc:Bounds x="260" y="78" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0yuzqn1_di" bpmnElement="Activity_1dppjfm">
         <dc:Bounds x="420" y="78" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -276,6 +573,9 @@
       <bpmndi:BPMNShape id="Activity_0bcvy0w_di" bpmnElement="Activity_000hzcd">
         <dc:Bounds x="580" y="78" width="100" height="80" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0n9lwel_di" bpmnElement="Activity_1dsbirm">
+        <dc:Bounds x="260" y="78" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_13a7v7a_di" bpmnElement="Event_0dqcxnk">
         <dc:Bounds x="742" y="100" width="36" height="36" />
@@ -290,10 +590,13 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1ec0w70_di" bpmnElement="Activity_1lxim9c" isExpanded="true">
-        <dc:Bounds x="150" y="250" width="870" height="520" />
+        <dc:Bounds x="150" y="250" width="960" height="1390" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_17ttxdr_di" bpmnElement="Event_1g3nm4p">
         <dc:Bounds x="190" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="176" y="395" width="65" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1gep2z0_di" bpmnElement="Gateway_1kilxbg">
         <dc:Bounds x="285" y="345" width="50" height="50" />
@@ -308,14 +611,8 @@
           <dc:Bounds x="655" y="402" width="51" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0w8kdu5_di" bpmnElement="Event_0w8kdu5">
-        <dc:Bounds x="952" y="352" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0omc37v_di" bpmnElement="Activity_0es2zpn">
         <dc:Bounds x="770" y="330" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1deqn7v_di" bpmnElement="Event_1deqn7v">
-        <dc:Bounds x="492" y="672" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_10g43zn_di" bpmnElement="Activity_052vd5x">
         <dc:Bounds x="490" y="520" width="100" height="80" />
@@ -329,8 +626,99 @@
       <bpmndi:BPMNShape id="BPMNShape_0v7zeas" bpmnElement="Activity_0jckw0e">
         <dc:Bounds x="770" y="520" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0owk131_di" bpmnElement="Activity_17z8jnk">
+        <dc:Bounds x="490" y="680" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_19fxtpg_di" bpmnElement="Gateway_19fxtpg" isMarkerVisible="true">
+        <dc:Bounds x="655" y="695" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="648" y="752" width="64" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1sozrgu" bpmnElement="Activity_0b7tyox">
+        <dc:Bounds x="770" y="680" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ir07ou_di" bpmnElement="Activity_04lg3r7">
+        <dc:Bounds x="490" y="850" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_13cgki2_di" bpmnElement="Gateway_13cgki2" isMarkerVisible="true">
+        <dc:Bounds x="655" y="865" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="651" y="922" width="58" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0np4pbn" bpmnElement="Activity_1o47s2h">
+        <dc:Bounds x="770" y="850" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0r6wtl2_di" bpmnElement="Activity_02b5kg0">
+        <dc:Bounds x="490" y="1020" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0cx17c4_di" bpmnElement="Gateway_0cx17c4" isMarkerVisible="true">
+        <dc:Bounds x="655" y="1035" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="637" y="1092" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1v2mwy3" bpmnElement="Activity_0838ohf">
+        <dc:Bounds x="770" y="1020" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0b8s78y" bpmnElement="Activity_1mh5pt5">
+        <dc:Bounds x="490" y="1200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1iept9g_di" bpmnElement="Gateway_1iept9g" isMarkerVisible="true">
+        <dc:Bounds x="655" y="1215" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="656" y="1272" width="48" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_12idtb1" bpmnElement="Activity_148ezzj">
+        <dc:Bounds x="770" y="1200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0sscp1e_di" bpmnElement="Event_0sscp1e">
+        <dc:Bounds x="932" y="1222" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="908" y="1265" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0w8kdu5_di" bpmnElement="Event_0w8kdu5">
+        <dc:Bounds x="1042" y="352" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0m2oszj_di" bpmnElement="Event_0m2oszj">
-        <dc:Bounds x="942" y="542" width="36" height="36" />
+        <dc:Bounds x="1032" y="542" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ct0k50_di" bpmnElement="Event_1ct0k50">
+        <dc:Bounds x="1032" y="702" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1al4c6a_di" bpmnElement="Event_1al4c6a">
+        <dc:Bounds x="1032" y="872" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0j824ys_di" bpmnElement="Event_0j824ys">
+        <dc:Bounds x="1032" y="1042" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0sbivrd_di" bpmnElement="Event_0sbivrd">
+        <dc:Bounds x="1032" y="1222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1lqwddj_di" bpmnElement="Activity_14arwqc">
+        <dc:Bounds x="490" y="1400" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1oy9pra_di" bpmnElement="Gateway_1oy9pra" isMarkerVisible="true">
+        <dc:Bounds x="655" y="1415" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="638" y="1472" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_03nstau" bpmnElement="Activity_116n64e">
+        <dc:Bounds x="770" y="1400" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1hivanr_di" bpmnElement="Event_1deqn7v">
+        <dc:Bounds x="522" y="1552" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="506" y="1595" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0rb1cbj_di" bpmnElement="Event_0rb1cbj">
+        <dc:Bounds x="1032" y="1422" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_02bkoye_di" bpmnElement="Flow_02bkoye">
         <di:waypoint x="226" y="370" />
@@ -345,8 +733,8 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ap4bl5_di" bpmnElement="Flow_0ap4bl5">
         <di:waypoint x="310" y="395" />
-        <di:waypoint x="310" y="690" />
-        <di:waypoint x="492" y="690" />
+        <di:waypoint x="310" y="1570" />
+        <di:waypoint x="522" y="1570" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_19t1ddu_di" bpmnElement="Flow_19t1ddu">
         <di:waypoint x="590" y="370" />
@@ -362,15 +750,15 @@
       <bpmndi:BPMNEdge id="Flow_1qwewei_di" bpmnElement="Flow_1qwewei">
         <di:waypoint x="680" y="345" />
         <di:waypoint x="680" y="290" />
-        <di:waypoint x="970" y="290" />
-        <di:waypoint x="970" y="352" />
+        <di:waypoint x="1060" y="290" />
+        <di:waypoint x="1060" y="352" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="730" y="272" width="15" height="14" />
+          <dc:Bounds x="748" y="272" width="15" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0j69f06_di" bpmnElement="Flow_0j69f06">
         <di:waypoint x="870" y="370" />
-        <di:waypoint x="952" y="370" />
+        <di:waypoint x="1042" y="370" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1fs0o7e_di" bpmnElement="Flow_1fs0o7e">
         <di:waypoint x="310" y="395" />
@@ -393,16 +781,199 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1pa6gwo_di" bpmnElement="Flow_1pa6gwo">
         <di:waypoint x="870" y="560" />
-        <di:waypoint x="942" y="560" />
+        <di:waypoint x="1032" y="560" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0uxk1q1_di" bpmnElement="Flow_0uxk1q1">
         <di:waypoint x="680" y="535" />
         <di:waypoint x="680" y="470" />
-        <di:waypoint x="960" y="470" />
-        <di:waypoint x="960" y="542" />
+        <di:waypoint x="1050" y="470" />
+        <di:waypoint x="1050" y="542" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="730" y="452" width="15" height="14" />
+          <dc:Bounds x="749" y="452" width="15" height="14" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10gxxei_di" bpmnElement="Flow_10gxxei">
+        <di:waypoint x="310" y="395" />
+        <di:waypoint x="310" y="720" />
+        <di:waypoint x="490" y="720" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="379" y="686" width="81" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fv6fxq_di" bpmnElement="Flow_1fv6fxq">
+        <di:waypoint x="590" y="720" />
+        <di:waypoint x="655" y="720" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fn45d3_di" bpmnElement="Flow_1fn45d3">
+        <di:waypoint x="705" y="720" />
+        <di:waypoint x="770" y="720" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="728" y="702" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0gsei16_di" bpmnElement="Flow_0gsei16">
+        <di:waypoint x="870" y="720" />
+        <di:waypoint x="1032" y="720" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uxahx4_di" bpmnElement="Flow_1uxahx4">
+        <di:waypoint x="680" y="695" />
+        <di:waypoint x="680" y="640" />
+        <di:waypoint x="1050" y="640" />
+        <di:waypoint x="1050" y="702" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="751" y="622" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0h3gfx3_di" bpmnElement="Flow_0h3gfx3">
+        <di:waypoint x="310" y="395" />
+        <di:waypoint x="310" y="890" />
+        <di:waypoint x="490" y="890" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="377" y="863" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sv5atp_di" bpmnElement="Flow_0sv5atp">
+        <di:waypoint x="590" y="890" />
+        <di:waypoint x="655" y="890" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18ox64c_di" bpmnElement="Flow_18ox64c">
+        <di:waypoint x="705" y="890" />
+        <di:waypoint x="770" y="890" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="728" y="872" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ukaipp_di" bpmnElement="Flow_0ukaipp">
+        <di:waypoint x="870" y="890" />
+        <di:waypoint x="1032" y="890" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lnq302_di" bpmnElement="Flow_0lnq302">
+        <di:waypoint x="680" y="865" />
+        <di:waypoint x="680" y="810" />
+        <di:waypoint x="1050" y="810" />
+        <di:waypoint x="1050" y="872" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="749" y="783" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0notknd_di" bpmnElement="Flow_0notknd">
+        <di:waypoint x="310" y="395" />
+        <di:waypoint x="310" y="1060" />
+        <di:waypoint x="490" y="1060" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="380" y="1026" width="81" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wclgpj_di" bpmnElement="Flow_0wclgpj">
+        <di:waypoint x="590" y="1060" />
+        <di:waypoint x="655" y="1060" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19afrch_di" bpmnElement="Flow_19afrch">
+        <di:waypoint x="705" y="1060" />
+        <di:waypoint x="770" y="1060" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="728" y="1042" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rsze2p_di" bpmnElement="Flow_0rsze2p">
+        <di:waypoint x="870" y="1060" />
+        <di:waypoint x="1032" y="1060" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wfe1oj_di" bpmnElement="Flow_1wfe1oj">
+        <di:waypoint x="680" y="1035" />
+        <di:waypoint x="680" y="980" />
+        <di:waypoint x="1050" y="980" />
+        <di:waypoint x="1050" y="1042" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="749" y="953" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1o7hjid_di" bpmnElement="Flow_1o7hjid">
+        <di:waypoint x="310" y="395" />
+        <di:waypoint x="310" y="1440" />
+        <di:waypoint x="490" y="1440" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="382" y="1406" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kgtwjh_di" bpmnElement="Flow_0kgtwjh">
+        <di:waypoint x="590" y="1440" />
+        <di:waypoint x="655" y="1440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04vg40d_di" bpmnElement="Flow_04vg40d">
+        <di:waypoint x="705" y="1440" />
+        <di:waypoint x="770" y="1440" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="728" y="1422" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0l3n8hg_di" bpmnElement="Flow_0l3n8hg">
+        <di:waypoint x="870" y="1440" />
+        <di:waypoint x="1032" y="1440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_064b6mj_di" bpmnElement="Flow_064b6mj">
+        <di:waypoint x="680" y="1415" />
+        <di:waypoint x="680" y="1360" />
+        <di:waypoint x="1050" y="1360" />
+        <di:waypoint x="1050" y="1422" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="749" y="1342" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1km0jk5_di" bpmnElement="Flow_1km0jk5">
+        <di:waypoint x="310" y="395" />
+        <di:waypoint x="310" y="1240" />
+        <di:waypoint x="490" y="1240" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="378" y="1190" width="83" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ogmfja_di" bpmnElement="Flow_0ogmfja">
+        <di:waypoint x="590" y="1240" />
+        <di:waypoint x="655" y="1240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wgt97u_di" bpmnElement="Flow_1wgt97u">
+        <di:waypoint x="705" y="1240" />
+        <di:waypoint x="770" y="1240" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="729" y="1222" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ovqc3d_di" bpmnElement="Flow_0ovqc3d">
+        <di:waypoint x="870" y="1240" />
+        <di:waypoint x="932" y="1240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nvhnut_di" bpmnElement="Flow_0nvhnut">
+        <di:waypoint x="680" y="1215" />
+        <di:waypoint x="680" y="1150" />
+        <di:waypoint x="1050" y="1150" />
+        <di:waypoint x="1050" y="1222" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="749" y="1132" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08qu5xl_di" bpmnElement="Flow_08qu5xl">
+        <di:waypoint x="968" y="1240" />
+        <di:waypoint x="1032" y="1240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1bvborh_di" bpmnElement="Activity_00h8cva" isExpanded="true">
+        <dc:Bounds x="1160" y="250" width="350" height="200" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_053zwc6_di" bpmnElement="Event_0yo94xo">
+        <dc:Bounds x="1200" y="332" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1184" y="375" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1yatjf1_di" bpmnElement="Event_1yatjf1">
+        <dc:Bounds x="1382" y="332" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1375" y="375" width="51" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0zolliy_di" bpmnElement="Flow_0zolliy">
+        <di:waypoint x="1236" y="350" />
+        <di:waypoint x="1382" y="350" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1vsl05g_di" bpmnElement="Flow_1vsl05g">
         <di:waypoint x="186" y="118" />
