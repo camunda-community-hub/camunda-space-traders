@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f1686e2" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="80080f63-8a1f-406c-95cf-3ee310c54eed">
+  <bpmn:process id="space-traders-purchase-ship" name="SpaceTraders Purchase ship" isExecutable="true">
+    <bpmn:extensionElements />
+    <bpmn:startEvent id="StartEvent_1" name="Purchase ship">
+      <bpmn:extensionElements />
+      <bpmn:outgoing>Flow_1aa9f5t</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1aa9f5t" sourceRef="StartEvent_1" targetRef="Activity_179dunn" />
+    <bpmn:sequenceFlow id="Flow_1u2qyml" sourceRef="Activity_179dunn" targetRef="Activity_0enbdap" />
+    <bpmn:sequenceFlow id="Flow_1m392tq" sourceRef="Activity_0enbdap" targetRef="Activity_01hgu1v" />
+    <bpmn:serviceTask id="Activity_179dunn" name="Find a shipyard" zeebe:modelerTemplate="6f80a86e-3561-4ce1-89ad-abe3d7183d6d" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=system" target="objects.getSystemWaypoints_systemSymbol" />
+          <zeebe:input source="1" target="objects.getSystemWaypoints_page" />
+          <zeebe:input source="10" target="objects.getSystemWaypoints_limit" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="= token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/systems/&#34; + string(objects.getSystemWaypoints_systemSymbol) + &#34;/waypoints&#34;" target="url" />
+          <zeebe:input source="={&#10; &#34;page&#34;: objects.getSystemWaypoints_page,&#10; &#34;limit&#34;: objects.getSystemWaypoints_limit&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getSystemWaypoints" />
+          <zeebe:header key="resultExpression" value="={&#10;  &#34;waypoints&#34;: response.body.data, &#10;  &#34;meta&#34;: response.body.meta,&#10;  &#34;a_shipyard&#34;: waypoints[&#34;SHIPYARD&#34; in traits.symbol][1].symbol&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1aa9f5t</bpmn:incoming>
+      <bpmn:outgoing>Flow_1u2qyml</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0enbdap" name="View available ships" zeebe:modelerTemplate="6f80a86e-3561-4ce1-89ad-abe3d7183d6d" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=system" target="objects.getShipyard_systemSymbol" />
+          <zeebe:input source="=a_shipyard" target="objects.getShipyard_waypointSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="= token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/systems/&#34; + string(objects.getShipyard_systemSymbol) + &#34;/waypoints/&#34; + string(objects.getShipyard_waypointSymbol) + &#34;/shipyard&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getShipyard" />
+          <zeebe:header key="resultExpression" value="={&#34;shipyard&#34;: response.body.data}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1u2qyml</bpmn:incoming>
+      <bpmn:outgoing>Flow_1m392tq</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_01hgu1v" name="Purchase a ship" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=ship_type" target="objects.purchaseShip_purchaseShipRequest.shipType" />
+          <zeebe:input source="=a_shipyard" target="objects.purchaseShip_purchaseShipRequest.waypointSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="post" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+          <zeebe:input source="= objects.purchaseShip_purchaseShipRequest" target="body" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="purchaseShip" />
+          <zeebe:header key="resultExpression" value="={&#10; &#34;agent&#34;: response.body.data.agent,&#10; &#34;ship&#34;: response.body.data.ship,&#10; &#34;transaction&#34;: response.body.data.transaction,&#10;    &#34;new_ship&#34;: ship&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1m392tq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sw5fel</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_07s4th5" name="Ship purchased">
+      <bpmn:incoming>Flow_1sw5fel</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1sw5fel" sourceRef="Activity_01hgu1v" targetRef="Event_07s4th5" />
+    <bpmn:textAnnotation id="TextAnnotation_1owx2hp">
+      <bpmn:text>Required variables: system, ship_type</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_07cskm8" sourceRef="StartEvent_1" targetRef="TextAnnotation_1owx2hp" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-purchase-ship">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="262" y="160" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="246" y="203" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00hx4s9_di" bpmnElement="Activity_179dunn">
+        <dc:Bounds x="340" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cljgyc_di" bpmnElement="Activity_0enbdap">
+        <dc:Bounds x="490" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0m0rs4m_di" bpmnElement="Activity_01hgu1v">
+        <dc:Bounds x="640" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_07s4th5_di" bpmnElement="Event_07s4th5">
+        <dc:Bounds x="792" y="160" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="772" y="203" width="77" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1owx2hp_di" bpmnElement="TextAnnotation_1owx2hp">
+        <dc:Bounds x="160" y="80" width="119.99629355077836" height="40.7709414381023" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1aa9f5t_di" bpmnElement="Flow_1aa9f5t">
+        <di:waypoint x="298" y="178" />
+        <di:waypoint x="340" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1u2qyml_di" bpmnElement="Flow_1u2qyml">
+        <di:waypoint x="440" y="178" />
+        <di:waypoint x="490" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1m392tq_di" bpmnElement="Flow_1m392tq">
+        <di:waypoint x="590" y="178" />
+        <di:waypoint x="640" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sw5fel_di" bpmnElement="Flow_1sw5fel">
+        <di:waypoint x="740" y="178" />
+        <di:waypoint x="792" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_07cskm8_di" bpmnElement="Association_07cskm8">
+        <di:waypoint x="268" y="164" />
+        <di:waypoint x="232" y="121" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

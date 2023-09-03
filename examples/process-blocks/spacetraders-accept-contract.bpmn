@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f1686e2" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="80080f63-8a1f-406c-95cf-3ee310c54eed">
+  <bpmn:process id="space-traders-accept-contract" name="SpaceTraders Accept contract" isExecutable="true">
+    <bpmn:extensionElements />
+    <bpmn:startEvent id="StartEvent_1" name="Accept contract">
+      <bpmn:extensionElements />
+      <bpmn:outgoing>Flow_1aa9f5t</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1aa9f5t" sourceRef="StartEvent_1" targetRef="Activity_16hfmyi" />
+    <bpmn:sequenceFlow id="Flow_0hchouz" sourceRef="Activity_16hfmyi" targetRef="Activity_0zg0lvz" />
+    <bpmn:serviceTask id="Activity_16hfmyi" name="View contracts" zeebe:modelerTemplate="b03371d9-e2ce-4993-8230-1150f61b66a8" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="1" target="objects.getContracts_page" />
+          <zeebe:input source="10" target="objects.getContracts_limit" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts&#34;" target="url" />
+          <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getContracts" />
+          <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1aa9f5t</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hchouz</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0zg0lvz" name="Accept your contract" zeebe:modelerTemplate="b03371d9-e2ce-4993-8230-1150f61b66a8" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFsElEQVRYR+2WW2wUVRzGf2d2t9vthd6AllZKAVvEUqAFBOItQYKQNEATAlFDgiYC8YFo8IE3UUNIfFAfUKzQGhKUYNHAgwgaCWnjBVEEAq0SoVxaKNKLpbftbnfGnHNmdme3LRaffGCSzVz2zPm+833f/39GtNYutoRhIIT9MwyQ184z+zzis+h7AsuywDKxTBMr4ayej/JM/A8ILHIp4IGElTtKIATC8Gil1BihlZJn5M+KqaBWK++1IlgR9V+iOpgmorV2kRWb1IgRSLBBg2nw6LUiIcHtQ4IouW07XLJLsDgbLJN4AsIF7sqEVkQMA1eKRMG1AupQJDSRuEyMkhHRWiMt0ACJQXOvOia5HOeASwViAmgOjhUOiZgVipSjhB1M0VqzUGUgHswBcUvukIydJZzGFxLW8UGJIcHCYZPm9gjtQ8lM9AeZmimzoK1QSskMtNQ8pjMwgr/D/XbCp4OnHYiXQCrd1h3hxOBUmjJmQUERmBGevXyYxanNdhBjFomWvZKATHi8ClpmTcy5vnPX5PebITrumphARoqHKRN9TMv14zWU+Hx7K4P6ySvw5uVHvSkKCBY0vM+M7N5h/UK07F2gFIgCRonEpG5sGWJ/Qy8XroekcnGHvM1IMXh9dQ5NgRL+LK/CSPKR13OZzqSJhPzpLLHuUHqxmoyAtsbdtETLnvmWU8+JklsIPvt+gLof+zFt4NTUAOHwEIbHIDgw6ASfJyvLCVWuR3g8eAd7WXnqLb4Mzmda1TrmXfyKGZEzMe9dVSJufDxPK2BXgluN/Q1B6k4NxC/ZvvN6PZDkJ2d6Ib2d3Uzf9CKBvFwVrpk/13IxbQ4ir4gNU3x46ncxaVwkoUR1DsSN6gpLd7l4v39pjrDjcF9Ucp/Pi0euOhhSFCqeWUjV5rX0evyc+eEc3cWl0b4Q6e/Hn5rCC/kG3Uf3UpraYsseX5pycnG9ulyH0OkDQhA2BVv29dHWnWC4vfoJZTNZsWEVl4eS6Gr/G++4dPw52YR7+0jPzqAwxWDpeINbxw8xU5zDUCU6Un+QBD6aqxVw+rowaPgjwnvHtL+jHTJIknjRc2vImjub5k8/Z+2W51lZkoUvFOLYgYOUehuZkG53R90cXErodi2u7Z5t94HY5mIiONEYoSDLQ362Qd1PIY6eC+uWI+yt12YWyMkid0oB216pJD83i8MNTRw59B0dV26weWmA5XOSFHC0RdtE9BZtIa59WBZVwFHC3Wol4JAJG6r76A8JMjPT6OrqUfA56YLMVIOucBobN63im0gmCyqKOf5uDVdPnWXTkmSWz/HpfcJZfdyuaSGufjBLZWA0cPm8Jwg7jgxyqU22H1TTqSxPoiTfQ+3JIO09Wtry7dtYV1HAmy9tJ9jRyWvL/Tz1iFfLPiIJSWBXqa2AQ0K32SFTcOkvmJxlqB6QHjDY/EmQzj6LVfN8LCvzcu6ayZ6Tg9FKeXrrRqzr16ivO66I7lzrZ8Yk2SJt70cgoQk4LV0GUV3HPjRu98DEdE3u6/MRMlMEj5d4GQjB1gNBbjuVYlnkL6zg1umzasWyTex72U+ydEAB61YdC6KdgSgBJ+5xW60GlgpeatOej0/TW3Ft/RBHz0eGFUlW9ji6Ou9S9pDgjdWO/5qEbsHxJRlTwD2VvctFP7dURqC7H6VAOAKNNy1qG0zl/+CQftldIa8u8/BEsati3MC2IuqdYQqMQEQF1PHJtQUHw/o76J2jES60wsPFk2m+0kphlsnONQYeNdb+UogGMV60exNwje3qh5vdgtJ8uNOjSzM/Uw840QS7T+ooBXzwdhUUZjsva/9HO8ZMQE7QO6j2LFKS4PZdSE+GFD988avg4Gl9v3WZxaOTRgdM/Oe+CChBrdiHsCxPSehqBxz+DdYvgpy0sYP/ewbGOJdU2P1hNsbXdKruGcL7mek/jn1A4IEC/wB+OnlF9mGuwgAAAABJRU5ErkJggg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=contracts[1].id" target="objects.acceptContract_contractId" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="post" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts/&#34; + string(objects.acceptContract_contractId) + &#34;/accept&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="acceptContract" />
+          <zeebe:header key="resultExpression" value="={&#10;  &#34;agent&#34;: response.body.data.agent, &#10;  &#34;contract&#34;: response.body.data.contract&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0hchouz</bpmn:incoming>
+      <bpmn:outgoing>Flow_1f594k4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0lk4n53" name="Contract accepted">
+      <bpmn:incoming>Flow_1f594k4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1f594k4" sourceRef="Activity_0zg0lvz" targetRef="Event_0lk4n53" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-accept-contract">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="163" y="143" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1t0l2iq_di" bpmnElement="Activity_16hfmyi">
+        <dc:Bounds x="270" y="78" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gwvyxo_di" bpmnElement="Activity_0zg0lvz">
+        <dc:Bounds x="420" y="78" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0lk4n53_di" bpmnElement="Event_0lk4n53">
+        <dc:Bounds x="572" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="545" y="143" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1aa9f5t_di" bpmnElement="Flow_1aa9f5t">
+        <di:waypoint x="218" y="118" />
+        <di:waypoint x="270" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hchouz_di" bpmnElement="Flow_0hchouz">
+        <di:waypoint x="370" y="118" />
+        <di:waypoint x="420" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1f594k4_di" bpmnElement="Flow_1f594k4">
+        <di:waypoint x="520" y="118" />
+        <di:waypoint x="572" y="118" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
