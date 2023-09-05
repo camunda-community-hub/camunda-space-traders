@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="19eeea3" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="80080f63-8a1f-406c-95cf-3ee310c54eed">
+  <bpmn:process id="space-traders-extract-resources" name="SpaceTraders Extract resources" isExecutable="true">
+    <bpmn:extensionElements />
+    <bpmn:startEvent id="StartEvent_1" name="Extract resources">
+      <bpmn:extensionElements />
+      <bpmn:outgoing>Flow_086yy5l</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_18nzy0x" sourceRef="Activity_041rgl5" targetRef="Gateway_078cjsw" />
+    <bpmn:sequenceFlow id="Flow_0w4rcvg" sourceRef="Activity_0gwr8l6" targetRef="Gateway_0cscut0" />
+    <bpmn:exclusiveGateway id="Gateway_0cscut0" name="Has remaining capacity?" default="Flow_1saqn4c">
+      <bpmn:incoming>Flow_0w4rcvg</bpmn:incoming>
+      <bpmn:outgoing>Flow_0otiyg2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1saqn4c</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0otiyg2" name="Yes" sourceRef="Gateway_0cscut0" targetRef="Gateway_0afqdl0">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=cargo.capacity - cargo.units &gt; 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Activity_041rgl5" name="Orbit the ship" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFsElEQVRYR+2WW2wUVRzGf2d2t9vthd6AllZKAVvEUqAFBOItQYKQNEATAlFDgiYC8YFo8IE3UUNIfFAfUKzQGhKUYNHAgwgaCWnjBVEEAq0SoVxaKNKLpbftbnfGnHNmdme3LRaffGCSzVz2zPm+833f/39GtNYutoRhIIT9MwyQ184z+zzis+h7AsuywDKxTBMr4ayej/JM/A8ILHIp4IGElTtKIATC8Gil1BihlZJn5M+KqaBWK++1IlgR9V+iOpgmorV2kRWb1IgRSLBBg2nw6LUiIcHtQ4IouW07XLJLsDgbLJN4AsIF7sqEVkQMA1eKRMG1AupQJDSRuEyMkhHRWiMt0ACJQXOvOia5HOeASwViAmgOjhUOiZgVipSjhB1M0VqzUGUgHswBcUvukIydJZzGFxLW8UGJIcHCYZPm9gjtQ8lM9AeZmimzoK1QSskMtNQ8pjMwgr/D/XbCp4OnHYiXQCrd1h3hxOBUmjJmQUERmBGevXyYxanNdhBjFomWvZKATHi8ClpmTcy5vnPX5PebITrumphARoqHKRN9TMv14zWU+Hx7K4P6ySvw5uVHvSkKCBY0vM+M7N5h/UK07F2gFIgCRonEpG5sGWJ/Qy8XroekcnGHvM1IMXh9dQ5NgRL+LK/CSPKR13OZzqSJhPzpLLHuUHqxmoyAtsbdtETLnvmWU8+JklsIPvt+gLof+zFt4NTUAOHwEIbHIDgw6ASfJyvLCVWuR3g8eAd7WXnqLb4Mzmda1TrmXfyKGZEzMe9dVSJufDxPK2BXgluN/Q1B6k4NxC/ZvvN6PZDkJ2d6Ib2d3Uzf9CKBvFwVrpk/13IxbQ4ir4gNU3x46ncxaVwkoUR1DsSN6gpLd7l4v39pjrDjcF9Ucp/Pi0euOhhSFCqeWUjV5rX0evyc+eEc3cWl0b4Q6e/Hn5rCC/kG3Uf3UpraYsseX5pycnG9ulyH0OkDQhA2BVv29dHWnWC4vfoJZTNZsWEVl4eS6Gr/G++4dPw52YR7+0jPzqAwxWDpeINbxw8xU5zDUCU6Un+QBD6aqxVw+rowaPgjwnvHtL+jHTJIknjRc2vImjub5k8/Z+2W51lZkoUvFOLYgYOUehuZkG53R90cXErodi2u7Z5t94HY5mIiONEYoSDLQ362Qd1PIY6eC+uWI+yt12YWyMkid0oB216pJD83i8MNTRw59B0dV26weWmA5XOSFHC0RdtE9BZtIa59WBZVwFHC3Wol4JAJG6r76A8JMjPT6OrqUfA56YLMVIOucBobN63im0gmCyqKOf5uDVdPnWXTkmSWz/HpfcJZfdyuaSGufjBLZWA0cPm8Jwg7jgxyqU22H1TTqSxPoiTfQ+3JIO09Wtry7dtYV1HAmy9tJ9jRyWvL/Tz1iFfLPiIJSWBXqa2AQ0K32SFTcOkvmJxlqB6QHjDY/EmQzj6LVfN8LCvzcu6ayZ6Tg9FKeXrrRqzr16ivO66I7lzrZ8Yk2SJt70cgoQk4LV0GUV3HPjRu98DEdE3u6/MRMlMEj5d4GQjB1gNBbjuVYlnkL6zg1umzasWyTex72U+ydEAB61YdC6KdgSgBJ+5xW60GlgpeatOej0/TW3Ft/RBHz0eGFUlW9ji6Ou9S9pDgjdWO/5qEbsHxJRlTwD2VvctFP7dURqC7H6VAOAKNNy1qG0zl/+CQftldIa8u8/BEsati3MC2IuqdYQqMQEQF1PHJtQUHw/o76J2jES60wsPFk2m+0kphlsnONQYeNdb+UogGMV60exNwje3qh5vdgtJ8uNOjSzM/Uw840QS7T+ooBXzwdhUUZjsva/9HO8ZMQE7QO6j2LFKS4PZdSE+GFD988avg4Gl9v3WZxaOTRgdM/Oe+CChBrdiHsCxPSehqBxz+DdYvgpy0sYP/ewbGOJdU2P1hNsbXdKruGcL7mek/jn1A4IEC/wB+OnlF9mGuwgAAAABJRU5ErkJggg==">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=current_ship" target="objects.orbitShip_shipSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="post" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships/&#34; + string(objects.orbitShip_shipSymbol) + &#34;/orbit&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="orbitShip" />
+          <zeebe:header key="resultExpression" value="={&#10; &#34;nav&#34;: response.body.data.nav&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1hw22ml</bpmn:incoming>
+      <bpmn:outgoing>Flow_18nzy0x</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0gwr8l6" name="Extract ores and minerals" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=current_ship" target="objects.extractResources_shipSymbol" />
+          <zeebe:input source="=null" target="objects.extractResources_extractResourcesRequest.survey" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="post" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships/&#34; + string(objects.extractResources_shipSymbol) + &#34;/extract&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+          <zeebe:input source="= objects.extractResources_extractResourcesRequest" target="body" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="extractResources" />
+          <zeebe:header key="resultExpression" value="={&#10; &#34;cooldown&#34;: response.body.data.cooldown,&#10; &#34;extraction&#34;: response.body.data.extraction,&#10; &#34;cargo&#34;: response.body.data.cargo&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0n0oztn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0w4rcvg</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_086yy5l" sourceRef="StartEvent_1" targetRef="Activity_1qonula" />
+    <bpmn:serviceTask id="Activity_1qonula" name="Get ship status" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=current_ship" target="objects.getMyShip_shipSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships/&#34; + string(objects.getMyShip_shipSymbol) + &#34;&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getMyShip" />
+          <zeebe:header key="resultExpression" value="={&#34;ship&#34;: response.body.data}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_086yy5l</bpmn:incoming>
+      <bpmn:outgoing>Flow_17f0rlc</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_0yzmdk4" name="In orbit?" default="Flow_1hw22ml">
+      <bpmn:incoming>Flow_17f0rlc</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hw22ml</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0kpmugz</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_17f0rlc" sourceRef="Activity_1qonula" targetRef="Gateway_0yzmdk4" />
+    <bpmn:sequenceFlow id="Flow_1hw22ml" name="No" sourceRef="Gateway_0yzmdk4" targetRef="Activity_041rgl5" />
+    <bpmn:exclusiveGateway id="Gateway_078cjsw">
+      <bpmn:incoming>Flow_18nzy0x</bpmn:incoming>
+      <bpmn:incoming>Flow_0kpmugz</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vqu2vx</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0vqu2vx" sourceRef="Gateway_078cjsw" targetRef="Activity_11rxxvn" />
+    <bpmn:sequenceFlow id="Flow_0kpmugz" name="Yes" sourceRef="Gateway_0yzmdk4" targetRef="Gateway_078cjsw">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=ship.nav.status = "IN_ORBIT"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0x6d84p" sourceRef="Activity_11rxxvn" targetRef="Gateway_0afqdl0" />
+    <bpmn:serviceTask id="Activity_11rxxvn" name="Get ship cooldown" zeebe:modelerTemplate="b9e1f9c2-41f5-4da0-9a5c-e855290c5376" zeebe:modelerTemplateVersion="1" zeebe:modelerTemplateIcon="data:image/png;base64,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">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="placeholder" target="objects" />
+          <zeebe:input source="=current_ship" target="objects.getShipCooldown_shipSymbol" />
+          <zeebe:input source="bearer" target="authentication.type" />
+          <zeebe:input source="=token" target="authentication.token" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/ships/&#34; + string(objects.getShipCooldown_shipSymbol) + &#34;/cooldown&#34;" target="url" />
+          <zeebe:input source="={&#10;}" target="queryParameters" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="operation" value="getShipCooldown" />
+          <zeebe:header key="resultExpression" value="={&#10;  &#34;cooldown&#34;: if response.body.data != null then response.body.data else null&#10;}" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0vqu2vx</bpmn:incoming>
+      <bpmn:outgoing>Flow_0x6d84p</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_10mof17" name="Has cooldown?" default="Flow_1nlr7xb">
+      <bpmn:incoming>Flow_0k8gdfj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ozjjzy</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1nlr7xb</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:intermediateCatchEvent id="Event_1utpy32" name="Wait until cooldown">
+      <bpmn:incoming>Flow_0ozjjzy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0boq9km</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0vmreyd">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">=date and time(cooldown.expiration) - now()</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_0ozjjzy" name="Yes" sourceRef="Gateway_10mof17" targetRef="Event_1utpy32">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=cooldown != null and cooldown.remainingSeconds &gt; 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_1c860ra">
+      <bpmn:incoming>Flow_0boq9km</bpmn:incoming>
+      <bpmn:incoming>Flow_1nlr7xb</bpmn:incoming>
+      <bpmn:outgoing>Flow_0n0oztn</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0boq9km" sourceRef="Event_1utpy32" targetRef="Gateway_1c860ra" />
+    <bpmn:sequenceFlow id="Flow_0n0oztn" sourceRef="Gateway_1c860ra" targetRef="Activity_0gwr8l6" />
+    <bpmn:sequenceFlow id="Flow_1nlr7xb" name="No" sourceRef="Gateway_10mof17" targetRef="Gateway_1c860ra" />
+    <bpmn:exclusiveGateway id="Gateway_0afqdl0">
+      <bpmn:incoming>Flow_0x6d84p</bpmn:incoming>
+      <bpmn:incoming>Flow_0otiyg2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0k8gdfj</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0k8gdfj" sourceRef="Gateway_0afqdl0" targetRef="Gateway_10mof17" />
+    <bpmn:endEvent id="Event_1qgrpo9" name="Extracted resources">
+      <bpmn:incoming>Flow_1saqn4c</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1saqn4c" name="No" sourceRef="Gateway_0cscut0" targetRef="Event_1qgrpo9" />
+    <bpmn:textAnnotation id="TextAnnotation_1s4fmey">
+      <bpmn:text>Required variable:  current_ship</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_084mbaj" sourceRef="StartEvent_1" targetRef="TextAnnotation_1s4fmey" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-extract-resources">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="282" y="130" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="257" y="173" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0cscut0_di" bpmnElement="Gateway_0cscut0" isMarkerVisible="true">
+        <dc:Bounds x="1725" y="123" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1714" y="86" width="71" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jldk9r_di" bpmnElement="Activity_041rgl5">
+        <dc:Bounds x="660" y="108" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ght6ld_di" bpmnElement="Activity_0gwr8l6">
+        <dc:Bounds x="1550" y="108" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0s495rk_di" bpmnElement="Activity_1qonula">
+        <dc:Bounds x="380" y="108" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0yzmdk4_di" bpmnElement="Gateway_0yzmdk4" isMarkerVisible="true">
+        <dc:Bounds x="545" y="123" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="550" y="180" width="40" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_078cjsw_di" bpmnElement="Gateway_078cjsw" isMarkerVisible="true">
+        <dc:Bounds x="815" y="123" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1l94h46_di" bpmnElement="Activity_11rxxvn">
+        <dc:Bounds x="930" y="108" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_10mof17_di" bpmnElement="Gateway_10mof17" isMarkerVisible="true">
+        <dc:Bounds x="1205" y="123" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1192" y="180" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1d4w4g0" bpmnElement="Event_1utpy32">
+        <dc:Bounds x="1332" y="130" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1326" y="174" width="47" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1c860ra_di" bpmnElement="Gateway_1c860ra" isMarkerVisible="true">
+        <dc:Bounds x="1435" y="123" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0afqdl0_di" bpmnElement="Gateway_0afqdl0" isMarkerVisible="true">
+        <dc:Bounds x="1095" y="123" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1qgrpo9_di" bpmnElement="Event_1qgrpo9">
+        <dc:Bounds x="1872" y="130" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1866" y="173" width="49" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1s4fmey_di" bpmnElement="TextAnnotation_1s4fmey">
+        <dc:Bounds x="160" y="50" width="157.99806368330468" height="44.992469879518076" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_18nzy0x_di" bpmnElement="Flow_18nzy0x">
+        <di:waypoint x="760" y="148" />
+        <di:waypoint x="815" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w4rcvg_di" bpmnElement="Flow_0w4rcvg">
+        <di:waypoint x="1650" y="148" />
+        <di:waypoint x="1725" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0otiyg2_di" bpmnElement="Flow_0otiyg2">
+        <di:waypoint x="1750" y="173" />
+        <di:waypoint x="1750" y="260" />
+        <di:waypoint x="1120" y="260" />
+        <di:waypoint x="1120" y="173" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1770" y="203" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_086yy5l_di" bpmnElement="Flow_086yy5l">
+        <di:waypoint x="318" y="148" />
+        <di:waypoint x="380" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17f0rlc_di" bpmnElement="Flow_17f0rlc">
+        <di:waypoint x="480" y="148" />
+        <di:waypoint x="545" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hw22ml_di" bpmnElement="Flow_1hw22ml">
+        <di:waypoint x="595" y="148" />
+        <di:waypoint x="660" y="148" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="620" y="130" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vqu2vx_di" bpmnElement="Flow_0vqu2vx">
+        <di:waypoint x="865" y="148" />
+        <di:waypoint x="930" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kpmugz_di" bpmnElement="Flow_0kpmugz">
+        <di:waypoint x="570" y="123" />
+        <di:waypoint x="570" y="60" />
+        <di:waypoint x="840" y="60" />
+        <di:waypoint x="840" y="123" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="618" y="42" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0x6d84p_di" bpmnElement="Flow_0x6d84p">
+        <di:waypoint x="1030" y="148" />
+        <di:waypoint x="1095" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ozjjzy_di" bpmnElement="Flow_0ozjjzy">
+        <di:waypoint x="1255" y="148" />
+        <di:waypoint x="1332" y="148" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1284" y="130" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0boq9km_di" bpmnElement="Flow_0boq9km">
+        <di:waypoint x="1368" y="148" />
+        <di:waypoint x="1435" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0n0oztn_di" bpmnElement="Flow_0n0oztn">
+        <di:waypoint x="1485" y="148" />
+        <di:waypoint x="1550" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nlr7xb_di" bpmnElement="Flow_1nlr7xb">
+        <di:waypoint x="1230" y="123" />
+        <di:waypoint x="1230" y="60" />
+        <di:waypoint x="1460" y="60" />
+        <di:waypoint x="1460" y="123" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1286" y="42" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0k8gdfj_di" bpmnElement="Flow_0k8gdfj">
+        <di:waypoint x="1145" y="148" />
+        <di:waypoint x="1205" y="148" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1saqn4c_di" bpmnElement="Flow_1saqn4c">
+        <di:waypoint x="1775" y="148" />
+        <di:waypoint x="1872" y="148" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1802" y="130" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_084mbaj_di" bpmnElement="Association_084mbaj">
+        <di:waypoint x="290" y="133" />
+        <di:waypoint x="263" y="95" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

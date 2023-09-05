@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="19eeea3" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="bf024ae4-7703-4caa-b8e7-fa121347235b">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="f1686e2" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="bf024ae4-7703-4caa-b8e7-fa121347235b">
   <bpmn:process id="space-traders-mining-loop-process" name="SpaceTraders Mining loop process" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Start new game">
       <bpmn:outgoing>Flow_1727dj3</bpmn:outgoing>
@@ -74,43 +74,6 @@
         </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0gi5x0l</bpmn:incoming>
-      <bpmn:outgoing>Flow_0sf4925</bpmn:outgoing>
-    </bpmn:callActivity>
-    <bpmn:sequenceFlow id="Flow_0sf4925" sourceRef="Activity_1lqilcv" targetRef="Activity_1lohgnh" />
-    <bpmn:callActivity id="Activity_1lohgnh" name="Refuel ship">
-      <bpmn:extensionElements>
-        <zeebe:calledElement processId="space-traders-refuel-ship" propagateAllChildVariables="false" />
-        <zeebe:ioMapping>
-          <zeebe:input source="=mining_drone" target="current_ship" />
-        </zeebe:ioMapping>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0sf4925</bpmn:incoming>
-      <bpmn:outgoing>Flow_0x63qyq</bpmn:outgoing>
-    </bpmn:callActivity>
-    <bpmn:sequenceFlow id="Flow_0x63qyq" sourceRef="Activity_1lohgnh" targetRef="Activity_14f2b97" />
-    <bpmn:callActivity id="Activity_14f2b97" name="Extract resources">
-      <bpmn:extensionElements>
-        <zeebe:calledElement processId="space-traders-extract-resources" propagateAllChildVariables="false" />
-        <zeebe:ioMapping>
-          <zeebe:input source="=mining_drone" target="current_ship" />
-        </zeebe:ioMapping>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0x63qyq</bpmn:incoming>
-      <bpmn:outgoing>Flow_17jqzkd</bpmn:outgoing>
-    </bpmn:callActivity>
-    <bpmn:sequenceFlow id="Flow_17jqzkd" sourceRef="Activity_14f2b97" targetRef="Activity_1jnhlur" />
-    <bpmn:callActivity id="Activity_1jnhlur" name="Sell goods">
-      <bpmn:extensionElements>
-        <zeebe:calledElement processId="space-traders-sell-goods" propagateAllChildVariables="false" />
-        <zeebe:ioMapping>
-          <zeebe:input source="=current_system" target="current_system" />
-          <zeebe:input source="=asteroid_field" target="current_waypoint" />
-          <zeebe:input source="=mining_drone" target="current_ship" />
-          <zeebe:input source="=contract.terms.deliver.tradeSymbol" target="excluded_goods" />
-          <zeebe:output source="=cargo" target="cargo" />
-        </zeebe:ioMapping>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_17jqzkd</bpmn:incoming>
     </bpmn:callActivity>
     <bpmn:textAnnotation id="TextAnnotation_0iqizus">
       <bpmn:text>Required variables: agent_name</bpmn:text>
@@ -145,16 +108,6 @@
         <dc:Bounds x="970" y="138" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_07x2ip4_di" bpmnElement="Activity_1lohgnh">
-        <dc:Bounds x="1130" y="138" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1oujj8x_di" bpmnElement="Activity_14f2b97">
-        <dc:Bounds x="1290" y="138" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0ylv033_di" bpmnElement="Activity_1jnhlur">
-        <dc:Bounds x="1450" y="138" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0iqizus_di" bpmnElement="TextAnnotation_0iqizus">
         <dc:Bounds x="160" y="80" width="130" height="55" />
         <bpmndi:BPMNLabel />
@@ -178,18 +131,6 @@
       <bpmndi:BPMNEdge id="Flow_0gi5x0l_di" bpmnElement="Flow_0gi5x0l">
         <di:waypoint x="910" y="178" />
         <di:waypoint x="970" y="178" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0sf4925_di" bpmnElement="Flow_0sf4925">
-        <di:waypoint x="1070" y="178" />
-        <di:waypoint x="1130" y="178" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0x63qyq_di" bpmnElement="Flow_0x63qyq">
-        <di:waypoint x="1230" y="178" />
-        <di:waypoint x="1290" y="178" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_17jqzkd_di" bpmnElement="Flow_17jqzkd">
-        <di:waypoint x="1390" y="178" />
-        <di:waypoint x="1450" y="178" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1n0g2tp_di" bpmnElement="Association_1n0g2tp">
         <di:waypoint x="249" y="163" />
