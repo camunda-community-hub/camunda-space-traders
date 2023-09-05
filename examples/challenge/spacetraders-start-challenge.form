@@ -1,0 +1,69 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "51bb3bc"
+  },
+  "schemaVersion": 10,
+  "components": [
+    {
+      "text": "# Camunda SpaceTraders Challenge :rocket:\n\nThe primary goal of SpaceTrader is to fulfill your contract. This challenge is designed to track your progress and share it with others in the [Camunda forum](https://forum.camunda.io/).\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_164uiu9",
+        "columns": null
+      },
+      "id": "Field_1xchnop"
+    },
+    {
+      "text": ":warning: To monitor your progress, we need your SpaceTraders token. But don't worry, we use it only to monitor your status and don't execute any mutable actions (i.e. only GET but no POST operations).",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1qi0n89",
+        "columns": null
+      },
+      "id": "Field_1ez3cri"
+    },
+    {
+      "label": "Your SpaceTraders token",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_042uuvu",
+        "columns": null
+      },
+      "id": "Field_06h21p3",
+      "key": "token",
+      "description": "The token that you received on creating your agent. ",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Your user name in the Camunda forum",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1egz7hk",
+        "columns": null
+      },
+      "id": "Field_1rbxpy9",
+      "key": "forum_user_name",
+      "description": "If you enter your user name, we will mention you in the forum post. Otherwise, the post will be anonymous."
+    },
+    {
+      "action": "submit",
+      "label": "Register",
+      "type": "button",
+      "layout": {
+        "row": "Row_0ic84fh",
+        "columns": null
+      },
+      "id": "Field_1inwxmo",
+      "key": "field_0n8kt6m"
+    }
+  ],
+  "type": "default",
+  "id": "space-traders-start-challenge"
+}

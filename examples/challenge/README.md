@@ -6,16 +6,14 @@ progress of the player and share it.
 The process has a start form to create a new instance. The start form takes the SpaceTraders token to get the player
 status.
 
-🚧 Currently, the process post the player status as Slack messages. In the final state, the messages should be published
-in the Camunda forum.
+The process post the player status as messages in the [Camunda forum](https://forum.camunda.io/).
 
 ## Usage
 
 1. Set the following connector secrets:
 
 ```
-SLACK_TOKEN // the Slack token to publish the messages with
-SLACK_CHANNEL // the Slack channel to publish the messages to
+FORUM_API_KEY // the API-Key to post the message in the Camunda forum
 ```
 
 2. Deploy the process
