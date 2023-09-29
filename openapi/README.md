@@ -59,6 +59,19 @@ In general, the generated templates work, but we can apply the following steps t
   parameter for the request body. As a result, it creates an empty expression (i.e. invalid).
 - Remove the request body if it has an empty expression.
 
+6. Hide the properties in the "Generated (DO NOT MODIFY)" section
+
+- The template defines a group for some properties that should not be modified by a user. This includes the HTTP method,
+  the URL, the query parameters, and the request body.
+- Change the `type` of these fields to `Hidden` to hide them from users and avoid modifications.
+
+7. Merge all templates into a single one
+
+- The generator generates one template per API endpoint. This is a good separation but is more complicated for users and
+  for distributing the template.
+- Merge all generated templates into a single template and add a dropdown to choose the category of the operation
+  first (i.e. the API endpoint).
+
 ## Troubleshooting
 
 ### The generated templates are empty
