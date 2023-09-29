@@ -23,9 +23,9 @@ automated using the Camunda stack.
 
 You can choose between different ways depending on your interest, skills, and time:
 
-- Use a manual user-driver process that guides you though the tutorial using Camunda forms and Tasklist. (easy; fast;
+- Use a manual [user-driver process](examples/simplifiedStart) that guides you though the tutorial using Camunda forms and Tasklist. (easy; fast;
   for beginners)
-- Use the [SDK](sdk), reusable process blocks in form of connector templates, to build your own process. (advanced;
+- Use the [SDK](sdk), reusable process blocks in form of a connector template, to build your own process. (advanced;
   requires process modelling; for devs and process designers)
 - DIY (do-it-yourself). Check out the
   SpaceTraders [API documentation](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api)
