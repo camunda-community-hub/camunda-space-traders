@@ -1,7 +1,7 @@
 # SpaceTraders SDK for Camunda
 
 The SDK allows to interact with the SpaceTraders API from a Camunda process. It is based on Camunda's REST connector.
-The SDK eases the usage by providing connector templates.
+The SDK eases the usage by providing a connector template.
 
 The connector template is generated from the SpaceTraders OpenAPI. See the [openapi](/openapi) module for details.
 
@@ -9,14 +9,22 @@ The connector template is generated from the SpaceTraders OpenAPI. See the [open
 
 ## Install
 
-### Publish the template
+### Via Camunda Marketplace
+
+1. Find the SDK in the [Camunda Marketplace](https://marketplace.camunda.com/en-US/apps/420889/spacetraders-sdk)
+2. Click the button "For SAAS". You will be forwarded to the Camunda Web Modeler.
+3. On the download modal, select a project to publish the connector to.
+
+The connector is now available within the select project. :rocket:  
+
+![Marketplace download](../assets/space-traders-marketplace-download.png)
+
+### Manually for Web Modeler
 
 1. Open the [Camunda Web Modeler](https://modeler.cloud.camunda.io/)
-2. Create a new project
-3. Upload the connector template [spacetraders.json](spacetraders.json) (
-   see [how](https://docs.camunda.io/docs/components/connectors/manage-connector-templates/#importing-existing-connector-templates))
-4. Publish the connector template (
-   see [how](https://docs.camunda.io/docs/components/connectors/manage-connector-templates/#create-connector-templates))
+2. Open a project or create a new one.
+3. Upload the connector template [spacetraders.json](spacetraders.json) (see [how](https://docs.camunda.io/docs/components/connectors/manage-connector-templates/#importing-existing-connector-templates))
+4. Publish the connector template (see [how](https://docs.camunda.io/docs/components/connectors/manage-connector-templates/#create-connector-templates))
 
 ## Usage
 
@@ -34,11 +42,13 @@ The connector can interact with all endpoints. First, you select a category and 
 ### Add a connector to your process
 
 1. Add a new task to your process
-2. Select the SpaceTraders connector as the task type (e.g. `SpaceTraders`)
-3. Select the category in the properties (e.g. `Fleet`)
-4. Select the operation (e.g. `getMyShip - Get Ship`)
-5. Fill the required parameters (e.g. `shipSymbol`)
-6. Optionally, adjust the result expression to customize the resulting process variables
+2. Select the SpaceTraders **connector** as the task type (e.g. `SpaceTraders`)
+3. Select the **category** in the properties (e.g. `Fleet`)
+4. Select the **operation** (e.g. `getMyShip - Get Ship`)
+5. Fill the required **parameters** (e.g. `shipSymbol`)
+6. Optionally, adjust the **result expression** to customize the resulting process variables
+
+![SDK usage](../assets/space-traders-sdk-properties.png)
 
 ### Authentication
 
