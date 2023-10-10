@@ -106,6 +106,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="game" />
           <zeebe:header key="operation" value="getStatus" />
           <zeebe:header key="resultExpression" value="={&#34;status&#34;: response.body.status, &#34;version&#34;: response.body.version, &#34;resetDate&#34;: response.body.resetDate, &#34;description&#34;: response.body.description, &#34;stats&#34;: response.body.stats, &#34;leaderboards&#34;: response.body.leaderboards, &#34;serverResets&#34;: response.body.serverResets, &#34;announcements&#34;: response.body.announcements, &#34;links&#34;: response.body.links}" />
         </zeebe:taskHeaders>
@@ -127,6 +128,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="agents" />
           <zeebe:header key="operation" value="getMyAgent" />
           <zeebe:header key="resultExpression" value="={&#34;agent&#34;: response.body.data}" />
         </zeebe:taskHeaders>
@@ -182,6 +184,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="contracts" />
             <zeebe:header key="operation" value="getContracts" />
             <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10;&#34;first_contract_accepted&#34;: count(contracts[accepted = true]) &#62; 0,&#10; &#34;contract_goods&#34;: string join(for deliver in contracts[1].terms.deliver return string(deliver.unitsRequired) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
           </zeebe:taskHeaders>
@@ -218,6 +221,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="fleet" />
             <zeebe:header key="operation" value="getMyShips" />
             <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta,&#10;    &#34;first_ship_purchased&#34;: count(ships) &#62; 2,&#10;    &#34;ship_type&#34;: if first_ship_purchased then ships[3].registration.role else &#34;&#34;&#10;}" />
           </zeebe:taskHeaders>
@@ -256,6 +260,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="fleet" />
             <zeebe:header key="operation" value="getMyShips" />
             <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta,&#10;    &#34;first_asteroid_field_visited&#34;: some destination in ships.nav.route.destination satisfies destination.type = &#34;ASTEROID_FIELD&#34;&#10;}" />
           </zeebe:taskHeaders>
@@ -297,6 +302,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="fleet" />
             <zeebe:header key="operation" value="getMyShips" />
             <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta,&#10;    &#34;cargo&#34;: ships.cargo[units &#62; 0],&#10;    &#34;first_ore_mined&#34;: count(cargo) &#62; 0,&#10;    &#34;mined_ore&#34;: string join(flatten(cargo.inventory.symbol), &#34;, &#34;)&#10;}" />
           </zeebe:taskHeaders>
@@ -332,6 +338,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="contracts" />
             <zeebe:header key="operation" value="getContracts" />
             <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10; &#34;delivered&#34;: flatten(contracts.terms.deliver)[unitsFulfilled &#62; 0],&#10; &#34;first_contract_goods_delivered&#34;: count(delivered) &#62; 0,&#10; &#34;goods_delivered&#34;: string join(for deliver in delivered return string(deliver.unitsFulfilled) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
           </zeebe:taskHeaders>
@@ -370,6 +377,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="contracts" />
             <zeebe:header key="operation" value="getContracts" />
             <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10;&#34;first_contract_fulfilled&#34;: some contract in contracts satisfies contract.fulfilled = true,&#10; &#34;contract_fulfilled_goods&#34;: string join(for deliver in flatten(contracts[fulfilled = true].terms.deliver) return string(deliver.unitsFulfilled) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
           </zeebe:taskHeaders>
@@ -412,6 +420,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="contracts" />
             <zeebe:header key="operation" value="getContracts" />
             <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10; &#34;contacts_fulfillment&#34;: decimal(mean(for contract in contracts return sum(contract.terms.deliver.unitsFulfilled) / sum(contract.terms.deliver.unitsRequired)) * 100, 0),&#10;&#34;contract_fufilled_10_new&#34;: contacts_fulfillment &#62;= 10,&#10;&#34;contract_fufilled_25_new&#34;: contacts_fulfillment &#62;= 25,&#10;&#34;contract_fufilled_50_new&#34;: contacts_fulfillment &#62;= 50,&#10;&#34;contract_fufilled_75_new&#34;: contacts_fulfillment &#62;= 75,&#10; &#34;contract_goods_delivered&#34;: string join(for deliver in delivered return string(deliver.unitsFulfilled) + &#34; &#34; + deliver.tradeSymbol, &#34;, &#34;)&#10;}" />
           </zeebe:taskHeaders>
