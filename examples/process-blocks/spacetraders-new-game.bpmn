@@ -20,6 +20,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="game" />
           <zeebe:header key="operation" value="getStatus" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;status&#34;: response.body.status, &#10;  &#34;version&#34;: response.body.version, &#10;  &#34;resetDate&#34;: response.body.resetDate, &#10;  &#34;description&#34;: response.body.description, &#10;  &#34;stats&#34;: response.body.stats, &#10;  &#34;leaderboards&#34;: response.body.leaderboards, &#10;  &#34;serverResets&#34;: response.body.serverResets, &#10;  &#34;announcements&#34;: response.body.announcements, &#10;  &#34;links&#34;: response.body.links&#10;}" />
         </zeebe:taskHeaders>
@@ -40,6 +41,7 @@
           <zeebe:input source="= objects.register_registerRequest" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="game" />
           <zeebe:header key="operation" value="register" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;agent&#34;: response.body.data.agent, &#10;  &#34;contract&#34;: response.body.data.contract, &#10;  &#34;faction&#34;: response.body.data.faction, &#10;  &#34;ship&#34;: response.body.data.ship, &#10;  &#34;token&#34;: response.body.data.token,&#10;  &#34;current_system&#34;: ship.nav.systemSymbol,&#10;  &#34;current_waypoint&#34;: ship.nav.waypointSymbol&#10;}" />
         </zeebe:taskHeaders>
@@ -62,6 +64,7 @@
           <zeebe:input source="={&#10; &#34;page&#34;: objects.getSystemWaypoints_page,&#10; &#34;limit&#34;: objects.getSystemWaypoints_limit&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="systems" />
           <zeebe:header key="operation" value="getSystemWaypoints" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;waypoints&#34;: response.body.data, &#10;  &#34;meta&#34;: response.body.meta&#10;}" />
         </zeebe:taskHeaders>

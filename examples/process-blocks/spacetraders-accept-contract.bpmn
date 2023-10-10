@@ -22,6 +22,7 @@
           <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="contracts" />
           <zeebe:header key="operation" value="getContracts" />
           <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta}" />
         </zeebe:taskHeaders>
@@ -42,6 +43,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="contracts" />
           <zeebe:header key="operation" value="acceptContract" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;agent&#34;: response.body.data.agent, &#10;  &#34;contract&#34;: response.body.data.contract&#10;}" />
         </zeebe:taskHeaders>

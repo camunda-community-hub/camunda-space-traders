@@ -21,6 +21,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="dockShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;nav&#34;: response.body.data.nav&#10;}" />
         </zeebe:taskHeaders>
@@ -43,6 +44,7 @@
           <zeebe:input source="= objects.refuelShip_refuelShipRequest" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="refuelShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;agent&#34;: response.body.data.agent,&#10; &#34;fuel&#34;: response.body.data.fuel,&#10; &#34;transaction&#34;: response.body.data.transaction&#10;}" />
         </zeebe:taskHeaders>
@@ -64,6 +66,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getMyShip" />
           <zeebe:header key="resultExpression" value="={&#34;ship&#34;: response.body.data}" />
         </zeebe:taskHeaders>

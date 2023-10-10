@@ -38,6 +38,7 @@
             <zeebe:input source="= objects.sellCargo_sellCargoRequest" target="body" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="fleet" />
             <zeebe:header key="operation" value="sellCargo" />
             <zeebe:header key="resultExpression" value="={&#10; &#34;agent&#34;: response.body.data.agent,&#10; &#34;cargo&#34;: response.body.data.cargo,&#10; &#34;transaction&#34;: response.body.data.transaction&#10;}" />
           </zeebe:taskHeaders>
@@ -61,6 +62,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="systems" />
           <zeebe:header key="operation" value="getMarket" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;market&#34;: response.body.data,&#10;  &#34;market_trade_goods&#34;: market.tradeGoods.symbol&#10;}" />
         </zeebe:taskHeaders>
@@ -81,6 +83,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getMyShip" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;ship&#34;: response.body.data,&#10;  &#34;ship_cargo&#34;: ship.cargo&#10;}" />
         </zeebe:taskHeaders>
@@ -101,6 +104,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="dockShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;nav&#34;: response.body.data.nav&#10;}" />
         </zeebe:taskHeaders>
@@ -144,6 +148,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getMyShipCargo" />
           <zeebe:header key="resultExpression" value="={&#34;cargo&#34;: response.body.data}" />
         </zeebe:taskHeaders>

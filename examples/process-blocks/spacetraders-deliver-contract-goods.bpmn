@@ -48,6 +48,7 @@
           <zeebe:input source="=null" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="contracts" />
           <zeebe:header key="operation" value="fulfillContract" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;agent&#34;: response.body.data.agent, &#10;  &#34;contract&#34;: response.body.data.contract&#10;}" />
         </zeebe:taskHeaders>
@@ -69,6 +70,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getMyShipCargo" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;cargo&#34;: response.body.data,&#10;  &#34;ship_cargo&#34;: cargo&#10;}" />
         </zeebe:taskHeaders>
@@ -135,6 +137,7 @@
               <zeebe:input source="= objects.deliverContract_deliverContractRequest" target="body" />
             </zeebe:ioMapping>
             <zeebe:taskHeaders>
+              <zeebe:header key="category" value="contracts" />
               <zeebe:header key="operation" value="deliverContract" />
               <zeebe:header key="resultExpression" value="={&#10;  &#34;contract&#34;: response.body.data.contract, &#10;  &#34;cargo&#34;: response.body.data.cargo&#10;}" />
             </zeebe:taskHeaders>
@@ -160,6 +163,7 @@
               <zeebe:input source="={&#10;}" target="queryParameters" />
             </zeebe:ioMapping>
             <zeebe:taskHeaders>
+              <zeebe:header key="category" value="fleet" />
               <zeebe:header key="operation" value="dockShip" />
               <zeebe:header key="resultExpression" value="={&#10; &#34;nav&#34;: response.body.data.nav&#10;}" />
             </zeebe:taskHeaders>

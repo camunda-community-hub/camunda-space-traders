@@ -24,6 +24,7 @@
           <zeebe:input source="={&#10; &#34;page&#34;: objects.getSystemWaypoints_page,&#10; &#34;limit&#34;: objects.getSystemWaypoints_limit&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="systems" />
           <zeebe:header key="operation" value="getSystemWaypoints" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;waypoints&#34;: response.body.data, &#10;  &#34;meta&#34;: response.body.meta,&#10;  &#34;a_shipyard&#34;: waypoints[&#34;SHIPYARD&#34; in traits.symbol][1].symbol&#10;}" />
         </zeebe:taskHeaders>
@@ -45,6 +46,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="systems" />
           <zeebe:header key="operation" value="getShipyard" />
           <zeebe:header key="resultExpression" value="={&#34;shipyard&#34;: response.body.data}" />
         </zeebe:taskHeaders>
@@ -67,6 +69,7 @@
           <zeebe:input source="= objects.purchaseShip_purchaseShipRequest" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="purchaseShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;agent&#34;: response.body.data.agent,&#10; &#34;ship&#34;: response.body.data.ship,&#10; &#34;transaction&#34;: response.body.data.transaction,&#10;    &#34;new_ship&#34;: ship&#10;}" />
         </zeebe:taskHeaders>

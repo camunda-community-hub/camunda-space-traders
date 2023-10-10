@@ -29,6 +29,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="orbitShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;nav&#34;: response.body.data.nav&#10;}" />
         </zeebe:taskHeaders>
@@ -51,6 +52,7 @@
           <zeebe:input source="= objects.extractResources_extractResourcesRequest" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="extractResources" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;cooldown&#34;: response.body.data.cooldown,&#10; &#34;extraction&#34;: response.body.data.extraction,&#10; &#34;cargo&#34;: response.body.data.cargo&#10;}" />
         </zeebe:taskHeaders>
@@ -72,6 +74,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getMyShip" />
           <zeebe:header key="resultExpression" value="={&#34;ship&#34;: response.body.data}" />
         </zeebe:taskHeaders>
@@ -109,6 +112,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getShipCooldown" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;cooldown&#34;: if response.body.data != null then response.body.data else null&#10;}" />
         </zeebe:taskHeaders>

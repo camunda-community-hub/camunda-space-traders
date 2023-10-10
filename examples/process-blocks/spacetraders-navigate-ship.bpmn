@@ -29,6 +29,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="orbitShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;nav&#34;: response.body.data.nav&#10;}" />
         </zeebe:taskHeaders>
@@ -51,6 +52,7 @@
           <zeebe:input source="= objects.navigateShip_navigateShipRequest" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="navigateShip" />
           <zeebe:header key="resultExpression" value="={&#10; &#34;fuel&#34;: response.body.data.fuel,&#10; &#34;nav&#34;: response.body.data.nav,&#10;    &#34;arrival_time&#34;: nav.route.arrival  &#10;}" />
         </zeebe:taskHeaders>
@@ -72,6 +74,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="fleet" />
           <zeebe:header key="operation" value="getMyShip" />
           <zeebe:header key="resultExpression" value="={&#34;ship&#34;: response.body.data}" />
         </zeebe:taskHeaders>
