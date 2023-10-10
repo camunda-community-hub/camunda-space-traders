@@ -57,6 +57,7 @@
           <zeebe:input source="={&#10; &#34;page&#34;: objects.getSystemWaypoints_page,&#10; &#34;limit&#34;: objects.getSystemWaypoints_limit&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="systems" />
           <zeebe:header key="operation" value="getSystemWaypoints" />
           <zeebe:header key="resultExpression" value="={&#10;  &#34;waypoints&#34;: response.body.data, &#10;  &#34;meta&#34;: response.body.meta,&#10;  &#34;asteroid_field&#34;: waypoints[type = &#34;ASTEROID_FIELD&#34;][1].symbol&#10;}" />
         </zeebe:taskHeaders>
