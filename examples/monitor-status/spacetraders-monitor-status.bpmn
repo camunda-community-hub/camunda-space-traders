@@ -16,6 +16,7 @@
           <zeebe:input source="={&#10;}" target="queryParameters" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
+          <zeebe:header key="category" value="game" />
           <zeebe:header key="operation" value="getStatus" />
           <zeebe:header key="resultExpression" value="={&#34;status&#34;: response.body.status, &#34;version&#34;: response.body.version, &#34;resetDate&#34;: response.body.resetDate, &#34;description&#34;: response.body.description, &#34;stats&#34;: response.body.stats, &#34;leaderboards&#34;: response.body.leaderboards, &#34;serverResets&#34;: response.body.serverResets, &#34;announcements&#34;: response.body.announcements, &#34;links&#34;: response.body.links}" />
         </zeebe:taskHeaders>
@@ -55,6 +56,7 @@
             <zeebe:input source="={&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="agents" />
             <zeebe:header key="operation" value="getMyAgent" />
             <zeebe:header key="resultExpression" value="={&#34;agent&#34;: response.body.data, &#10; &#34;agent_symbol&#34;: agent.symbol,&#10; &#34;current_credits&#34;: agent.credits}" />
           </zeebe:taskHeaders>
@@ -77,6 +79,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getContracts_page,&#10; &#34;limit&#34;: objects.getContracts_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="contracts" />
             <zeebe:header key="operation" value="getContracts" />
             <zeebe:header key="resultExpression" value="={&#34;contracts&#34;: response.body.data, &#10;&#34;meta&#34;: response.body.meta,&#10;&#34;contacts_fulfillment&#34;: mean(for contract in contracts return sum(contract.terms.deliver.unitsFulfilled) / sum(contract.terms.deliver.unitsRequired))&#10;}" />
           </zeebe:taskHeaders>
@@ -99,6 +102,7 @@
             <zeebe:input source="={&#10; &#34;page&#34;: objects.getMyShips_page,&#10; &#34;limit&#34;: objects.getMyShips_limit&#10;}" target="queryParameters" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders>
+            <zeebe:header key="category" value="fleet" />
             <zeebe:header key="operation" value="getMyShips" />
             <zeebe:header key="resultExpression" value="={&#10; &#34;ships&#34;: response.body.data,&#10; &#34;meta&#34;: response.body.meta,&#10;  &#34;ship_details&#34;: for ship in ships return {&#10;    symbol: ship.symbol,&#10;    type: ship.registration.role,&#10;    cargo: ship.cargo.units / ship.cargo.capacity,&#10;    fuel: ship.fuel.current / ship.fuel.capacity,&#10;    status: ship.nav.status,&#10;    system: ship.nav.systemSymbol,&#10;    waypoint: ship.nav.waypointSymbol&#10;}&#10;}" />
           </zeebe:taskHeaders>
