@@ -63,13 +63,14 @@ authentication property of the connector.
 
 Resources:
 
-- [SpaceTraders documentation](https://docs.spacetraders.io/)
-- [SpaceTraders API (interactive)](https://spacetraders.stoplight.io/docs/spacetraders)
-- [Camunda FEEL documentation](https://docs.camunda.io/docs/components/modeler/feel/language-guide/feel-expressions-introduction/)
+- [SpaceTraders documentation](https://docs.spacetraders.io/) to read about the game
+- [SpaceTraders API (interactive)](https://spacetraders.stoplight.io/docs/spacetraders) to discover the available game APIs
+- [Camunda FEEL documentation](https://docs.camunda.io/docs/components/modeler/feel/language-guide/feel-expressions-introduction/) to learn how to write expressions for BPMN processes
 
 Tools:
 
-- [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/)
+- [SpaceTraders Playground](https://docs.spacetraders.io/playground) to visualize the game
+- [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/) to draft expressions for BPMN processes
 
 ## Examples
 
