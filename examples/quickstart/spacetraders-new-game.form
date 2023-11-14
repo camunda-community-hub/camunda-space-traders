@@ -1,0 +1,39 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "db5d39a"
+  },
+  "schemaVersion": 12,
+  "components": [
+    {
+      "text": "# SpaceTraders - New game\n\nStart a new game by registering an agent. The agent is your alias in the game. ",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1n46dso",
+        "columns": null
+      },
+      "id": "Field_0kpjceg"
+    },
+    {
+      "label": "Agent symbol",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1qo20qt",
+        "columns": null
+      },
+      "id": "Field_1i29y1m",
+      "key": "agent_name",
+      "description": "Your player alias. Must be unique. ",
+      "validate": {
+        "required": true,
+        "minLength": 3,
+        "maxLength": 14
+      }
+    }
+  ],
+  "type": "default",
+  "id": "space-traders-new-game"
+}
