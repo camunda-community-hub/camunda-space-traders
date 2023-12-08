@@ -1,0 +1,113 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "1d11a82"
+  },
+  "schemaVersion": 13,
+  "id": "space-traders-purchase-ship",
+  "components": [
+    {
+      "text": "# SpaceTraders - Purchase ship\n\nSee the available ships and select a ship to purchase it.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1k7yau3",
+        "columns": null
+      },
+      "id": "Field_07u7vls"
+    },
+    {
+      "label": "Current credits",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1ykpfvz",
+        "columns": null
+      },
+      "id": "Field_1tmyw5x",
+      "key": "agent.credits",
+      "readonly": true
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop available_ships[ship != null]}}\n\nType: *{{this.ship_type}}*\nShipyard: *{{this.shipyard}}*\nDescription: *{{this.ship.description}}*\nModules: \n{{#loop this.ship.modules}}\n- *{{this.symbol}}* \n{{/loop}}\n\n\nPrice: *{{this.ship.purchasePrice}}*\n\n---\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_1bfuju0",
+            "columns": null
+          },
+          "id": "Field_09hmhmq"
+        },
+        {
+          "label": "Select ship",
+          "type": "select",
+          "layout": {
+            "row": "Row_0tmqf4e",
+            "columns": null
+          },
+          "id": "Field_1uaw016",
+          "key": "selected_ship",
+          "valuesExpression": "=available_ships[ship != null].ship_type"
+        },
+        {
+          "label": "Amount",
+          "type": "number",
+          "layout": {
+            "row": "Row_0j0wfvq",
+            "columns": null
+          },
+          "id": "Field_0w1x0kk",
+          "key": "ship_amount",
+          "defaultValue": 0,
+          "conditional": {
+            "hide": "=selected_ship = null"
+          }
+        }
+      ],
+      "showOutline": true,
+      "label": "Ships to purchase",
+      "type": "group",
+      "layout": {
+        "row": "Row_0zfa0vs",
+        "columns": null
+      },
+      "id": "Field_0i0lnba"
+    },
+    {
+      "components": [
+        {
+          "text": "You can purchase a ship only if you have a ship at this shipyard. Navigate to the shipyard first to purchase one of these ships.",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_19t0udo",
+            "columns": null
+          },
+          "id": "Field_0qht7rl"
+        },
+        {
+          "text": "{{#loop available_ships[ship = null]}}\n\nType: *{{this.ship_type}}*\nShipyard: *{{this.shipyard}}*\n\n---\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0rheet4",
+            "columns": null
+          },
+          "id": "Field_0izrpvi"
+        }
+      ],
+      "showOutline": true,
+      "label": "Other ships",
+      "type": "group",
+      "layout": {
+        "row": "Row_1vp5mil",
+        "columns": null
+      },
+      "id": "Field_07qneqx"
+    }
+  ],
+  "type": "default"
+}

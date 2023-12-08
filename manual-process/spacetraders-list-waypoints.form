@@ -1,0 +1,45 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "bc7ac35"
+  },
+  "schemaVersion": 13,
+  "components": [
+    {
+      "text": "# SpaceTraders - List waypoints\n\nSee the available waypoints based on the filter. The list includes waypoints where a ship is located.\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1xlv08m",
+        "columns": null
+      },
+      "id": "Field_0l7k1yu"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop waypoints}}\n\nSymbol: *{{this.waypoint.symbol}}*\nType: *{{this.waypoint.type}}*\nDistance: *{{this.waypoint.distance}}*\nTraits: \n{{#loop this.waypoint.traits}}\n- *{{this}}*\n{{/loop}}\n\nShips: \n{{#loop this.ships}} \n- *{{this.symbol}}* (*{{this.type}}*)\n{{/loop}}\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0a4qa2q",
+            "columns": null
+          },
+          "id": "Field_0n7ai20"
+        }
+      ],
+      "showOutline": true,
+      "label": "Waypoints",
+      "type": "group",
+      "layout": {
+        "row": "Row_1ydnuwv",
+        "columns": null
+      },
+      "id": "Field_1b6g5n5"
+    }
+  ],
+  "type": "default",
+  "id": "space-traders-list-waypoints"
+}

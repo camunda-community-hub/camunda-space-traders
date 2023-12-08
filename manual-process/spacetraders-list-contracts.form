@@ -1,0 +1,70 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "93d428d"
+  },
+  "schemaVersion": 13,
+  "components": [
+    {
+      "text": "# SpaceTraders - List contracts\n\nView available contracts and accept a contract to start fulfilling it. \n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_14dxlx3",
+        "columns": null
+      },
+      "id": "Field_01trw1p"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop contracts[not(accepted)]}}\n\nId: *{{this.id}}*\nFaction: *{{this.factionSymbol}}*\nType: *{{this.type}}*\nDeadline: *{{this.terms.deadline}}*\n<br/>\n\nPayment on accept: *{{this.terms.payment.onAccepted}}*\nPayment on fulfilled: *{{this.terms.payment.onFulfilled}}*\n<br/>\n\n**To deliver**\n\n{{#loop this.terms.deliver}}\nTrage good: *{{this.tradeSymbol}}*\nUnits: *{{this.unitsRequired}}*\nDestination: *{{this.destinationSymbol}}*\n<br/>\n{{/loop}}\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_1p6exv8",
+            "columns": null
+          },
+          "id": "Field_1mtgpbj"
+        }
+      ],
+      "showOutline": true,
+      "label": "Contracts",
+      "type": "group",
+      "layout": {
+        "row": "Row_05uoyxt",
+        "columns": null
+      },
+      "id": "Field_07reltk"
+    },
+    {
+      "label": "Select a contract",
+      "type": "select",
+      "layout": {
+        "row": "Row_1ov4s9h",
+        "columns": null
+      },
+      "id": "Field_1dpfffa",
+      "key": "selected_contract",
+      "searchable": false,
+      "valuesExpression": "=contracts.id"
+    },
+    {
+      "label": "Accept contract",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_131vlc5",
+        "columns": null
+      },
+      "id": "Field_1wjeyhs",
+      "key": "accept_contract",
+      "conditional": {
+        "hide": "=selected_contract = null"
+      }
+    }
+  ],
+  "type": "default",
+  "id": "space-traders-list-contracts"
+}

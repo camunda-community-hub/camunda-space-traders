@@ -1,0 +1,350 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "2061c78"
+  },
+  "schemaVersion": 13,
+  "components": [
+    {
+      "text": "# SpaceTraders - Control center\n\nView your game data and select your next action.\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0acisui",
+        "columns": null
+      },
+      "id": "Field_1q1hel8"
+    },
+    {
+      "components": [
+        {
+          "text": "{{status}}\n<br/>\nNext server restart is on {{serverResets.next}}.\n",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0d41335",
+            "columns": null
+          },
+          "id": "Field_199yjrr"
+        }
+      ],
+      "showOutline": true,
+      "label": "Game",
+      "type": "group",
+      "layout": {
+        "row": "Row_18cq5vu",
+        "columns": null
+      },
+      "id": "Field_0f3nlii"
+    },
+    {
+      "components": [
+        {
+          "label": "Agent symbol",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_1cff1ww",
+            "columns": null
+          },
+          "id": "Field_0ya5dyi",
+          "key": "agent.symbol",
+          "readonly": true
+        },
+        {
+          "label": "Credits",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0dmiv4j",
+            "columns": null
+          },
+          "id": "Field_188ff4v",
+          "key": "agent.credits",
+          "readonly": true
+        }
+      ],
+      "showOutline": true,
+      "label": "Agent",
+      "type": "group",
+      "layout": {
+        "row": "Row_1iofimt",
+        "columns": null
+      },
+      "id": "Field_1vmqruh"
+    },
+    {
+      "components": [
+        {
+          "label": "Deadline",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_1baqpe6",
+            "columns": null
+          },
+          "id": "Field_0nxh4fn",
+          "key": "active_contract.terms.deadline",
+          "readonly": true
+        },
+        {
+          "label": "Payment on accept",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0mgqdd2",
+            "columns": null
+          },
+          "id": "Field_0tnpy5c",
+          "key": "active_contract.terms.payment.onAccepted",
+          "readonly": true
+        },
+        {
+          "label": "Payment on fullfillment",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0mgqdd2",
+            "columns": null
+          },
+          "id": "Field_0k3eqn5",
+          "key": "active_contract.terms.payment.onFulfilled",
+          "readonly": true
+        },
+        {
+          "text": "**To deliver**\n\n{{#loop active_contract.terms.deliver}}\n\nTrage good: *{{this.tradeSymbol}}*\nUnits: *{{this.unitsFulfilled}}* / *{{this.unitsRequired}}* ({{decimal(this.unitsFulfilled/this.unitsRequired * 100, 1)}}%)\nDestination: *{{this.destinationSymbol}}*\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0rigxro",
+            "columns": null
+          },
+          "id": "Field_0kkzt77"
+        }
+      ],
+      "showOutline": true,
+      "label": "Contract",
+      "type": "group",
+      "layout": {
+        "row": "Row_18njplv",
+        "columns": null
+      },
+      "id": "Field_1xjm6vt"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop ships}}\n\nShip symbol: *{{this.symbol}}*\nShip type: *{{this.registration.role}}*\nLocation: *{{this.nav.waypointSymbol}}* (*{{this.nav.status}}*)\nFuel: *{{this.fuel.current}}* / *{{this.fuel.capacity}}* (*{{decimal(this.fuel.current / this.fuel.capacity * 100, 1)}}%*)\nCargo: *{{this.cargo.units}}* / *{{this.cargo.capacity}}* (*{{decimal(this.cargo.units / this.cargo.capacity * 100, 1)}}%*)\n\n{{#loop this.cargo.inventory}}\n- *{{this.symbol}}*: *{{this.units}}*\n{{/loop}}\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_1w3t5kf",
+            "columns": null
+          },
+          "id": "Field_0op74zu"
+        }
+      ],
+      "showOutline": true,
+      "label": "Ships",
+      "type": "group",
+      "layout": {
+        "row": "Row_12vy0pt",
+        "columns": null
+      },
+      "id": "Field_161kxd1"
+    },
+    {
+      "components": [
+        {
+          "values": [
+            {
+              "label": "Reload",
+              "value": "reload"
+            },
+            {
+              "label": "List contracts",
+              "value": "list-contracts"
+            },
+            {
+              "label": "List waypoints",
+              "value": "list-waypoints"
+            },
+            {
+              "label": "Purchase a ship",
+              "value": "purchase-ship"
+            },
+            {
+              "label": "Navigate ship",
+              "value": "navigate-ship"
+            },
+            {
+              "label": "Extract resources",
+              "value": "extract-resources"
+            },
+            {
+              "label": "Sell goods",
+              "value": "sell-goods"
+            }
+          ],
+          "label": "Select an action",
+          "type": "select",
+          "layout": {
+            "row": "Row_06xvj93",
+            "columns": null
+          },
+          "id": "Field_1b6rmfr",
+          "key": "action"
+        },
+        {
+          "values": [
+            {
+              "label": "PLANET",
+              "value": "PLANET"
+            },
+            {
+              "label": "GAS_GIANT",
+              "value": "GAS_GIANT"
+            },
+            {
+              "label": "MOON",
+              "value": "MOON"
+            },
+            {
+              "label": "ORBITAL_STATION",
+              "value": "ORBITAL_STATION"
+            },
+            {
+              "label": "JUMP_GATE",
+              "value": "JUMP_GATE"
+            },
+            {
+              "label": "ASTEROID_FIELD",
+              "value": "ASTEROID_FIELD"
+            },
+            {
+              "label": "ASTEROID",
+              "value": "ASTEROID"
+            },
+            {
+              "label": "ENGINEERED_ASTEROID",
+              "value": "ENGINEERED_ASTEROID"
+            },
+            {
+              "label": "ASTEROID_BASE",
+              "value": "ASTEROID_BASE"
+            },
+            {
+              "label": "NEBULA",
+              "value": "NEBULA"
+            },
+            {
+              "label": "DEBRIS_FIELD",
+              "value": "DEBRIS_FIELD"
+            },
+            {
+              "label": "GRAVITY_WELL",
+              "value": "GRAVITY_WELL"
+            },
+            {
+              "label": "ARTIFICIAL_GRAVITY_WELL",
+              "value": "ARTIFICIAL_GRAVITY_WELL"
+            },
+            {
+              "label": "FUEL_STATION",
+              "value": "FUEL_STATION"
+            }
+          ],
+          "label": "Filter by type",
+          "type": "taglist",
+          "layout": {
+            "row": "Row_05n6ypv",
+            "columns": null
+          },
+          "id": "Field_10liljf",
+          "key": "list_waypoints_filter_type",
+          "conditional": {
+            "hide": "=action != \"list-waypoints\""
+          },
+          "description": "Include waypoints of the selected types."
+        },
+        {
+          "values": [
+            {
+              "label": "MARKETPLACE",
+              "value": "MARKETPLACE"
+            },
+            {
+              "label": "SHIPYARD",
+              "value": "SHIPYARD"
+            },
+            {
+              "label": "UNDER_CONSTRUCTION",
+              "value": "UNDER_CONSTRUCTION"
+            },
+            {
+              "label": "OUTPOST",
+              "value": "OUTPOST"
+            }
+          ],
+          "label": "Filter by traits",
+          "type": "taglist",
+          "layout": {
+            "row": "Row_0ukit2x",
+            "columns": null
+          },
+          "id": "Field_1wyjung",
+          "key": "list_waypoints_filter_traits",
+          "conditional": {
+            "hide": "=action != \"list-waypoints\""
+          },
+          "description": "Include waypoints with one of the selected traits."
+        }
+      ],
+      "showOutline": true,
+      "label": "Action",
+      "type": "group",
+      "layout": {
+        "row": "Row_0217yrn",
+        "columns": null
+      },
+      "id": "Field_0xn16vm"
+    },
+    {
+      "components": [
+        {
+          "label": "Show token",
+          "type": "checkbox",
+          "layout": {
+            "row": "Row_0pmdmi3",
+            "columns": null
+          },
+          "id": "Field_1g50ysr",
+          "key": "show_token"
+        },
+        {
+          "label": "Token",
+          "type": "textarea",
+          "layout": {
+            "row": "Row_1l45mnl",
+            "columns": null
+          },
+          "id": "Field_00pjvul",
+          "key": "token",
+          "description": "Your token",
+          "disabled": false,
+          "conditional": {
+            "hide": "=not(show_token)"
+          },
+          "readonly": true
+        }
+      ],
+      "showOutline": true,
+      "label": "Game token",
+      "type": "group",
+      "layout": {
+        "row": "Row_0rxmomt",
+        "columns": null
+      },
+      "id": "Field_0c31mjt"
+    }
+  ],
+  "type": "default",
+  "id": "space-traders-select-action"
+}
