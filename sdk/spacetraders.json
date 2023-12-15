@@ -31,8 +31,14 @@
       "label": "Response Mapping"
     },
     {
+      "id": "error",
+      "label": "API Error handling",
+      "tooltip": "Handle error response codes from SpaceTrader's API in the process as BPMN error events."
+    },
+    {
       "id": "retries",
-      "label": "API Retries"
+      "label": "API Retries",
+      "tooltip": "Define retries if SpaceTrader's API returns an error response. Useful to handle API rate limiting."
     },
     {
       "id": "modificationWarning",
@@ -6959,6 +6965,60 @@
         "equals": "register"
       },
       "optional": true
+    },
+    {
+      "id": "customErrorHandling",
+      "label": "How to handle errors?",
+      "description": "By default, it maps the an error to a BPMN error event. The error code is the name of the <a href=\"https://docs.spacetraders.io/api-guide/response-errors\" target=\"_blank\">SpaceTrader's error</a>.",
+      "group": "error",
+      "binding": {
+        "type": "zeebe:property",
+        "name": "custom_error_handling"
+      },
+      "type": "Dropdown",
+      "choices": [
+        {
+          "name": "BPMN error by name (default)",
+          "value": "by_error_name"
+        },
+        {
+          "name": "Custom",
+          "value": "custom"
+        }
+      ],
+      "value": "by_error_name"
+    },
+    {
+      "id": "errorExpression",
+      "label": "Error expression",
+      "value": "={\n  status: error.code,\n  error_code: extract(error.message, \"\\d{4}\")[1],\n  error_codes: {\n    \"4000\":\"cooldownConflictError\",\n    \"4001\":\"waypointNoAccessError\",\n    \"4100\":\"tokenEmptyError\",\n    \"4101\":\"tokenMissingSubjectError\",\n    \"4102\":\"tokenInvalidSubjectError\",\n    \"4103\":\"missingTokenRequestError\",\n    \"4104\":\"invalidTokenRequestError\",\n    \"4105\":\"invalidTokenSubjectError\",\n    \"4106\":\"accountNotExistsError\",\n    \"4107\":\"agentNotExistsError\",\n    \"4108\":\"accountHasNoAgentError\",\n    \"4109\":\"registerAgentExistsError\",\n    \"4110\":\"registerAgentSymbolReservedError\",\n    \"4111\":\"registerAgentConflictSymbolError\",\n    \"4200\":\"navigateInTransitError\",\n    \"4201\":\"navigateInvalidDestinationError\",\n    \"4202\":\"navigateOutsideSystemError\",\n    \"4203\":\"navigateInsufficientFuelError\",\n    \"4204\":\"navigateSameDestinationError\",\n    \"4205\":\"shipExtractInvalidWaypointError\",\n    \"4206\":\"shipExtractPermissionError\",\n    \"4207\":\"shipJumpNoSystemError\",\n    \"4208\":\"shipJumpSameSystemError\",\n    \"4210\":\"shipJumpMissingModuleError\",\n    \"4211\":\"shipJumpNoValidWaypointError\",\n    \"4212\":\"shipJumpMissingAntimatterError\",\n    \"4214\":\"shipInTransitError\",\n    \"4215\":\"shipMissingSensorArraysError\",\n    \"4216\":\"purchaseShipCreditsError\",\n    \"4217\":\"shipCargoExceedsLimitError\",\n    \"4218\":\"shipCargoMissingError\",\n    \"4219\":\"shipCargoUnitCountError\",\n    \"4220\":\"shipSurveyVerificationError\",\n    \"4221\":\"shipSurveyExpirationError\",\n    \"4222\":\"shipSurveyWaypointTypeError\",\n    \"4223\":\"shipSurveyOrbitError\",\n    \"4224\":\"shipSurveyExhaustedError\",\n    \"4225\":\"shipRefuelDockedError\",\n    \"4226\":\"shipRefuelInvalidWaypointError\",\n    \"4227\":\"shipMissingMountsError\",\n    \"4228\":\"shipCargoFullError\",\n    \"4229\":\"shipJumpFromGateToGateError\",\n    \"4230\":\"waypointChartedError\",\n    \"4231\":\"shipTransferShipNotFound\",\n    \"4232\":\"shipTransferAgentConflict\",\n    \"4233\":\"shipTransferSameShipConflict\",\n    \"4234\":\"shipTransferLocationConflict\",\n    \"4235\":\"warpInsideSystemError\",\n    \"4236\":\"shipNotInOrbitError\",\n    \"4237\":\"shipInvalidRefineryGoodError\",\n    \"4238\":\"shipInvalidRefineryTypeError\",\n    \"4239\":\"shipMissingRefineryError\",\n    \"4240\":\"shipMissingSurveyorError\",\n    \"4241\":\"shipMissingWarpDriveError\",\n    \"4242\":\"shipMissingMineralProcessorError\",\n    \"4243\":\"shipMissingMiningLasersError\",\n    \"4244\":\"shipNotDockedError\",\n    \"4245\":\"purchaseShipNotPresentError\",\n    \"4246\":\"shipMountNoShipyardError\",\n    \"4247\":\"shipMissingMountError\",\n    \"4248\":\"shipMountInsufficientCreditsError\",\n    \"4249\":\"shipMissingPowerError\",\n    \"4250\":\"shipMissingSlotsError\",\n    \"4251\":\"shipMissingMountsError\",\n    \"4252\":\"shipMissingCrewError\",\n    \"4253\":\"shipExtractDestabilizedError\",\n    \"4254\":\"shipJumpInvalidOriginError\",\n    \"4255\":\"shipJumpInvalidWaypointError\",\n    \"4256\":\"shipJumpOriginUnderConstructionError\",\n    \"4257\":\"shipMissingGasProcessorError\",\n    \"4258\":\"shipMissingGasSiphonsError\",\n    \"4259\":\"shipSiphonInvalidWaypointError\",\n    \"4260\":\"shipSiphonPermissionError\",\n    \"4261\":\"waypointNoYieldError\",\n    \"4262\":\"shipJumpDestinationUnderConstructionError\",\n    \"4500\":\"acceptContractNotAuthorizedError\",\n    \"4501\":\"acceptContractConflictError\",\n    \"4502\":\"fulfillContractDeliveryError\",\n    \"4503\":\"contractDeadlineError\",\n    \"4504\":\"contractFulfilledError\",\n    \"4505\":\"contractNotAcceptedError\",\n    \"4506\":\"contractNotAuthorizedError\",\n    \"4508\":\"shipDeliverTermsError\",\n    \"4509\":\"shipDeliverFulfilledError\",\n    \"4510\":\"shipDeliverInvalidLocationError\",\n    \"4511\":\"existingContractError\",\n    \"4600\":\"marketTradeInsufficientCreditsError\",\n    \"4601\":\"marketTradeNoPurchaseError\",\n    \"4602\":\"marketTradeNotSoldError\",\n    \"4603\":\"marketNotFoundError\",\n    \"4604\":\"marketTradeUnitLimitError\",\n    \"4700\":\"waypointNoFactionError\",\n    \"4800\":\"constructionMaterialNotRequired\",\n    \"4801\":\"constructionMaterialFulfilled\",\n    \"4802\":\"shipConstructionInvalidLocationError\"\n  },\n  bpmn_error_code: get or else(get value(error_codes, error_code), error_code),\n  bpmn_error_message: substring(extract(error.message, \"\\\"message\\\":\\\"(\\w|\\d|\\s|\\.|\\-)+\")[1], 12),\n  result: \n    if status = \"400\" \n    then bpmnError(bpmn_error_code, bpmn_error_message)\n    else null\n}.result",
+      "group": "error",
+      "binding": {
+        "key": "errorExpression",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "Hidden",
+      "condition": {
+        "property": "customErrorHandling",
+        "equals": "by_error_name"
+      }
+    },
+    {
+      "id": "customErrorExpression",
+      "label": "Error expression",
+      "description": "Expression to handle errors. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/\" target=\"_blank\">documentation</a>.",
+      "value": "=if error.code = \"400\"\nthen bpmnError(\"error-1\", \"Something wrong.\")\nelse null",
+      "feel": "required",
+      "group": "error",
+      "binding": {
+        "key": "errorExpression",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "Text",
+      "condition": {
+        "property": "customErrorHandling",
+        "equals": "custom"
+      }
     },
     {
       "id": "retryCount",
