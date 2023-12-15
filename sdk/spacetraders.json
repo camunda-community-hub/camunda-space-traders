@@ -31,6 +31,10 @@
       "label": "Response Mapping"
     },
     {
+      "id": "retries",
+      "label": "API Retries"
+    },
+    {
       "id": "modificationWarning",
       "label": "Generated (DO NOT MODIFY)"
     },
@@ -6955,6 +6959,32 @@
         "equals": "register"
       },
       "optional": true
+    },
+    {
+      "id": "retryCount",
+      "label": "Retries",
+      "description": "Number of retries",
+      "value": "10",
+      "feel": "optional",
+      "group": "retries",
+      "binding": {
+        "property": "retries",
+        "type": "zeebe:taskDefinition"
+      },
+      "type": "String"
+    },
+    {
+      "id": "retryBackoff",
+      "label": "Retry backoff",
+      "description": "ISO-8601 duration to wait between retries",
+      "value": "PT1S",
+      "feel": "optional",
+      "group": "retries",
+      "binding": {
+        "key": "retryBackoff",
+        "type": "zeebe:taskHeader"
+      },
+      "type": "String"
     }
   ]
 }
