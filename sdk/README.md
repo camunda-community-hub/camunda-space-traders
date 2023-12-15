@@ -59,6 +59,33 @@ By default, the connector read the token from the process variable with the name
 If you use a different variable for the token, or store the token as a connector secret, you need to adjust the
 authentication property of the connector.
 
+![SDK property authentication](../assets/space-traders-sdk-authentication.png)
+
+### API Retries
+
+API calls can fail due to various reasons. One reason is that the SpaceTraders API is rate limited. It fails a call if 
+you send too many requests per second.
+
+The SDK allows to configure the number of retries and the delay between retries. 
+
+By default, it retries the call 10 times with a delay of 1 second between retries.
+
+![SDK property retries](../assets/space-traders-sdk-retries.png)    
+
+### API Error handling
+
+API calls can fail due to various reasons, for example, network issues or invalid parameters.
+
+The SDK allows to configure the error handling. A common use case is to throw a BPMN error if the call fails with a 
+specific error code (e.g. `4236`). The BPMN error can be caught by an error boundary event with the given 
+error code and handled in the process.
+
+By default, the SDK throws a BPMN error if the call returns a `400` status code. The BPMN error code is the name to the 
+SpaceTrader's error code (e.g. `shipNotInOrbitError` for the code `4236`). All error codes are listed 
+[here](https://docs.spacetraders.io/api-guide/response-errors/).
+
+![SDK property error handling](../assets/space-traders-sdk-error-handling.png)
+
 ## Useful resources and tools
 
 Resources:
