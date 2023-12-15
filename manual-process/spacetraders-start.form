@@ -1,0 +1,124 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "93d428d"
+  },
+  "schemaVersion": 13,
+  "components": [
+    {
+      "text": "# SpaceTraders - Start",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1n46dso",
+        "columns": null
+      },
+      "id": "Field_0kpjceg"
+    },
+    {
+      "values": [
+        {
+          "label": "Continue game",
+          "value": "continue-game"
+        },
+        {
+          "label": "New game",
+          "value": "new-game"
+        }
+      ],
+      "label": "Choose to continue or start a new game",
+      "type": "select",
+      "layout": {
+        "row": "Row_1qo20qt",
+        "columns": null
+      },
+      "id": "Field_18giz7y",
+      "key": "operation",
+      "defaultValue": "continue-game"
+    },
+    {
+      "components": [
+        {
+          "text": "Continue a previous game by entering your game token. The token is created when starting a new game.",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_10l6cvf",
+            "columns": null
+          },
+          "id": "Field_07n6yd3"
+        },
+        {
+          "label": "Token",
+          "type": "textarea",
+          "layout": {
+            "row": "Row_101m968",
+            "columns": null
+          },
+          "id": "Field_0z12abc",
+          "key": "token",
+          "description": "Your game token.",
+          "validate": {
+            "required": true
+          }
+        }
+      ],
+      "showOutline": true,
+      "label": "Continue game",
+      "type": "group",
+      "layout": {
+        "row": "Row_110t03v",
+        "columns": null
+      },
+      "id": "Field_1jhe7vt",
+      "conditional": {
+        "hide": "=operation != \"continue-game\""
+      }
+    },
+    {
+      "components": [
+        {
+          "text": "Start a new game by registering an agent. The agent is your alias in the game. ",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0krv11g",
+            "columns": null
+          },
+          "id": "Field_1elsltt"
+        },
+        {
+          "label": "Agent symbol",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0kyq2zb",
+            "columns": null
+          },
+          "id": "Field_1i29y1m",
+          "key": "agent_name",
+          "description": "Your player alias. Must be unique. ",
+          "validate": {
+            "required": true,
+            "minLength": 3,
+            "maxLength": 14
+          }
+        }
+      ],
+      "showOutline": true,
+      "label": "New game",
+      "type": "group",
+      "layout": {
+        "row": "Row_1arcorm",
+        "columns": null
+      },
+      "id": "Field_0gpakx3",
+      "conditional": {
+        "hide": "=operation != \"new-game\""
+      }
+    }
+  ],
+  "type": "default",
+  "id": "space-traders-start"
+}

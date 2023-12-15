@@ -23,8 +23,8 @@ automated using the Camunda stack.
 
 You can choose between different ways depending on your interest, skills, and time:
 
-- Use a manual [user-driver process](examples/simplifiedStart) that guides you though the tutorial using Camunda forms and Tasklist. (easy; fast;
-  for beginners)
+- Use a manual [user-driver process](manual-process) that guides you though the tutorial using Camunda forms and
+  Tasklist. (easy; fast; for beginners)
 - Use the [SDK](sdk), reusable process blocks in form of a connector template, to build your own process. (advanced;
   requires process modelling; for devs and process designers)
 - DIY (do-it-yourself). Check out the
@@ -38,7 +38,8 @@ specific goods, for example, 7100 units of aluminium ore.
 
 To make this more fun and engaging, we created a challenge to track your progress and share it with others.
 
-Click [HERE](https://hel-1.tasklist.ultrawombat.com/9172b64e-60ba-4f05-af77-c3f3a548d9e6/new/space-traders-challenge) to start the challenge. (🚧 Not public yet! 🚧)
+Click [HERE](https://hel-1.tasklist.ultrawombat.com/9172b64e-60ba-4f05-af77-c3f3a548d9e6/new/space-traders-challenge) to
+start the challenge. (🚧 Not public yet! 🚧)
 
 The challenge includes the following stages:
 
@@ -48,7 +49,7 @@ The challenge includes the following stages:
 - Mine your first ore.
 - Deliver your first goods to the contract.
 - Deliver 10/25/50/75 % of your contract goods.
-- Fulfill your first contract. 
+- Fulfill your first contract.
 
-Note that delivering 10% or more of your contract goods is not easy to reach. You may need to optimize your process and 
+Note that delivering 10% or more of your contract goods is not easy to reach. You may need to optimize your process and
 consider advanced strategies.  
