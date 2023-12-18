@@ -1,6 +1,6 @@
 # Camunda SpaceTraders Challenge Process
 
-This folder contains a BPMN process for the Camunda SpaceTraders challenge. It uses the [SDK](../../sdk) to track the
+This folder contains a BPMN process for the Camunda SpaceTraders challenge. It uses the [SDK](../sdk) to track the
 progress of the player and share it.
 
 The process has a start form to create a new instance. The start form takes the SpaceTraders token to get the player

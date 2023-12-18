@@ -38,7 +38,7 @@ specific goods, for example, 7100 units of aluminium ore.
 
 To make this more fun and engaging, we created a challenge to track your progress and share it with others.
 
-Click [HERE](https://hel-1.tasklist.ultrawombat.com/9172b64e-60ba-4f05-af77-c3f3a548d9e6/new/space-traders-challenge) to
+Click [HERE](https://bru-2.tasklist.camunda.io/1b68bd9a-f204-4e74-84bc-88d09035a14d/new/space-traders-challenge) to
 start the challenge. (🚧 Not public yet! 🚧)
 
 The challenge includes the following stages:

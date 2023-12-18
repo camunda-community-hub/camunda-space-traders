@@ -3,12 +3,13 @@
   "executionPlatformVersion": "8.2.0",
   "exporter": {
     "name": "Camunda Web Modeler",
-    "version": "51bb3bc"
+    "version": "d4720de"
   },
-  "schemaVersion": 10,
+  "schemaVersion": 14,
+  "id": "space-traders-start-challenge",
   "components": [
     {
-      "text": "# Camunda SpaceTraders Challenge :rocket:\n\nThe primary goal of SpaceTrader is to fulfill your contract. This challenge is designed to track your progress and share it with others in the [Camunda forum](https://forum.camunda.io/).\n",
+      "text": "# Camunda SpaceTraders Challenge :rocket:\n\nA good start in SpaceTraders is the [Quickstart](https://docs.spacetraders.io/quickstart/new-game) guide. It teaches you the basics of the game and how to fulfill a contract.  \n<br/>\nThis challenge is designed to track your progress in fulfilling your first contract. It shares your progress in the [Camunda forum](https://forum.camunda.io/) when you reach certain milestones.\n",
       "label": "Text view",
       "type": "text",
       "layout": {
@@ -29,12 +30,12 @@
     },
     {
       "label": "Your SpaceTraders token",
-      "type": "textfield",
+      "type": "textarea",
       "layout": {
-        "row": "Row_042uuvu",
+        "row": "Row_1d373qc",
         "columns": null
       },
-      "id": "Field_06h21p3",
+      "id": "Field_1lqme3i",
       "key": "token",
       "description": "The token that you received on creating your agent. ",
       "validate": {
@@ -51,19 +52,7 @@
       "id": "Field_1rbxpy9",
       "key": "forum_user_name",
       "description": "If you enter your user name, we will mention you in the forum post. Otherwise, the post will be anonymous."
-    },
-    {
-      "action": "submit",
-      "label": "Register",
-      "type": "button",
-      "layout": {
-        "row": "Row_0ic84fh",
-        "columns": null
-      },
-      "id": "Field_1inwxmo",
-      "key": "field_0n8kt6m"
     }
   ],
-  "type": "default",
-  "id": "space-traders-start-challenge"
+  "type": "default"
 }
