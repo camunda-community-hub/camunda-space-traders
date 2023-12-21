@@ -5,7 +5,7 @@ specific target, for example, to purchase a ship, or to navigate to a target way
 
 You can use these blocks inside your process via call activities. 
 
-The processes use the [SDK](../../sdk) to automate the steps.
+The processes use the [SDK](../sdk) to automate the steps.
 
 ## Usage
 
@@ -16,4 +16,4 @@ The processes use the [SDK](../../sdk) to automate the steps.
 
 ## Examples
 
-- Automated [mining loop process](../mining-loop) using the blocks 
+- Automated [mining loop process](../examples/mining-loop) using the blocks 
