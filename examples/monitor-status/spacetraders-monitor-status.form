@@ -1,0 +1,53 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "561481c"
+  },
+  "schemaVersion": 14,
+  "id": "Form_m5yk1kc",
+  "components": [
+    {
+      "text": "# SpaceTraders - Monitor status\n\nThe process monitors the status of the agent and sends it via Slack message. ",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1n46dso",
+        "columns": null
+      },
+      "id": "Field_0kpjceg"
+    },
+    {
+      "label": "Token",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_1vpf501",
+        "columns": null
+      },
+      "id": "Field_0zu0dgu",
+      "key": "token",
+      "description": "Your game token.",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Update interval",
+      "type": "number",
+      "layout": {
+        "row": "Row_0hfghz9",
+        "columns": null
+      },
+      "id": "Field_1xc476v",
+      "key": "interval",
+      "description": "The minutes between two updates.",
+      "defaultValue": 5,
+      "validate": {
+        "required": false,
+        "min": 1
+      }
+    }
+  ],
+  "type": "default"
+}
