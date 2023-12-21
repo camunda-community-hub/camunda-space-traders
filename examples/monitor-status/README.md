@@ -9,8 +9,6 @@ The process uses the [SDK](../../sdk) to automate the collect the status data.
 
 > Requires a Camunda cluster in version 8.3+.
 
-
-
 ### Via start form
 
 1. Set the following connector secrets:
