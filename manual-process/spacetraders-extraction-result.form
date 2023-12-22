@@ -1,0 +1,57 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "aa90d44"
+  },
+  "schemaVersion": 14,
+  "id": "space-traders-extraction-result",
+  "components": [
+    {
+      "text": "# SpaceTraders - Extraction result\n\nYou ship *{{selected_ship}}* extracted the following resources.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_15nunse",
+        "columns": null
+      },
+      "id": "Field_05xetzm"
+    },
+    {
+      "label": "Resource",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_05a6huy",
+        "columns": null
+      },
+      "id": "Field_0wjv7jb",
+      "key": "extraction.yield.symbol",
+      "readonly": true
+    },
+    {
+      "label": "Units",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_05a6huy",
+        "columns": null
+      },
+      "id": "Field_137imjl",
+      "key": "extraction.yield.units",
+      "readonly": true
+    },
+    {
+      "label": "Cooldown",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1alup80",
+        "columns": null
+      },
+      "id": "Field_0w4ifrr",
+      "key": "cooldown.expiration",
+      "readonly": true,
+      "description": "The time when you can use the mining laser again."
+    }
+  ],
+  "type": "default"
+}

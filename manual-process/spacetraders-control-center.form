@@ -310,10 +310,9 @@
           },
           "id": "Field_1a0ixic",
           "key": "selected_ship",
-          "description": "The ship to navigate",
           "valuesExpression": "=ships.symbol",
           "conditional": {
-            "hide": "=action != \"navigate-ship\""
+            "hide": "=not(action in [\"navigate-ship\", \"extract-resources\"])"
           },
           "validate": {
             "required": true
