@@ -3,9 +3,10 @@
   "executionPlatformVersion": "8.3.0",
   "exporter": {
     "name": "Camunda Web Modeler",
-    "version": "2061c78"
+    "version": "aa90d44"
   },
-  "schemaVersion": 13,
+  "schemaVersion": 14,
+  "id": "space-traders-select-action",
   "components": [
     {
       "text": "# SpaceTraders - Control center\n\nView your game data and select your next action.\n",
@@ -181,6 +182,10 @@
             {
               "label": "Sell goods",
               "value": "sell-goods"
+            },
+            {
+              "label": "Exit (end session)",
+              "value": "exit"
             }
           ],
           "label": "Select an action",
@@ -295,6 +300,41 @@
             "hide": "=action != \"list-waypoints\""
           },
           "description": "Include waypoints with one of the selected traits."
+        },
+        {
+          "label": "Select a ship",
+          "type": "select",
+          "layout": {
+            "row": "Row_1shlcdo",
+            "columns": null
+          },
+          "id": "Field_1a0ixic",
+          "key": "selected_ship",
+          "description": "The ship to navigate",
+          "valuesExpression": "=ships.symbol",
+          "conditional": {
+            "hide": "=action != \"navigate-ship\""
+          },
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "label": "Target waypoint",
+          "type": "textfield",
+          "layout": {
+            "row": "Row_0g0wobo",
+            "columns": null
+          },
+          "id": "Field_1d6u4yx",
+          "key": "target_waypoint",
+          "conditional": {
+            "hide": "=action != \"navigate-ship\""
+          },
+          "description": "The symbol of the target waypoint to navigate to. ",
+          "validate": {
+            "required": true
+          }
         }
       ],
       "showOutline": true,
@@ -345,6 +385,5 @@
       "id": "Field_0c31mjt"
     }
   ],
-  "type": "default",
-  "id": "space-traders-select-action"
+  "type": "default"
 }

@@ -1,0 +1,34 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "aa90d44"
+  },
+  "schemaVersion": 14,
+  "id": "space-traders-navigation-result",
+  "components": [
+    {
+      "text": "# SpaceTraders - Navigation result\n\nYour ship *{{selected_ship}}* is in transit to *{{target_waypoint}}*.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0eit94j",
+        "columns": null
+      },
+      "id": "Field_18270z2"
+    },
+    {
+      "label": "Arrival time",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0w9y5cy",
+        "columns": null
+      },
+      "id": "Field_0xvalvn",
+      "key": "arrival_time",
+      "readonly": true
+    }
+  ],
+  "type": "default"
+}
