@@ -1,0 +1,77 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "4d34bd7"
+  },
+  "schemaVersion": 14,
+  "id": "space-traders-select-fuel",
+  "components": [
+    {
+      "text": "# SpaceTraders - Select fuel",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1y3wjnp",
+        "columns": null
+      },
+      "id": "Field_10ah5yv"
+    },
+    {
+      "text": "Your ship *{{selected_ship}}* is at waypoint *{{ship_waypoint}}*.\n<br/>\nShip fuel: *{{ship.fuel.current}}* / *{{ship.fuel.capacity}}*",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_143jevj",
+        "columns": null
+      },
+      "id": "Field_0ouhzrn"
+    },
+    {
+      "text": "You can't purchase fuel at this waypoint.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_103sfhn",
+        "columns": null
+      },
+      "id": "Field_11lzgdm",
+      "conditional": {
+        "hide": "=fuel != null"
+      }
+    },
+    {
+      "text": "Price per fuel unit: *{{fuel.purchasePrice}}*",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1wgefmq",
+        "columns": null
+      },
+      "id": "Field_0v9vzkx",
+      "conditional": {
+        "hide": "=fuel = null"
+      }
+    },
+    {
+      "label": "Fuel to purchase",
+      "type": "number",
+      "layout": {
+        "row": "Row_04kf2uj",
+        "columns": null
+      },
+      "id": "Field_1wsc129",
+      "key": "fuel_units",
+      "defaultValue": 0,
+      "validate": {
+        "required": true,
+        "min": 0
+      },
+      "conditional": {
+        "hide": "=fuel = null"
+      }
+    }
+  ],
+  "type": "default"
+}

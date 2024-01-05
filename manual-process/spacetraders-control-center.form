@@ -3,7 +3,7 @@
   "executionPlatformVersion": "8.3.0",
   "exporter": {
     "name": "Camunda Web Modeler",
-    "version": "aa90d44"
+    "version": "4d34bd7"
   },
   "schemaVersion": 14,
   "id": "space-traders-select-action",
@@ -156,15 +156,15 @@
         {
           "values": [
             {
-              "label": "Reload",
+              "label": "Reload page",
               "value": "reload"
             },
             {
-              "label": "List contracts",
+              "label": "List and accept contracts",
               "value": "list-contracts"
             },
             {
-              "label": "List waypoints",
+              "label": "List and find waypoints",
               "value": "list-waypoints"
             },
             {
@@ -172,7 +172,7 @@
               "value": "purchase-ship"
             },
             {
-              "label": "Navigate ship",
+              "label": "Navigate a ship",
               "value": "navigate-ship"
             },
             {
@@ -184,7 +184,11 @@
               "value": "sell-goods"
             },
             {
-              "label": "Exit (end session)",
+              "label": "Refluel a ship",
+              "value": "refuel-ship"
+            },
+            {
+              "label": "Exit (end the process)",
               "value": "exit"
             }
           ],
@@ -312,7 +316,7 @@
           "key": "selected_ship",
           "valuesExpression": "=ships.symbol",
           "conditional": {
-            "hide": "=not(action in [\"navigate-ship\", \"extract-resources\"])"
+            "hide": "=not(action in [\"navigate-ship\", \"extract-resources\", \"sell-goods\", \"refuel-ship\"])"
           },
           "validate": {
             "required": true

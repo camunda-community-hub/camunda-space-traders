@@ -1,0 +1,114 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "6c78a24"
+  },
+  "schemaVersion": 14,
+  "id": "space-traders-select-trade-good",
+  "components": [
+    {
+      "text": "# SpaceTraders - Select trade goods\n\nThe following list contains all trade goods on the waypoint *{{ship_waypoint}}*. Select a good from your ship's cargo to sell it.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_082hf8u",
+        "columns": null
+      },
+      "id": "Field_0z9ekmu"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop goods_to_sell}}\n\nTrade good: *{{this.symbol}}*\nUnits: *{{this.units}}*\nPrice: *{{this.sell_price}}*\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0kko5nt",
+            "columns": null
+          },
+          "id": "Field_101m48w"
+        },
+        {
+          "label": "Select good",
+          "type": "select",
+          "layout": {
+            "row": "Row_12hyujt",
+            "columns": null
+          },
+          "id": "Field_13hqrlq",
+          "key": "selected_trade_good",
+          "valuesExpression": "=goods_to_sell.symbol"
+        },
+        {
+          "label": "Units",
+          "type": "number",
+          "layout": {
+            "row": "Row_0ka3mq4",
+            "columns": null
+          },
+          "id": "Field_1a7pjk1",
+          "key": "trade_units",
+          "validate": {
+            "min": 0
+          },
+          "defaultValue": 0
+        }
+      ],
+      "showOutline": true,
+      "label": "Goods to sell",
+      "type": "group",
+      "layout": {
+        "row": "Row_0aq0duw",
+        "columns": null
+      },
+      "id": "Field_1n3gdh2"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop trade_goods}}\n\nTrade good: *{{this.symbol}}*\nPrice: *{{this.sell_price}}*\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_1unakmw",
+            "columns": null
+          },
+          "id": "Field_1a6h3bf"
+        }
+      ],
+      "showOutline": true,
+      "label": "Other trade goods",
+      "type": "group",
+      "layout": {
+        "row": "Row_07d9980",
+        "columns": null
+      },
+      "id": "Field_15ixcsb"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop cargo_goods}}\n\nGood: *{{this.symbol}}*\nUnits: *{{this.units}}*\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0bki0qr",
+            "columns": null
+          },
+          "id": "Field_0sisgeg"
+        }
+      ],
+      "showOutline": true,
+      "label": "Cargo goods",
+      "type": "group",
+      "layout": {
+        "row": "Row_0ws75pg",
+        "columns": null
+      },
+      "id": "Field_15sh4ov"
+    }
+  ],
+  "type": "default"
+}
