@@ -3,7 +3,7 @@
   "executionPlatformVersion": "8.3.0",
   "exporter": {
     "name": "Camunda Web Modeler",
-    "version": "4d34bd7"
+    "version": "6c78a24"
   },
   "schemaVersion": 14,
   "id": "space-traders-select-action",
@@ -188,6 +188,10 @@
               "value": "refuel-ship"
             },
             {
+              "label": "Deliver contract goods",
+              "value": "deliver-contract-goods"
+            },
+            {
               "label": "Exit (end the process)",
               "value": "exit"
             }
@@ -316,7 +320,7 @@
           "key": "selected_ship",
           "valuesExpression": "=ships.symbol",
           "conditional": {
-            "hide": "=not(action in [\"navigate-ship\", \"extract-resources\", \"sell-goods\", \"refuel-ship\"])"
+            "hide": "=not(action in [\"navigate-ship\", \"extract-resources\", \"sell-goods\", \"refuel-ship\", \"deliver-contract-goods\"])"
           },
           "validate": {
             "required": true

@@ -1,0 +1,103 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "cb587dd"
+  },
+  "schemaVersion": 14,
+  "id": "Form_1lxxecr",
+  "components": [
+    {
+      "text": "# SpaceTraders - Deliver contract good\n\nYour ship *{{selected_ship}}* is at *{{ship_waypoint}}*. Select a contract and the good to deliver at this waypoint.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_12f738p",
+        "columns": null
+      },
+      "id": "Field_0r1o2az"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop contracts_to_deliver}}\n\nId: *{{this.id}}*\nFaction: *{{this.factionSymbol}}*\nType: *{{this.type}}*\nDeadline: *{{this.terms.deadline}}*\n<br/>\n\n**To deliver**\n\n{{#loop this.terms.deliver}}\nTrage good: *{{this.tradeSymbol}}*\nUnits: *{{this.unitsRequired}}*\nDestination: *{{this.destinationSymbol}}*\n<br/>\n{{/loop}}\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_0giy4sh",
+            "columns": null
+          },
+          "id": "Field_1ju1iyq"
+        }
+      ],
+      "showOutline": true,
+      "label": "Contracts",
+      "type": "group",
+      "layout": {
+        "row": "Row_08twdbf",
+        "columns": null
+      },
+      "id": "Field_0mipi7x"
+    },
+    {
+      "components": [
+        {
+          "text": "{{#loop ship_cargo}}\n\nGood: *{{this.symbol}}*\nUnits: *{{this.units}}*\n\n---\n\n{{/loop}}",
+          "label": "Text view",
+          "type": "text",
+          "layout": {
+            "row": "Row_01htz3k",
+            "columns": null
+          },
+          "id": "Field_1w1lbnv"
+        }
+      ],
+      "showOutline": true,
+      "label": "Ship cargo",
+      "type": "group",
+      "layout": {
+        "row": "Row_10a8rfb",
+        "columns": null
+      },
+      "id": "Field_17038be"
+    },
+    {
+      "label": "Select a contract",
+      "type": "select",
+      "layout": {
+        "row": "Row_1j3vq0p",
+        "columns": null
+      },
+      "id": "Field_13d66t2",
+      "key": "selected_contract",
+      "valuesExpression": "=contracts_to_deliver.id"
+    },
+    {
+      "label": "Select a good",
+      "type": "select",
+      "layout": {
+        "row": "Row_10d8h7v",
+        "columns": null
+      },
+      "id": "Field_1i8jobm",
+      "key": "contract_good",
+      "valuesExpression": "=contract_goods_to_deliver.symbol"
+    },
+    {
+      "label": "Units",
+      "type": "number",
+      "layout": {
+        "row": "Row_0jjwgiw",
+        "columns": null
+      },
+      "id": "Field_0qr49yf",
+      "key": "contract_good_units",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      }
+    }
+  ],
+  "type": "default"
+}
