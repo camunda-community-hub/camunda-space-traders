@@ -10,31 +10,61 @@ with Camunda but with more fun? Then, you're in the right place. 👾
 game, you can purchase a ship, navigate to an asteroid field, mine ore, sell goods, and deliver goods to fulfill your
 contract. And this is just the beginning! 🚀
 
-This repository contains an SDK and instructions to play the game using the Camunda stack.
+This repository contains an SDK and instructions to play the game using the Camunda stack. 
 
-## Get Started 🔧
+> [!NOTE]  
+> **SpaceTraders** is free. No registration is required. Currently in alpha state with bi-weekly server resets.
+>
+> **Camunda 8** is required. Register for [Saas](https://signup.camunda.com/) (free trial for 30 days) or download the [self-managed](https://docs.camunda.io/docs/self-managed/platform-deployment/overview/) version (free). 
+
+## Get Started 🔧 
 
 The best way to understand how to play SpaceTraders is to follow
 the [Quickstart guide](https://docs.spacetraders.io/quickstart/new-game). It is a great interactive tutorial that
 teaches the primary steps and concepts of the game.
 
 While doing the tutorial, you will realize that it follows a kind of process. And, this process can be executed and
-automated using the Camunda stack.
+automated using the Camunda stack. 💡
 
-You can choose between different ways depending on your interest, skills, and time:
+You can choose between different ways depending on your interests, skills, and time:
 
-- Use a manual [user-driver process](manual-process) that guides you though the tutorial using Camunda forms and
-  Tasklist. (easy; fast; for beginners)
-- Use the [SDK](sdk), reusable process blocks in form of a connector template, to build your own process. (advanced;
-  requires process modelling; for devs and process designers)
+- Use a manual [user-driver process](manual-process) based on Camunda forms and
+  Tasklist. View your data and execute commands via forms. To fulfill the Quickstart guide or to discover your possibilities. (easy; fast; for beginners)
+- Use the [SDK](sdk) based on Camunda connectors to build your process. Easy access to all SpaceTraders APIs and very flexible. To fulfill your goals in your own way. (advanced;
+  requires process modeling; for devs and process designers)
 - DIY (do-it-yourself). Check out the
   SpaceTraders [API documentation](https://spacetraders.stoplight.io/docs/spacetraders/11f2735b75b02-space-traders-api)
-  and build the process yourself, for example, using the Camunda REST connector. (for devs and Camunda experts)
+  and build a process yourself, for example, using the Camunda REST connector. (for devs and Camunda experts)
+
+## SDK 🛠️
+
+The SDK is the core part of this project. It allows you to interact with the SpaceTraders API and play the game in your process. 
+
+The SDK is essentially a connector template that can be used in the Camunda Modeler after downloading it from the [Camunda Marketplace](https://marketplace.camunda.com/en-US/apps/420889/spacetraders-sdk). 
+Since the SDK is based on the Camunda REST connector, it can be used out-of-the-box in SaaS or together with the [Connectors Bundle](https://docs.camunda.io/docs/self-managed/connectors-deployment/install-and-start/#connector-runtime-and-function) in Self-Managed.
+
+Read more about the usage of the SDK [here](sdk).
+
+On top of the SDK, you can use [process blocks](process-blocks) via call activities in your process. These blocks are reusable processes 
+that contain certain steps to fulfill a specific task, for example, to navigate a ship.
+
+## Resources 📖
+
+References:
+
+- [SpaceTraders documentation](https://docs.spacetraders.io/) to read about the game
+- [SpaceTraders API (interactive)](https://spacetraders.stoplight.io/docs/spacetraders) to discover the available game APIs
+- [Camunda FEEL documentation](https://docs.camunda.io/docs/components/modeler/feel/language-guide/feel-expressions-introduction/) to learn how to write expressions for BPMN processes
+
+Tools:
+
+- [SpaceTraders Playground](https://docs.spacetraders.io/playground) to visualize the game
+- [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/) to draft expressions for BPMN processes
 
 ## The challenge 🏁
 
-The primary goal of the game (on the beginning) is to fulfill your contract. This requires to mine resources and deliver
-specific goods, for example, 7100 units of aluminium ore.
+In the beginning, the primary goal of the game is to fulfill your contract. This requires to mine resources and deliver
+specific goods, for example, 7100 units of aluminum ore.
 
 To make this more fun and engaging, we created a challenge to track your progress and share it with others.
 
@@ -53,3 +83,7 @@ The challenge includes the following stages:
 
 Note that delivering 10% or more of your contract goods is not easy to reach. You may need to optimize your process and
 consider advanced strategies.  
+
+## Contribute 🌱
+
+Contributions are very welcome. 🎉 Please have a look at the [Contribution Guide](CONTRIBUTING.MD).
