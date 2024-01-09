@@ -86,19 +86,6 @@ SpaceTrader's error code (e.g. `shipNotInOrbitError` for the code `4236`). All e
 
 ![SDK property error handling](../assets/space-traders-sdk-error-handling.png)
 
-## Useful resources and tools
-
-Resources:
-
-- [SpaceTraders documentation](https://docs.spacetraders.io/) to read about the game
-- [SpaceTraders API (interactive)](https://spacetraders.stoplight.io/docs/spacetraders) to discover the available game APIs
-- [Camunda FEEL documentation](https://docs.camunda.io/docs/components/modeler/feel/language-guide/feel-expressions-introduction/) to learn how to write expressions for BPMN processes
-
-Tools:
-
-- [SpaceTraders Playground](https://docs.spacetraders.io/playground) to visualize the game
-- [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/) to draft expressions for BPMN processes
-
 ## Examples
 
 - Automated [Quickstart process](../examples/quickstart) using the SDK
