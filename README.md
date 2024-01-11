@@ -3,8 +3,10 @@
 
 # Camunda SpaceTraders 🚀
 
-Do you like games, space simulations, or puzzles? Are you looking for a "real-world" example of how to model processes
-with Camunda but with more fun? Then, you're in the right place. 👾
+Do you bring your BPMN modeling skills to the next level? 
+Do you like games, space simulations, or puzzles? 
+Are you bored by standard "real-world" examples, like ordering or absence processes?
+Then, you're in the right place. 👾
 
 [SpaceTraders](https://spacetraders.io/) is a programmable fleet-management game played through a headless API. In the
 game, you can purchase a ship, navigate to an asteroid field, mine ore, sell goods, and deliver goods to fulfill your
@@ -86,4 +88,5 @@ consider advanced strategies.
 
 ## Contribute 🌱
 
-Contributions are very welcome. 🎉 Please have a look at the [Contribution Guide](CONTRIBUTING.MD).
+Contributions are very welcome. 🎉 
+You can contribute in many different ways, have a look at the [Contribution Guide](CONTRIBUTING.MD) to see how.
