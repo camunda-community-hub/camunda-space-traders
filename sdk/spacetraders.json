@@ -6285,7 +6285,7 @@
       "description": "JSON payload to send with the request",
       "group": "modificationWarning",
       "type": "Hidden",
-      "value": "=",
+      "value": "={}",
       "binding": {
         "type": "zeebe:input",
         "name": "body"
