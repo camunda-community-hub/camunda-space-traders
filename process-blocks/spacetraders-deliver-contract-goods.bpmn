@@ -144,7 +144,7 @@
           <zeebe:input source="post" target="method" />
           <zeebe:input source="=&#34;https://api.spacetraders.io/v2/my/contracts/&#34; + string(objects.fulfillContract_contractId) + &#34;/fulfill&#34;" target="url" />
           <zeebe:input source="={&#10;}" target="queryParameters" />
-          <zeebe:input source="=" target="body" />
+          <zeebe:input source="={}" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="category" value="contracts" />
