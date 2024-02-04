@@ -25,7 +25,8 @@ import java.util.UUID
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ContractsApiTest {
 
-    @Autowired lateinit var client: ZeebeClient
+    @Autowired
+    lateinit var client: ZeebeClient
 
     var currentToken: String? = null
 
@@ -38,24 +39,18 @@ class ContractsApiTest {
         val uuid = UUID.randomUUID().toString().substring(0, 8)
         val agentSymbol = "CST_$uuid"
 
-        client.newDeployResourceCommand()
-                .addResourceFromClasspath("register-agent.bpmn")
-                .send()
-                .join()
+        deployProcess("register-agent.bpmn")
 
         // when
-        val processInstanceResult = client.newCreateInstanceCommand()
-                .bpmnProcessId("register-agent")
-                .latestVersion()
-                .variables(mapOf("agent_symbol" to agentSymbol))
-                .withResult()
-                .send()
-                .join()
+        val resultVariables = createProcessInstance(
+                bpmnProcessId = "register-agent",
+                variables = mapOf("agent_symbol" to agentSymbol)
+        )
 
         // then
-        assertThat(processInstanceResult.variablesAsMap).containsKey("token")
+        assertThat(resultVariables).containsKey("token")
 
-        val newToken = processInstanceResult.variablesAsMap["token"] as String
+        val newToken = resultVariables["token"] as String
         currentToken = newToken
         return newToken
     }
@@ -63,23 +58,64 @@ class ContractsApiTest {
     @Test
     fun `should fulfill contract`() {
         // given
-        client.newDeployResourceCommand()
-                .addResourceFromClasspath("test-fulfill-contract.bpmn")
-                .send()
-                .join()
+        deployProcess("test-fulfill-contract.bpmn")
 
         // when
-        val processInstanceResult = client.newCreateInstanceCommand()
-                .bpmnProcessId("test-fulfill-contract")
+        val resultVariables = createProcessInstance(
+                bpmnProcessId = "test-fulfill-contract",
+                variables = mapOf("token" to getToken())
+        )
+
+        // then
+        assertThat(resultVariables).contains(entry("result", "contract-not-fulfilled"))
+    }
+
+    @Test
+    fun `should handle BPMN error`() {
+        // given
+        deployProcess("handle-bpmn-error.bpmn")
+
+        // when
+        val resultVariables = createProcessInstance(
+                bpmnProcessId = "handle-bpmn-error",
+                variables = mapOf("token" to getToken())
+        )
+
+        // then
+        assertThat(resultVariables).contains(entry("result", "error-handled"))
+    }
+
+    @Test
+    fun `should handle invalid token error`() {
+        // given
+        deployProcess("handle-invalid-token-error.bpmn")
+
+        // when
+        val resultVariables = createProcessInstance(
+                bpmnProcessId = "handle-invalid-token-error",
+                variables = emptyMap()
+        )
+
+        // then
+        assertThat(resultVariables).contains(entry("result", "error-handled"))
+    }
+
+    private fun deployProcess(resource: String) {
+        client.newDeployResourceCommand()
+                .addResourceFromClasspath(resource)
+                .send()
+                .join()
+    }
+
+    private fun createProcessInstance(bpmnProcessId: String, variables: Map<String, Any>): Map<String, Any> {
+        return client.newCreateInstanceCommand()
+                .bpmnProcessId(bpmnProcessId)
                 .latestVersion()
-                .variables(mapOf("token" to getToken()))
+                .variables(variables)
                 .withResult()
                 .send()
                 .join()
-
-        // then
-        assertThat(processInstanceResult.variablesAsMap)
-                .contains(entry("result", "contract-not-fulfilled"))
+                .variablesAsMap
     }
 
 }
