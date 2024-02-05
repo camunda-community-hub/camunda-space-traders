@@ -27,7 +27,6 @@
         <version.kotlin>1.9.22</version.kotlin>
         <maven.version>3.0</maven.version>
 
-        <version.zeebe>8.2.4</version.zeebe>
         <version.connectors>8.4.3</version.connectors>
         <version.camunda-spring>8.4.0</version.camunda-spring>
         <version.spring>3.2.2</version.spring>
