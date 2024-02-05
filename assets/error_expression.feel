@@ -100,6 +100,7 @@ then {
     "4802":"shipConstructionInvalidLocationError"
   },
   bpmn_error_code: get or else(get value(error_code_by_name, error_code), error_code),
-  bpmnError: bpmnError(bpmn_error_code, error_message)
+  error_data: {error_code: error_code, error_message: error_message, error_name: bpmn_error_code},
+  bpmnError: bpmnError(bpmn_error_code, error_message, error_data)
 }.bpmnError
 else null

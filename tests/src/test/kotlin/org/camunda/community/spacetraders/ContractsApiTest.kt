@@ -83,6 +83,15 @@ class ContractsApiTest {
 
         // then
         assertThat(resultVariables).contains(entry("result", "error-handled"))
+
+        // TODO: The error variables are not passed in ZPT 8.4.0
+        //        assertThat(resultVariables).contains(
+        //                entry("error_code", "4236"),
+        //                entry("error_name", "shipNotInOrbitError")
+        //        ).containsKey("error_message")
+        //
+        //        assertThat(resultVariables["error_message"] as String)
+        //                .startsWith("Ship action failed. Ship is not currently in orbit")
     }
 
     @Test
