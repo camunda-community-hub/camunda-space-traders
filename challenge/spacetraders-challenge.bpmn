@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="a933dbe" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="1fb12c16-7d0b-4b70-b78e-aef2c876812e">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="87be256" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="1fb12c16-7d0b-4b70-b78e-aef2c876812e">
   <bpmn:process id="space-traders-challenge" name="SpaceTraders Challenge" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Register new challenge">
       <bpmn:extensionElements>
@@ -495,8 +495,19 @@ and milestone_first_contract_fulfilled</bpmn:conditionExpression>
       <bpmn:incoming>Flow_18ribj3</bpmn:incoming>
       <bpmn:outgoing>Flow_1qs8ftz</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:subProcess id="Activity_0g36qhq" triggeredByEvent="true">
+      <bpmn:startEvent id="Event_1s2am49" name="Invalid token">
+        <bpmn:outgoing>Flow_1uik1l2</bpmn:outgoing>
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_1dac6bs" errorRef="Error_1hnz1up" />
+      </bpmn:startEvent>
+      <bpmn:endEvent id="Event_0sj8jkc" name="Process canceled">
+        <bpmn:incoming>Flow_1uik1l2</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_1uik1l2" sourceRef="Event_1s2am49" targetRef="Event_0sj8jkc" />
+    </bpmn:subProcess>
   </bpmn:process>
   <bpmn:error id="Error_0r44bnx" name="All challenges fulfilled" errorCode="all-challenges-fulfilled" />
+  <bpmn:error id="Error_1hnz1up" name="tokenEmptyError" errorCode="tokenEmptyError" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-challenge">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
@@ -786,6 +797,25 @@ and milestone_first_contract_fulfilled</bpmn:conditionExpression>
       <bpmndi:BPMNShape id="Activity_1ytv2yv_di" bpmnElement="Activity_1dppjfm">
         <dc:Bounds x="450" y="78" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08milo9_di" bpmnElement="Activity_0g36qhq" isExpanded="true">
+        <dc:Bounds x="1200" y="420" width="350" height="160" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1w2lga8_di" bpmnElement="Event_1s2am49">
+        <dc:Bounds x="1240" y="472" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1227" y="515" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0sj8jkc_di" bpmnElement="Event_0sj8jkc">
+        <dc:Bounds x="1422" y="472" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1397" y="515" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1uik1l2_di" bpmnElement="Flow_1uik1l2">
+        <di:waypoint x="1276" y="490" />
+        <di:waypoint x="1422" y="490" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1vsl05g_di" bpmnElement="Flow_1vsl05g">
         <di:waypoint x="216" y="118" />
         <di:waypoint x="290" y="118" />

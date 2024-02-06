@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="7821bea" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="267322b1-42a7-4fab-8ad5-8e0e729b2ce6">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="87be256" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="267322b1-42a7-4fab-8ad5-8e0e729b2ce6">
   <bpmn:process id="space-traders-monitor-status" name="SpaceTraders Monitor Status" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:extensionElements>
@@ -161,7 +161,18 @@
       <bpmn:incoming>Flow_08ojg0k</bpmn:incoming>
       <bpmn:outgoing>Flow_0lp9i5p</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:subProcess id="Activity_18yoh5d" name="Handle invalid token" triggeredByEvent="true">
+      <bpmn:startEvent id="Event_1qzevll" name="Invalid token">
+        <bpmn:outgoing>Flow_0282cl4</bpmn:outgoing>
+        <bpmn:errorEventDefinition id="ErrorEventDefinition_0yw9cf5" errorRef="Error_1mvvvmr" />
+      </bpmn:startEvent>
+      <bpmn:endEvent id="Event_0pgaz7c" name="Cancel">
+        <bpmn:incoming>Flow_0282cl4</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_0282cl4" sourceRef="Event_1qzevll" targetRef="Event_0pgaz7c" />
+    </bpmn:subProcess>
   </bpmn:process>
+  <bpmn:error id="Error_1mvvvmr" name="tokenEmptyError" errorCode="tokenEmptyError" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="space-traders-monitor-status">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
@@ -231,6 +242,26 @@
       <bpmndi:BPMNShape id="Activity_1eiw1l4_di" bpmnElement="Activity_0dghdma">
         <dc:Bounds x="260" y="78" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16dbgp1_di" bpmnElement="Activity_18yoh5d" isExpanded="true">
+        <dc:Bounds x="160" y="430" width="350" height="150" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_09d83px_di" bpmnElement="Event_1qzevll">
+        <dc:Bounds x="200" y="482" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="187" y="525" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0pgaz7c_di" bpmnElement="Event_0pgaz7c">
+        <dc:Bounds x="332" y="482" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="333" y="525" width="35" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0282cl4_di" bpmnElement="Flow_0282cl4">
+        <di:waypoint x="236" y="500" />
+        <di:waypoint x="332" y="500" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_08ojg0k_di" bpmnElement="Flow_08ojg0k">
         <di:waypoint x="196" y="118" />
         <di:waypoint x="260" y="118" />
