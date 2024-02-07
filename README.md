@@ -45,7 +45,7 @@ The SDK is the core part of this project. It allows you to interact with the Spa
 The SDK is essentially a connector template that can be used in the Camunda Modeler after downloading it from the [Camunda Marketplace](https://marketplace.camunda.com/en-US/apps/420889/spacetraders-sdk). 
 Since the SDK is based on the Camunda REST connector, it can be used out-of-the-box in SaaS or together with the [Connectors Bundle](https://docs.camunda.io/docs/self-managed/connectors-deployment/install-and-start/#connector-runtime-and-function) in Self-Managed.
 
-The usage is simple. In the Camunda Modeler, add a new task to your process and change its type to the SpaceTraders connector. Select
+The [usage](sdk) is simple. In the Camunda Modeler, add a new task to your process and change its type to the SpaceTraders connector. Select
 an operation, for example, orbit a ship, and fill all required parameters in the property panel. In the background, the SDK
 configures the underlying Camunda connector to call the SpaceTraders API. For more control, you can adjust the authentication, 
 the retry policy, and the error handling. ✨
