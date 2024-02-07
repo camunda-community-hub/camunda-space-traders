@@ -25,7 +25,7 @@ The best way to understand how to play SpaceTraders is to follow
 the [Quickstart guide](https://docs.spacetraders.io/quickstart/new-game). It is a great interactive tutorial that
 teaches the primary steps and concepts of the game.
 
-While doing the tutorial, you will realize that it follows a kind of process. And, this process can be executed and
+While doing the tutorial, you may realize that it follows a kind of process. And, this process can be executed and
 automated using the Camunda stack. 💡
 
 You can choose between different ways depending on your interests, skills, and time:
@@ -45,10 +45,15 @@ The SDK is the core part of this project. It allows you to interact with the Spa
 The SDK is essentially a connector template that can be used in the Camunda Modeler after downloading it from the [Camunda Marketplace](https://marketplace.camunda.com/en-US/apps/420889/spacetraders-sdk). 
 Since the SDK is based on the Camunda REST connector, it can be used out-of-the-box in SaaS or together with the [Connectors Bundle](https://docs.camunda.io/docs/self-managed/connectors-deployment/install-and-start/#connector-runtime-and-function) in Self-Managed.
 
+The usage is simple. In the Camunda Modeler, add a new task to your process and change its type to the SpaceTraders connector. Select
+an operation, for example, orbit a ship, and fill all required parameters in the property panel. In the background, the SDK
+configures the underlying Camunda connector to call the SpaceTraders API. For more control, you can adjust the authentication, 
+the retry policy, and the error handling. ✨
+
 Read more about the usage of the SDK [here](sdk).
 
 On top of the SDK, you can use [process blocks](process-blocks) via call activities in your process. These blocks are reusable processes 
-that contain certain steps to fulfill a specific task, for example, to navigate a ship.
+that contain certain steps to fulfill a specific task, for example, to navigate a ship. Use these blocks to avoid redundant and repetitive tasks. 
 
 ## Resources 📖
 
