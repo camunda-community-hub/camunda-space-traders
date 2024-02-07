@@ -80,9 +80,12 @@ The SDK allows to configure the error handling. A common use case is to throw a 
 specific error code (e.g. `4236`). The BPMN error can be caught by an error boundary event with the given 
 error code and handled in the process.
 
-By default, the SDK throws a BPMN error if the call returns a `400` status code. The BPMN error code is the name to the 
+By default, the SDK throws a BPMN error if the call returns a `4xx` status code. The BPMN error code is the name to the 
 SpaceTrader's error code (e.g. `shipNotInOrbitError` for the code `4236`). All error codes are listed 
-[here](https://docs.spacetraders.io/api-guide/response-errors/).
+[here](https://docs.spacetraders.io/api-guide/response-errors/). 
+
+In the BPMN error catch event, you can access the error data by defining an output mapping for the variables `error_code`,
+`error_name`, and `error_message`.
 
 ![SDK property error handling](../assets/space-traders-sdk-error-handling.png)
 
