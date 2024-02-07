@@ -3,7 +3,7 @@
 
 # Camunda SpaceTraders 🚀
 
-Do you bring your BPMN modeling skills to the next level? 
+Do you want to bring your BPMN modeling skills to the next level? 
 Do you like games, space simulations, or puzzles? 
 Are you bored by standard "real-world" examples, like ordering or absence processes?
 Then, you're in the right place. 👾
