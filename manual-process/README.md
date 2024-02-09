@@ -27,5 +27,6 @@ The "Control center" form is the central place of the process. It has two purpos
 >
 > After submitting a user form, it may take a few seconds until the next form shows up. So, be **patient**. 🐌  
 
+https://github.com/camunda-community-hub/camunda-space-traders/assets/4305769/dab9d5a1-dc9a-4848-bbcd-34585457fdb7
 
-![Demo](../assets/space-traders-manual-process.gif)
+
