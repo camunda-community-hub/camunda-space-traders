@@ -5,7 +5,7 @@ The SDK eases the usage by providing a connector template.
 
 The connector template is generated from the SpaceTraders OpenAPI. See the [openapi](/openapi) module for details.
 
-![SDK modeler demo](../assets/space-traders-sdk-demo-modeler.gif)
+https://github.com/camunda-community-hub/camunda-space-traders/assets/4305769/b5b161db-5c0c-4b30-b983-0cca702de306
 
 ## Install
 
