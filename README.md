@@ -73,6 +73,12 @@ Tools:
 - [SpaceTraders Playground](https://docs.spacetraders.io/playground) to visualize the game
 - [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/) to draft expressions for BPMN processes
 
+Examples:
+
+- [Quickstart](examples/quickstart) - a process to complete the Quickstart guide
+- [Mining loop](examples/mining-loop) - a process to mine ore and fulfill the first contract 
+- [Slack status monitor](examples/monitor-status) - send game status updates as Slack messages 
+
 ## The challenge 🏁
 
 In the beginning, the primary goal of the game is to fulfill your contract. This requires to mine resources and deliver
