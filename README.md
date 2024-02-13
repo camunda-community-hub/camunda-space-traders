@@ -55,6 +55,8 @@ Read more about the usage of the SDK [here](sdk).
 On top of the SDK, you can use [process blocks](process-blocks) via call activities in your process. These blocks are reusable processes 
 that contain certain steps to fulfill a specific task, for example, to navigate a ship. Use these blocks to avoid redundant and repetitive tasks. 
 
+![Overview](assets/space-traders-overview.png)
+
 ## Resources 📖
 
 References:
