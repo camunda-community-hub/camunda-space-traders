@@ -81,7 +81,7 @@ specific goods, for example, 7100 units of aluminum ore.
 To make this more fun and engaging, we created a challenge to track your progress and share it with others.
 
 Click [HERE](https://bru-2.tasklist.camunda.io/1b68bd9a-f204-4e74-84bc-88d09035a14d/new/space-traders-challenge) to
-start the challenge. (🚧 Not public yet! 🚧)
+start the challenge.
 
 The challenge includes the following stages:
 
