@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="87be256" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="1fb12c16-7d0b-4b70-b78e-aef2c876812e">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="8559c35" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0" camunda:diagramRelationId="1fb12c16-7d0b-4b70-b78e-aef2c876812e">
   <bpmn:process id="space-traders-challenge" name="SpaceTraders Challenge" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Register new challenge">
       <bpmn:extensionElements>
@@ -14,7 +14,7 @@
           <zeebe:output source="=false" target="milestone_contract_fufilled_25" />
           <zeebe:output source="=false" target="milestone_contract_fufilled_50" />
           <zeebe:output source="=false" target="milestone_contract_fufilled_75" />
-          <zeebe:output source="=47372" target="topic_id" />
+          <zeebe:output source="=50495" target="topic_id" />
         </zeebe:ioMapping>
         <zeebe:properties>
           <zeebe:property name="publicAccess" value="true" />
@@ -310,7 +310,7 @@ and milestone_first_contract_fulfilled</bpmn:conditionExpression>
             <zeebe:input source="https://forum.camunda.io/posts.json" target="url" />
             <zeebe:input source="={&#10;  &#34;Api-Key&#34;: &#34;{{secrets.FORUM_API_KEY}}&#34;,&#10;  &#34;Api-Username&#34;: &#34;space-traders-bot&#34;&#10;}" target="headers" />
             <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + contacts_fulfillment + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
+            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + string(contacts_fulfillment) + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
@@ -338,7 +338,7 @@ and milestone_first_contract_fulfilled</bpmn:conditionExpression>
             <zeebe:input source="https://forum.camunda.io/posts.json" target="url" />
             <zeebe:input source="={&#10;  &#34;Api-Key&#34;: &#34;{{secrets.FORUM_API_KEY}}&#34;,&#10;  &#34;Api-Username&#34;: &#34;space-traders-bot&#34;&#10;}" target="headers" />
             <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + contacts_fulfillment + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
+            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + string(contacts_fulfillment) + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
@@ -354,7 +354,7 @@ and milestone_first_contract_fulfilled</bpmn:conditionExpression>
             <zeebe:input source="https://forum.camunda.io/posts.json" target="url" />
             <zeebe:input source="={&#10;  &#34;Api-Key&#34;: &#34;{{secrets.FORUM_API_KEY}}&#34;,&#10;  &#34;Api-Username&#34;: &#34;space-traders-bot&#34;&#10;}" target="headers" />
             <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + contacts_fulfillment + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
+            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + string(contacts_fulfillment) + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
@@ -370,7 +370,7 @@ and milestone_first_contract_fulfilled</bpmn:conditionExpression>
             <zeebe:input source="https://forum.camunda.io/posts.json" target="url" />
             <zeebe:input source="={&#10;  &#34;Api-Key&#34;: &#34;{{secrets.FORUM_API_KEY}}&#34;,&#10;  &#34;Api-Username&#34;: &#34;space-traders-bot&#34;&#10;}" target="headers" />
             <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + contacts_fulfillment + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
+            <zeebe:input source="={&#10;  &#34;topic_id&#34;: topic_id, &#10;  &#34;raw&#34;: &#34;Agent **&#34; + agent.symbol + &#34;** delivered `&#34; + contract_goods_delivered + &#34;` and fulfilled &#34; + string(contacts_fulfillment) + &#34;% of the contract. :money_with_wings:&#34;&#10;}" target="body" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
